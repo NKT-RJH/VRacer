@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarController : MonoBehaviour
+public class Car : MonoBehaviour
 {
 	public enum driveType
     {
@@ -253,20 +253,20 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void CheckPointTeleport()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            rigid.velocity = Vector3.zero;
-            KPH = 0;
-            transform.position = checkPoint.position;
-            transform.rotation = checkPoint.rotation;
+	public void CheckPointTeleport()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			rigid.velocity = Vector3.zero;
+			KPH = 0;
+			transform.position = checkPoint.position;
+			transform.rotation = checkPoint.rotation;
 		}
-    }
+	}
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Points"))
+		if (other.CompareTag("CheckPoint"))
         {
             checkPoint = other.transform;
         }

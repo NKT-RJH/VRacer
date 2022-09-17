@@ -6,7 +6,7 @@ using TMPro;
 public class CarSpeed : MonoBehaviour
 {
     public TextMeshProUGUI speedText;
-    public CarController car;
+    public Car car;
 	
     private void Update()
     {
