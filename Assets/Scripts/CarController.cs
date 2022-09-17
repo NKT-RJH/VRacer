@@ -33,17 +33,16 @@ public class CarController : MonoBehaviour
 	private bool boostFlag = false;
     
 	private Transform checkPoint;
-    private GameStart gameStart;
-    private InputManager inputManager;
-    private Rigidbody rigid;
+    public GameManager gameManager;
+    public InputManager inputManager;
+    public Rigidbody rigid;
 
     private void Awake()
     {
-		gameStart = FindObjectOfType<GameStart>();
 		inputManager = GetComponent<InputManager>();
 		rigid = GetComponent<Rigidbody>();
 
-		rigid.centerOfMass = GameObject.Find("mass").transform.localPosition;
+		rigid.centerOfMass = transform.Find("Mass").localPosition;
 
 		motorMax = motorTorque;
 		motorMin = motorMax / 2;
@@ -52,7 +51,7 @@ public class CarController : MonoBehaviour
 
 	private void Update()
 	{
-		if (!gameStart.startGame) return;
+		if (!gameManager.gameStart) return;
 
 		CheckPointTeleport();
 
@@ -66,7 +65,7 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!gameStart.startGame) return;
+        if (!gameManager.gameStart) return;
         
         AddDownForce();
         AnimateWheels();
