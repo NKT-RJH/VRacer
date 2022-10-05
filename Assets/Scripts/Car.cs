@@ -1,48 +1,54 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(InputManager))]
 public class Car : MonoBehaviour
 {
 	public enum driveType
-    {
-        FrontWheelDrive,
-        RearWheelDrive,
-        AllWheelDrive
-    }
+	{
+		FrontWheelDrive,
+		RearWheelDrive,
+		AllWheelDrive
+	}
 
-    public driveType drive;
+	public driveType drive;
 
-    [Header("Variables")]
-    public float nomalSpeed;
-    public float boostSpeed;
-    public Wheels wheels;
-    public WheelMeshs wheelPaths;
+	[Header("Variables")]
+	public float nomalSpeed;
+	public float boostSpeed;
+	public Transform handle;
+	public Wheels wheels;
+	public WheelMeshs wheelPaths;
 
-    private int motorMax;
-    private int motorMin;
-    private int motorTorque = 100;
+	private int motorMax;
+	private int motorMin;
+	private int motorTorque = 100;
 
-    public float KPH = 0;
-    private float breakPower = 7000;
-    private float radius = 6;
-    private float downForceValue = 50;
-    private float limtSpeed;
+	public float KPH = 0;
+	private float breakPower = 7000;
+	private float radius = 6;
+	private float downForceValue = 50;
+	private float limtSpeed;
 
-    private bool isBoost = false;
+	private bool isBoost = false;
 	private bool boostFlag = false;
-    
+
 	private Transform checkPoint;
-    public GameManager gameManager;
-    public InputManager inputManager;
-    public Rigidbody rigid;
+	private GameManager gameManager;
+	private InputManager inputManager;
+	private Rigidbody rigidBody;
 
-    private void Awake()
-    {
+	private void Awake()
+	{
+		gameManager = FindObjectOfType<GameManager>();
+
+		if (!gameManager) enabled = false;
+
 		inputManager = GetComponent<InputManager>();
-		rigid = GetComponent<Rigidbody>();
+		rigidBody = GetComponent<Rigidbody>();
 
-		rigid.centerOfMass = transform.Find("Mass").localPosition;
+		rigidBody.centerOfMass = transform.Find("Mass").localPosition;
 
 		motorMax = motorTorque;
 		motorMin = motorMax / 2;
@@ -55,42 +61,60 @@ public class Car : MonoBehaviour
 
 		CheckPointTeleport();
 
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			boostFlag = true;
-		}
-
+		//if (Input.GetKeyDown(KeyCode.Space))
+		//{
+		//	boostFlag = true;
+		//}
+		
 		Drift();
 	}
 
-    private void FixedUpdate()
-    {
-        if (!gameManager.gameStart) return;
-        
-        AddDownForce();
-        AnimateWheels();
-        MoveVehicle();
-        SteerVehicle();
-        LimitMoveSpeed();
-        Boost();
-    }
+	private void FixedUpdate()
+	{
+		if (!gameManager.gameStart) return;
+
+		AddDownForce();
+		AnimateHandle();
+		AnimateWheels();
+		MoveVehicle();
+		SteerVehicle();
+		LimitMoveSpeed();
+		//Boost();
+	}
 
 	private void Drift()
 	{
-		if (!(Input.GetKey(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.LeftShift))) return;
-
 		float stiffness = 0;
 
-		if (Input.GetKey(KeyCode.LeftShift))
+		if (inputManager.inputCondition == InputCondition.Driving)
 		{
-			motorTorque = motorMin;
-			stiffness = 1;
+			if (inputManager.o)
+			{
+				motorTorque = motorMin;
+				stiffness = 1;
+			}
+			else
+			{
+				motorTorque = motorMax;
+				stiffness = 2;
+			}
 		}
-		if (Input.GetKeyUp(KeyCode.LeftShift))
+		else if (inputManager.inputCondition == InputCondition.KeyBoard)
 		{
-			motorTorque = motorMax;
-			stiffness = 2;
+			if (!(Input.GetKey(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.LeftShift))) return;
+			
+			if (Input.GetKey(KeyCode.LeftShift))
+			{
+				motorTorque = motorMin;
+				stiffness = 1;
+			}
+			if (Input.GetKeyUp(KeyCode.LeftShift))
+			{
+				motorTorque = motorMax;
+				stiffness = 2;
+			}
 		}
+
 
 		WheelFrictionCurve wheelFrictionCurve;
 
@@ -118,41 +142,40 @@ public class Car : MonoBehaviour
 			boostFlag = false;
 			if (!isBoost)
 			{
-				print("AAAAAA");
 				limtSpeed = boostSpeed;
-				rigid.AddRelativeForce(Vector3.forward * 40000);
+				rigidBody.AddRelativeForce(Vector3.forward * 40000);
 				StartCoroutine(BoostStart());
 			}
 		}
 	}
 
-    private IEnumerator BoostStart()
-    {
-        isBoost = true;
+	private IEnumerator BoostStart()
+	{
+		isBoost = true;
 		// 부스트 왜 안되는지 확인하기 아마 맥스 값이 원인인 듯 왜 안되냐 
 		yield return new WaitForSeconds(2.5f);
 		for (float i = limtSpeed; i >= nomalSpeed; i -= 1.0f)
-        {
-            limtSpeed = i;
-            yield return new WaitForSeconds(0.05f);
-        }
-        limtSpeed = nomalSpeed;
-        isBoost = false;
-    }
+		{
+			limtSpeed = i;
+			yield return new WaitForSeconds(0.05f);
+		}
+		limtSpeed = nomalSpeed;
+		isBoost = false;
+	}
 
 
-    private void MoveVehicle()
-    {
+	private void MoveVehicle()
+	{
 		/// 이건 전륜 후륜 조절  기능 넣기!
-  //      int startSet = 0;
-  //      int endSet = 0;
+		//      int startSet = 0;
+		//      int endSet = 0;
 
-  //      switch (drive)
-  //      {
-  //          case driveType.allWheelDrive:
-  //              startSet = 0;
-  //              endSet = 0;
-  //              break;
+		//      switch (drive)
+		//      {
+		//          case driveType.allWheelDrive:
+		//              startSet = 0;
+		//              endSet = 0;
+		//              break;
 		//	case driveType.rearWheelDrive:
 		//		startSet = 2;
 		//		endSet = 0;
@@ -163,53 +186,103 @@ public class Car : MonoBehaviour
 		//		break;
 		//}
 
-		wheels.frontLeft.motorTorque = inputManager.vertical * (motorTorque / 4);
-		wheels.frontRight.motorTorque = inputManager.vertical * (motorTorque / 4);
-		wheels.backLeft.motorTorque = inputManager.vertical * (motorTorque / 4);
-		wheels.backRight.motorTorque = inputManager.vertical * (motorTorque / 4);
 
-        if (inputManager.vertical > 0 && (KPH) < 150)
-        {
-            rigid.AddRelativeForce(Vector3.forward * 10000);
-			wheels.backLeft.brakeTorque = 0;
-			wheels.backRight.brakeTorque = 0;
-        }
-        else if(inputManager.vertical < 0)
-        {
-            rigid.AddRelativeForce(Vector3.back * 10000);
-			wheels.backLeft.brakeTorque = 0;
-			wheels.backRight.brakeTorque = 0;
+		if (inputManager.inputCondition == InputCondition.KeyBoard)
+		{
+			wheels.frontLeft.motorTorque = inputManager.vertical * (motorTorque / 4);
+			wheels.frontRight.motorTorque = inputManager.vertical * (motorTorque / 4);
+			wheels.backLeft.motorTorque = inputManager.vertical * (motorTorque / 4);
+			wheels.backRight.motorTorque = inputManager.vertical * (motorTorque / 4);
+
+			if (inputManager.vertical > 0 && (KPH) < 150)
+			{
+				rigidBody.AddRelativeForce(Vector3.forward * 10000);
+				wheels.backLeft.brakeTorque = 0;
+				wheels.backRight.brakeTorque = 0;
+			}
+			else if (inputManager.vertical < 0)
+			{
+				rigidBody.AddRelativeForce(Vector3.back * 10000);
+				wheels.backLeft.brakeTorque = 0;
+				wheels.backRight.brakeTorque = 0;
+			}
+			else if (inputManager.vertical == 0)
+			{
+				wheels.backLeft.brakeTorque = breakPower;
+				wheels.backRight.brakeTorque = breakPower;
+			}
 		}
-        else if(inputManager.vertical == 0)
-        {
-			wheels.backLeft.brakeTorque = breakPower;
-			wheels.backRight.brakeTorque = breakPower;
+		else if (inputManager.inputCondition == InputCondition.Driving)
+		{
+			wheels.frontLeft.motorTorque = (inputManager.gas + inputManager.brake) * (motorTorque / 4);
+			wheels.frontRight.motorTorque = (inputManager.gas + inputManager.brake) * (motorTorque / 4);
+			wheels.backLeft.motorTorque = (inputManager.gas + inputManager.brake) * (motorTorque / 4);
+			wheels.backRight.motorTorque = (inputManager.gas + inputManager.brake) * (motorTorque / 4);
+
+			if (inputManager.gas > 0 && KPH < 150)
+			{
+				rigidBody.AddRelativeForce(Vector3.forward * 10000 * inputManager.gas);
+				wheels.backLeft.brakeTorque = 0;
+				wheels.backRight.brakeTorque = 0;
+			}
+			else if (inputManager.gas < 0 && KPH < 150)
+			{
+				wheels.backLeft.brakeTorque = breakPower;
+				wheels.backRight.brakeTorque = breakPower;
+			}
+			if (inputManager.brake > 0)
+			{
+				rigidBody.AddRelativeForce(Vector3.back * 10000 * inputManager.brake);
+				wheels.backLeft.brakeTorque = 0;
+				wheels.backRight.brakeTorque = 0;
+			}
 		}
-        
-        KPH = rigid.velocity.magnitude * 3.6f;
-    }
 
-    private void SteerVehicle()
-    {
-        if(inputManager.horizontal > 0)
-        {
-            wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
-            wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
-        }
-        else if(inputManager.horizontal < 0)
-        {
-            wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
-            wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
-        }
-        else
-        {
-            wheels.frontLeft.steerAngle = 0;
-            wheels.frontRight.steerAngle = 0;
-        }
-    }
+		KPH = rigidBody.velocity.magnitude * 3.6f;
+	}
 
-    private void AnimateWheels()
-    {
+	private void SteerVehicle()
+	{
+		if (inputManager.inputCondition == InputCondition.KeyBoard)
+		{
+			if (inputManager.horizontal > 0)
+			{
+				wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
+				wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
+			}
+			else if (inputManager.horizontal < 0)
+			{
+				wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
+				wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
+			}
+			else
+			{
+				wheels.frontLeft.steerAngle = 0;
+				wheels.frontRight.steerAngle = 0;
+			}
+		}
+		else if (inputManager.inputCondition == InputCondition.Driving)
+		{
+			if (inputManager.steer > 0)
+			{
+				wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.steer;
+				wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.steer;
+			}
+			else if (inputManager.steer < 0)
+			{
+				wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.steer;
+				wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.steer;
+			}
+			else
+			{
+				wheels.frontLeft.steerAngle = 0;
+				wheels.frontRight.steerAngle = 0;
+			}
+		}
+	}
+
+	private void AnimateWheels()
+	{
 		wheels.frontLeft.GetWorldPose(out Vector3 position1, out Quaternion rotation1);
 		wheelPaths.frontLeft.position = position1;
 		wheelPaths.frontLeft.rotation = rotation1;
@@ -227,50 +300,72 @@ public class Car : MonoBehaviour
 		wheelPaths.backRight.rotation = rotation4;
 	}
 
-    private void AddDownForce()
-    {
-        rigid.AddForce(-transform.up * downForceValue * rigid.velocity.magnitude);
-    }
-
-    private void LimitMoveSpeed()
-    {
-        if (rigid.velocity.x > limtSpeed)
-        {
-            rigid.velocity = new Vector3(limtSpeed, rigid.velocity.y, rigid.velocity.z);
-        }
-        if (rigid.velocity.x < (limtSpeed * -1))
-        {
-            rigid.velocity = new Vector3((limtSpeed * -1), rigid.velocity.y, rigid.velocity.z);
-        }
-
-        if (rigid.velocity.z > limtSpeed)
-        {
-            rigid.velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, limtSpeed);
-        }
-        if (rigid.velocity.z < (limtSpeed * -1))
-        {
-            rigid.velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, (limtSpeed * -1));
-        }
-    }
-
-	public void CheckPointTeleport()
+	private void AnimateHandle()
 	{
-		if (Input.GetKeyDown(KeyCode.R))
+		Vector3 path = Vector3.zero;
+		if (inputManager.inputCondition == InputCondition.KeyBoard)
 		{
-			rigid.velocity = Vector3.zero;
-			KPH = 0;
-			transform.position = checkPoint.position;
-			transform.rotation = checkPoint.rotation;
+			path = Vector3.up * inputManager.horizontal;
+		}
+		else if (inputManager.inputCondition == InputCondition.Driving)
+		{
+			path = Vector3.up * inputManager.steer;
+		}
+		if (path == Vector3.zero) return;
+
+		handle.rotation = Quaternion.LookRotation(path);
+	}
+
+	private void AddDownForce()
+	{
+		rigidBody.AddForce(-transform.up * downForceValue * rigidBody.velocity.magnitude);
+	}
+
+	private void LimitMoveSpeed()
+	{
+		if (rigidBody.velocity.x > limtSpeed)
+		{
+			rigidBody.velocity = new Vector3(limtSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
+		}
+		if (rigidBody.velocity.x < (limtSpeed * -1))
+		{
+			rigidBody.velocity = new Vector3((limtSpeed * -1), rigidBody.velocity.y, rigidBody.velocity.z);
+		}
+
+		if (rigidBody.velocity.z > limtSpeed)
+		{
+			rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, limtSpeed);
+		}
+		if (rigidBody.velocity.z < (limtSpeed * -1))
+		{
+			rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, (limtSpeed * -1));
 		}
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
+	public void CheckPointTeleport()
+	{
+		if (inputManager.inputCondition == InputCondition.KeyBoard)
+		{
+			if (!Input.GetKeyDown(KeyCode.R)) return;
+		}
+		else if (inputManager.inputCondition == InputCondition.Driving)
+		{
+			if (!inputManager.t) return;
+		}
+
+		rigidBody.velocity = Vector3.zero;
+		KPH = 0;
+		transform.position = checkPoint.position;
+		transform.rotation = checkPoint.rotation;
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
 		if (other.CompareTag("CheckPoint"))
-        {
-            checkPoint = other.transform;
-        }
-    }
+		{
+			checkPoint = other.transform;
+		}
+	}
 }
 
 [System.Serializable]
