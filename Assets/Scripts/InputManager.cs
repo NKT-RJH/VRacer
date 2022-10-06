@@ -28,7 +28,6 @@ public class InputManager : MonoBehaviour
 
 	private void Update()
 	{
-		print(LogitechGSDK.LogiIsConnected(0));
 		if (!LogitechGSDK.LogiIsConnected(0))
 		{
 			inputCondition = InputCondition.KeyBoard;

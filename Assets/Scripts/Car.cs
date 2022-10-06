@@ -5,14 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(InputManager))]
 public class Car : MonoBehaviour
 {
-	public enum driveType
+	public enum DriveType
 	{
 		FrontWheelDrive,
 		RearWheelDrive,
 		AllWheelDrive
 	}
 
-	public driveType drive;
+	public DriveType drive;
 
 	[Header("Variables")]
 	public float nomalSpeed;

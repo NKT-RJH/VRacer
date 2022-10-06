@@ -20,37 +20,37 @@ public class LogitechSteeringWheel : MonoBehaviour
         propertiesEdit = "";
         actualState = "";
         buttonStatus = "";
-        forcesLabel = "Press the following keys to activate forces and effects on the steering wheel / gaming controller \n";
-        forcesLabel += "Spring force : S\n";
-        forcesLabel += "Constant force : C\n";
-        forcesLabel += "Damper force : D\n";
-        forcesLabel += "Side collision : Left or Right Arrow\n";
-        forcesLabel += "Front collision : Up arrow\n";
-        forcesLabel += "Dirt road effect : I\n";
-        forcesLabel += "Bumpy road effect : B\n";
-        forcesLabel += "Slippery road effect : L\n";
-        forcesLabel += "Surface effect : U\n";
-        forcesLabel += "Car Airborne effect : A\n";
-        forcesLabel += "Soft Stop Force : O\n";
-        forcesLabel += "Set example controller properties : PageUp\n";
-        forcesLabel += "Play Leds : P\n";
+        //forcesLabel = "Press the following keys to activate forces and effects on the steering wheel / gaming controller \n";
+        //forcesLabel += "Spring force : S\n";
+        //forcesLabel += "Constant force : C\n";
+        //forcesLabel += "Damper force : D\n";
+        //forcesLabel += "Side collision : Left or Right Arrow\n";
+        //forcesLabel += "Front collision : Up arrow\n";
+        //forcesLabel += "Dirt road effect : I\n";
+        //forcesLabel += "Bumpy road effect : B\n";
+        //forcesLabel += "Slippery road effect : L\n";
+        //forcesLabel += "Surface effect : U\n";
+        //forcesLabel += "Car Airborne effect : A\n";
+        //forcesLabel += "Soft Stop Force : O\n";
+        //forcesLabel += "Set example controller properties : PageUp\n";
+        //forcesLabel += "Play Leds : P\n";
         activeForceAndEffect = new string[9];
         Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
     }
 
-    void OnApplicationQuit()
-    {
-        Debug.Log("SteeringShutdown:" + LogitechGSDK.LogiSteeringShutdown());
-    }
+    //void OnApplicationQuit()
+    //{
+    //    Debug.Log("SteeringShutdown:" + LogitechGSDK.LogiSteeringShutdown());
+    //}
 
-    void OnGUI()
-    {
-        activeForces = GUI.TextArea(new Rect(10, 10, 180, 200), activeForces, 400);
-        propertiesEdit = GUI.TextArea(new Rect(200, 10, 200, 200), propertiesEdit, 400);
-        actualState = GUI.TextArea(new Rect(410, 10, 300, 200), actualState, 1000);
-        buttonStatus = GUI.TextArea(new Rect(720, 10, 300, 200), buttonStatus, 1000);
-        GUI.Label(new Rect(10, 400, 800, 400), forcesLabel);
-    }
+    //void OnGUI()
+    //{
+    //    activeForces = GUI.TextArea(new Rect(10, 10, 180, 200), activeForces, 400);
+    //    propertiesEdit = GUI.TextArea(new Rect(200, 10, 200, 200), propertiesEdit, 400);
+    //    actualState = GUI.TextArea(new Rect(410, 10, 300, 200), actualState, 1000);
+    //    buttonStatus = GUI.TextArea(new Rect(720, 10, 300, 200), buttonStatus, 1000);
+    //    GUI.Label(new Rect(10, 400, 800, 400), forcesLabel);
+    //}
 
     // Update is called once per frame
     void Update()
