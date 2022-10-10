@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class CameraSetting : MonoBehaviour
 {
     public GameObject cameraPC;
     public GameObject cameraRig;
-    public Transform canvasTransform;
+    public RectTransform canvasTransform;
 
-    private InputManager inputManager;
+	private Vector3 cameraRigPosition = Vector3.zero;
 
-    private void Awake()
-    {
-        inputManager = GetComponent<InputManager>();
-    }
+	private void Awake()
+	{
+		cameraRigPosition = canvasTransform.GetComponent<RectTransform>().position;
+	}
 
-    private void Start()
+	private void Start()
     {
         ChangeCamera();
     }
@@ -27,21 +28,24 @@ public class CameraSetting : MonoBehaviour
 
     private void ChangeCamera()
     {
-        if (inputManager.inputCondition == InputCondition.KeyBoard)
+        if (!SteamVR.active)
         {
             if (!cameraRig.activeSelf) return;
 
             cameraRig.SetActive(false);
             cameraPC.SetActive(true);
-            canvasTransform.parent = cameraPC.transform;
+			canvasTransform.SetParent(cameraPC.transform);
+			//canvasTransform.transform.position = cameraPC.transform.position + Vector3.forward * 0.1f;
+			canvasTransform.transform.position = Vector3.zero;
         }
-        else if (inputManager.inputCondition == InputCondition.Driving)
+        else
         {
             if (!cameraPC.activeSelf) return;
 
             cameraPC.SetActive(false);
             cameraRig.SetActive(true);
-            canvasTransform.parent = cameraRig.transform.Find("Camera");
+			canvasTransform.SetParent(cameraRig.transform.Find("Camera"));
+			canvasTransform.position = cameraRigPosition;
         }
     }
 }

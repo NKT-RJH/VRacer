@@ -169,8 +169,8 @@ namespace Valve.VR
                 if (error != EVRInitError.None)
                 {
                     initializedState = InitializedStates.InitializeFailure;
-                    ReportError(error);
-                    ReportGeneralErrors();
+                    //ReportError(error);
+                    //ReportGeneralErrors();
                     SteamVR_Events.Initialized.Send(false);
                     return null;
                 }
@@ -179,7 +179,7 @@ namespace Valve.VR
                 if (error != EVRInitError.None)
                 {
                     initializedState = InitializedStates.InitializeFailure;
-                    ReportError(error);
+                    //ReportError(error);
                     SteamVR_Events.Initialized.Send(false);
                     return null;
                 }
@@ -188,7 +188,7 @@ namespace Valve.VR
                 if (error != EVRInitError.None)
                 {
                     initializedState = InitializedStates.InitializeFailure;
-                    ReportError(error);
+                    //ReportError(error);
                     SteamVR_Events.Initialized.Send(false);
                     return null;
                 }

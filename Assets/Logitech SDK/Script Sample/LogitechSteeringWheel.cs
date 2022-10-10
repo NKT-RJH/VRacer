@@ -6,20 +6,20 @@ public class LogitechSteeringWheel : MonoBehaviour
 {
 
     LogitechGSDK.LogiControllerPropertiesData properties;
-    private string actualState;
-    private string activeForces;
-    private string propertiesEdit;
-    private string buttonStatus;
-    private string forcesLabel;
+    //private string actualState;
+    //private string activeForces;
+    //private string propertiesEdit;
+    //private string buttonStatus;
+    //private string forcesLabel;
     string[] activeForceAndEffect;
 
     // Use this for initialization
     void Start()
     {
-        activeForces = "";
-        propertiesEdit = "";
-        actualState = "";
-        buttonStatus = "";
+        //activeForces = "";
+        //propertiesEdit = "";
+        //actualState = "";
+        //buttonStatus = "";
         //forcesLabel = "Press the following keys to activate forces and effects on the steering wheel / gaming controller \n";
         //forcesLabel += "Spring force : S\n";
         //forcesLabel += "Constant force : C\n";
@@ -35,7 +35,7 @@ public class LogitechSteeringWheel : MonoBehaviour
         //forcesLabel += "Set example controller properties : PageUp\n";
         //forcesLabel += "Play Leds : P\n";
         activeForceAndEffect = new string[9];
-        Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
+        //Debug.Log("SteeringInit:" + LogitechGSDK.LogiSteeringInitialize(false));
     }
 
     //void OnApplicationQuit()
@@ -62,56 +62,56 @@ public class LogitechSteeringWheel : MonoBehaviour
             //CONTROLLER PROPERTIES
             StringBuilder deviceName = new StringBuilder(256);
             LogitechGSDK.LogiGetFriendlyProductName(0, deviceName, 256);
-            propertiesEdit = "Current Controller : " + deviceName + "\n";
-            propertiesEdit += "Current controller properties : \n\n";
+            //propertiesEdit = "Current Controller : " + deviceName + "\n";
+            //propertiesEdit += "Current controller properties : \n\n";
             LogitechGSDK.LogiControllerPropertiesData actualProperties = new LogitechGSDK.LogiControllerPropertiesData();
             LogitechGSDK.LogiGetCurrentControllerProperties(0, ref actualProperties);
-            propertiesEdit += "forceEnable = " + actualProperties.forceEnable + "\n";
-            propertiesEdit += "overallGain = " + actualProperties.overallGain + "\n";
-            propertiesEdit += "springGain = " + actualProperties.springGain + "\n";
-            propertiesEdit += "damperGain = " + actualProperties.damperGain + "\n";
-            propertiesEdit += "defaultSpringEnabled = " + actualProperties.defaultSpringEnabled + "\n";
-            propertiesEdit += "combinePedals = " + actualProperties.combinePedals + "\n";
-            propertiesEdit += "wheelRange = " + actualProperties.wheelRange + "\n";
-            propertiesEdit += "gameSettingsEnabled = " + actualProperties.gameSettingsEnabled + "\n";
-            propertiesEdit += "allowGameSettings = " + actualProperties.allowGameSettings + "\n";
+            //propertiesEdit += "forceEnable = " + actualProperties.forceEnable + "\n";
+            //propertiesEdit += "overallGain = " + actualProperties.overallGain + "\n";
+            //propertiesEdit += "springGain = " + actualProperties.springGain + "\n";
+            //propertiesEdit += "damperGain = " + actualProperties.damperGain + "\n";
+            //propertiesEdit += "defaultSpringEnabled = " + actualProperties.defaultSpringEnabled + "\n";
+            //propertiesEdit += "combinePedals = " + actualProperties.combinePedals + "\n";
+            //propertiesEdit += "wheelRange = " + actualProperties.wheelRange + "\n";
+            //propertiesEdit += "gameSettingsEnabled = " + actualProperties.gameSettingsEnabled + "\n";
+            //propertiesEdit += "allowGameSettings = " + actualProperties.allowGameSettings + "\n";
 
             //CONTROLLER STATE
-            actualState = "Steering wheel current state : \n\n";
+            //actualState = "Steering wheel current state : \n\n";
             LogitechGSDK.DIJOYSTATE2ENGINES rec;
             rec = LogitechGSDK.LogiGetStateUnity(0);
-            actualState += "x-axis position :" + rec.lX + "\n";
-            actualState += "y-axis position :" + rec.lY + "\n";
-            actualState += "z-axis position :" + rec.lZ + "\n";
-            actualState += "x-axis rotation :" + rec.lRx + "\n";
-            actualState += "y-axis rotation :" + rec.lRy + "\n";
-            actualState += "z-axis rotation :" + rec.lRz + "\n";
-            actualState += "extra axes positions 1 :" + rec.rglSlider[0] + "\n";
-            actualState += "extra axes positions 2 :" + rec.rglSlider[1] + "\n";
-            switch (rec.rgdwPOV[0])
-            {
-                case (0): actualState += "POV : UP\n"; break;
-                case (4500): actualState += "POV : UP-RIGHT\n"; break;
-                case (9000): actualState += "POV : RIGHT\n"; break;
-                case (13500): actualState += "POV : DOWN-RIGHT\n"; break;
-                case (18000): actualState += "POV : DOWN\n"; break;
-                case (22500): actualState += "POV : DOWN-LEFT\n"; break;
-                case (27000): actualState += "POV : LEFT\n"; break;
-                case (31500): actualState += "POV : UP-LEFT\n"; break;
-                default: actualState += "POV : CENTER\n"; break;
-            }
+            //actualState += "x-axis position :" + rec.lX + "\n";
+            //actualState += "y-axis position :" + rec.lY + "\n";
+            //actualState += "z-axis position :" + rec.lZ + "\n";
+            //actualState += "x-axis rotation :" + rec.lRx + "\n";
+            //actualState += "y-axis rotation :" + rec.lRy + "\n";
+            //actualState += "z-axis rotation :" + rec.lRz + "\n";
+            //actualState += "extra axes positions 1 :" + rec.rglSlider[0] + "\n";
+            //actualState += "extra axes positions 2 :" + rec.rglSlider[1] + "\n";
+            //switch (rec.rgdwPOV[0])
+            //{
+            //    case (0): actualState += "POV : UP\n"; break;
+            //    case (4500): actualState += "POV : UP-RIGHT\n"; break;
+            //    case (9000): actualState += "POV : RIGHT\n"; break;
+            //    case (13500): actualState += "POV : DOWN-RIGHT\n"; break;
+            //    case (18000): actualState += "POV : DOWN\n"; break;
+            //    case (22500): actualState += "POV : DOWN-LEFT\n"; break;
+            //    case (27000): actualState += "POV : LEFT\n"; break;
+            //    case (31500): actualState += "POV : UP-LEFT\n"; break;
+            //    default: actualState += "POV : CENTER\n"; break;
+            //}
 
             //Button status :
 
-            buttonStatus = "Button pressed : \n\n";
-            for (int i = 0; i < 128; i++)
-            {
-                if (rec.rgbButtons[i] == 128)
-                {
-                    buttonStatus += "Button " + i + " pressed\n";
-                }
+            //buttonStatus = "Button pressed : \n\n";
+            //for (int i = 0; i < 128; i++)
+            //{
+            //    if (rec.rgbButtons[i] == 128)
+            //    {
+            //        buttonStatus += "Button " + i + " pressed\n";
+            //    }
 
-            }
+            //}
 
             /* THIS AXIS ARE NEVER REPORTED BY LOGITECH CONTROLLERS 
              * 
@@ -141,18 +141,18 @@ public class LogitechSteeringWheel : MonoBehaviour
              * actualState += "extra axes forces 2 :" + rec.rglFSlider[1] + "\n";
              */
 
-            int shifterTipe = LogitechGSDK.LogiGetShifterMode(0);
-            string shifterString = "";
-            if (shifterTipe == 1) shifterString = "Gated";
-            else if (shifterTipe == 0) shifterString = "Sequential";
-            else shifterString = "Unknown";
-            actualState += "\nSHIFTER MODE:" + shifterString;
+            //int shifterTipe = LogitechGSDK.LogiGetShifterMode(0);
+            //string shifterString = "";
+            //if (shifterTipe == 1) shifterString = "Gated";
+            //else if (shifterTipe == 0) shifterString = "Sequential";
+            //else shifterString = "Unknown";
+            //actualState += "\nSHIFTER MODE:" + shifterString;
 
 
 
 
             // FORCES AND EFFECTS 
-            activeForces = "Active forces and effects :\n";
+            //activeForces = "Active forces and effects :\n";
 
             //Spring Force -> S
             if (Input.GetKeyUp(KeyCode.S))
@@ -326,20 +326,20 @@ public class LogitechSteeringWheel : MonoBehaviour
                 LogitechGSDK.LogiPlayLeds(0, 20, 20, 20);
             }
 
-            for (int i = 0; i < 9; i++)
-            {
-                activeForces += activeForceAndEffect[i];
-            }
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    activeForces += activeForceAndEffect[i];
+            //}
 
         }
-        else if (!LogitechGSDK.LogiIsConnected(0))
-        {
-            actualState = "PLEASE PLUG IN A STEERING WHEEL OR A FORCE FEEDBACK CONTROLLER";
-        }
-        else
-        {
-            actualState = "THIS WINDOW NEEDS TO BE IN FOREGROUND IN ORDER FOR THE SDK TO WORK PROPERLY";
-        }
+        //else if (!LogitechGSDK.LogiIsConnected(0))
+        //{
+        //    actualState = "PLEASE PLUG IN A STEERING WHEEL OR A FORCE FEEDBACK CONTROLLER";
+        //}
+        //else
+        //{
+        //    actualState = "THIS WINDOW NEEDS TO BE IN FOREGROUND IN ORDER FOR THE SDK TO WORK PROPERLY";
+        //}
     }
 
 
