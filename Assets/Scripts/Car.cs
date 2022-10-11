@@ -305,15 +305,16 @@ public class Car : MonoBehaviour
 		Vector3 path = Vector3.zero;
 		if (inputManager.inputCondition == InputCondition.KeyBoard)
 		{
-			path = Vector3.up * inputManager.horizontal;
+			path = Vector3.forward * -inputManager.horizontal * 100;
 		}
 		else if (inputManager.inputCondition == InputCondition.Driving)
 		{
-			path = Vector3.up * inputManager.steer;
+			path = Vector3.forward * -inputManager.steer * 100;
 		}
 		if (path == Vector3.zero) return;
 
-		handle.rotation = Quaternion.LookRotation(path);
+		//handle.rotation = Quaternion.LookRotation(path);
+		handle.localRotation = Quaternion.Euler(path);
 	}
 
 	private void AddDownForce()
