@@ -36,7 +36,8 @@ public class CameraSetting : MonoBehaviour
             cameraPC.SetActive(true);
 			canvasTransform.SetParent(cameraPC.transform);
 			//canvasTransform.transform.position = cameraPC.transform.position + Vector3.forward * 0.1f;
-			canvasTransform.transform.position = Vector3.zero;
+			// 각도랑 위치 설정하기
+			canvasTransform.transform.localPosition = Vector3.zero;
         }
         else
         {
