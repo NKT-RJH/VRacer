@@ -28,6 +28,7 @@ public class CameraSetting : MonoBehaviour
 
     private void ChangeCamera()
     {
+		//print(SteamVR.);
         if (!SteamVR.active)
         {
             if (!cameraRig.activeSelf) return;

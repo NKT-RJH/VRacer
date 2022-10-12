@@ -21,6 +21,9 @@ public class Car : MonoBehaviour
 	public Wheels wheels;
 	public WheelMeshs wheelPaths;
 
+	[Header("Sounds")]
+	public AudioClip idle;
+
 	private int motorMax;
 	private int motorMin;
 	private int motorTorque = 100;
@@ -67,6 +70,11 @@ public class Car : MonoBehaviour
 		//}
 		
 		Drift();
+		//if (audioSource.clip == null) return;
+		//if (audioSource.time >= audioSource.clip.length -0.5f)
+		//{
+			//audioSource.clip = null;
+		//}
 	}
 
 	private void FixedUpdate()

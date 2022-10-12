@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
 	public bool o;
 	public bool s;
 	public bool t;
+	public Vector3 joystick = Vector3.zero;
 
 	[Header("Keyboard")]
 	public float vertical;
@@ -66,6 +67,46 @@ public class InputManager : MonoBehaviour
 						o = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
 						s = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
 						t = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
+
+						//joystick = Vector3.zero;
+
+						//if (LogitechInput.GetKeyTriggered(LogitechKeyCode.FirstIndex, LogitechKeyCode.LeftButton))
+						//{
+						//	joystick += Vector3.left;
+						//}
+						//else if (LogitechInput.GetKeyTriggered(LogitechKeyCode.FirstIndex, LogitechKeyCode.UpLeftButton))
+						//{
+						//	joystick += Vector3.left + Vector3.up;
+						//	joystick.Normalize();
+						//}
+						//else if (LogitechInput.GetKeyTriggered(LogitechKeyCode.FirstIndex, LogitechKeyCode.DownLeftButton))
+						//{
+						//	joystick += Vector3.down + Vector3.up;
+						//	joystick.Normalize();
+						//}
+						//else if (LogitechInput.GetKeyTriggered(LogitechKeyCode.FirstIndex, LogitechKeyCode.RightButton))
+						//{
+						//	joystick += Vector3.right;
+						//}
+						//else if (LogitechInput.GetKeyTriggered(LogitechKeyCode.FirstIndex, LogitechKeyCode.UpRightButton))
+						//{
+						//	joystick += Vector3.right + Vector3.up;
+						//	joystick.Normalize();
+						//}
+						//else if (LogitechInput.GetKeyTriggered(LogitechKeyCode.FirstIndex, LogitechKeyCode.DownRightButton))
+						//{
+						//	joystick += Vector3.right + Vector3.down;
+						//	joystick.Normalize();
+						//}
+						//else if (LogitechInput.GetKeyTriggered(LogitechKeyCode.FirstIndex, LogitechKeyCode.UpButton))
+						//{
+						//	joystick += Vector3.up;
+						//}
+						//else if (LogitechInput.GetKeyTriggered(LogitechKeyCode.FirstIndex, LogitechKeyCode.DownButton))
+						//{
+						//	joystick += Vector3.down;
+						//}
+						//print("joystick : " + joystick);
 					}
 				}
 				break;
