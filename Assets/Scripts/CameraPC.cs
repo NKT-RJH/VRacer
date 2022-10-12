@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraPC : MonoBehaviour
 {
-	public float turnSpeed = 3;
+	public float turnSpeed = 10;
 
 	public Transform cameraPCTransform;
 
@@ -16,6 +16,8 @@ public class CameraPC : MonoBehaviour
 	{
 		if (!inputManager) enabled = false;
 		if (!cameraPCTransform) enabled = false;
+
+		cameraPCTransform.rotation = Quaternion.Euler(Vector3.zero);
 	}
 
 	private void FixedUpdate()
