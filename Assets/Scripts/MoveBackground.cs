@@ -7,13 +7,21 @@ public class MoveBackground : MonoBehaviour
 {
 	public float maxZposition;
 	public float returnZPosition;
-	public Volume volume;
+
+	public Transform[] wheelsTransform = new Transform[4];
 
 	public Transform wallTransform;
 
+	private float countTime;
+
 	private void Update()
 	{
-		//volume.priority.
+		countTime += Time.deltaTime;
+
+		for (int count = 0; count < wheelsTransform.Length; count++)
+		{
+			wheelsTransform[count].rotation = Quaternion.Euler(Vector3.right * countTime * 1000);
+		}
 
 		wallTransform.position += Vector3.back * 20 * Time.deltaTime;
 
