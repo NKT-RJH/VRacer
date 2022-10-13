@@ -8,21 +8,29 @@ public enum InputCondition
 
 public class InputManager : MonoBehaviour
 {
-	[Header("Logitech")]
+	//[Header("Logitech")]
+	//public float gas;
+	//public float clutch;
+	//public float brake;
+	//public float steer;
+	//public int gear;
+	//public bool x;
+	//public bool o;
+	//public bool s;
+	//public bool t;
+	//public Vector3 joystick = Vector3.zero;
+
+	//[Header("Keyboard")]
+	//public float vertical;
+	//public float horizontal;
+
 	public float gas;
 	public float clutch;
 	public float brake;
-	public float steer;
-	public int gear;
-	public bool x;
-	public bool o;
-	public bool s;
-	public bool t;
-	public Vector3 joystick = Vector3.zero;
-
-	[Header("Keyboard")]
-	public float vertical;
 	public float horizontal;
+	public int gear;
+	public bool respawn;
+	public bool drift;
 
 	[Header("Input Condition")]
 	public InputCondition inputCondition;
@@ -41,13 +49,25 @@ public class InputManager : MonoBehaviour
 		switch (inputCondition)
 		{
 			case InputCondition.KeyBoard:
-				vertical = Input.GetAxis("Vertical");
+				gas = Input.GetAxis("Vertical");
 				horizontal = Input.GetAxis("Horizontal");
+				brake = Input.GetKey(KeyCode.S) ? 1 : -1;
+				clutch = Input.GetKey(KeyCode.F) ? 1 : -1;
+				drift = Input.GetKey(KeyCode.LeftShift);
+				respawn = Input.GetKeyDown(KeyCode.Space);
+				if (Input.GetKeyDown(KeyCode.E))
+				{
+					gear++;
+				}
+				else if (Input.GetKeyDown(KeyCode.Q))
+				{
+					gear = 0;
+				}
 				break;
 			case InputCondition.Driving:
 				if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected((int)LogitechKeyCode.FirstIndex))
 				{
-					steer = LogitechInput.GetAxis("Steering Horizontal");
+					horizontal = LogitechInput.GetAxis("Steering Horizontal");
 					gas = LogitechInput.GetAxis("Gas Vertical");
 					brake = LogitechInput.GetAxis("Brake Vertical");
 					clutch = LogitechInput.GetAxis("Clutch Vertical");
@@ -63,10 +83,10 @@ public class InputManager : MonoBehaviour
 							gear = 0;
 						}
 
-						x = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
-						o = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
-						s = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
-						t = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
+						//x = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
+						drift = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
+						//s = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
+						respawn = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
 
 						//joystick = Vector3.zero;
 

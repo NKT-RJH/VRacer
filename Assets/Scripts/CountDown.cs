@@ -8,6 +8,9 @@ public class CountDown : MonoBehaviour
 	public GameManager gameManager;
     public TextMeshProUGUI countDownText;
 
+    public Transform cameraTransform;
+    public Transform[] cameraPaths = new Transform[3];
+
     private void Start()
     {
         StartCoroutine(CountDownStart());
@@ -21,6 +24,8 @@ public class CountDown : MonoBehaviour
 
         for (int count = 3; count > 0; count--)
         {
+            cameraTransform.localPosition = cameraPaths[count - 1].position;
+            cameraTransform.localRotation = cameraPaths[count - 1].rotation;
             countDownText.text = count.ToString();
             yield return new WaitForSeconds(1);
         }

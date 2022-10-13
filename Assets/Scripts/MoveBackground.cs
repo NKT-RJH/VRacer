@@ -16,7 +16,14 @@ public class MoveBackground : MonoBehaviour
 
 	private void Update()
 	{
-		countTime += Time.deltaTime;
+		try
+		{
+			checked(countTime) += Time.deltaTime;
+		}
+		catch
+		{
+			countTime = 0;
+		}
 
 		for (int count = 0; count < wheelsTransform.Length; count++)
 		{
