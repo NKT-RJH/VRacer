@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarSound : MonoBehaviour
 {
+	public GameManager gameManager;
+
 	public AudioSource audioSource;
 	public InputManager inputManager;
 	public Car car;
@@ -11,10 +13,49 @@ public class CarSound : MonoBehaviour
 	public Sounds sounds;
 
 	private bool brakeFlag;
+	private bool driftFlag;
+
+	private void Start()
+	{
+        audioSource.PlayOneShot(sounds.carStart);
+    }
 
 	private void Update()
 	{
-		if (car.KPH <= 6 && !brakeFlag)
+		if (!gameManager.gameStart) return;
+
+		//if (inputManager.drift)
+		//{
+		//	if (!driftFlag)
+		//	{
+		//		audioSource.Stop();
+		//		audioSource.PlayOneShot(sounds.brake);
+		//		AudioSetting(false, 1);
+		//		driftFlag = true;
+		//	}
+		//}
+		//else
+		//{
+		//	driftFlag = false;
+		//}
+
+		//if (driftFlag) return;
+
+		if (inputManager.brake <= 0)
+		{
+			brakeFlag = false;
+		}
+		if (inputManager.brake > 0 && !brakeFlag)
+		{
+			audioSource.Stop();
+			audioSource.PlayOneShot(sounds.brake);
+			AudioSetting(false, 1);
+			brakeFlag = true;
+		}
+
+		if (brakeFlag) return;
+
+		if (car.KPH <= 6)
 		{
 			PlayAudioClip(sounds.normal);
 			AudioSetting(true, 1);
@@ -24,7 +65,7 @@ public class CarSound : MonoBehaviour
 			StopAudioClip(sounds.normal);
 		}
 
-		if (car.KPH > 6 && !brakeFlag)
+		if (car.KPH > 6)
 		{
 			PlayAudioClip(sounds.idle);
 			AudioSetting(true, car.KPH / 150);
@@ -37,16 +78,6 @@ public class CarSound : MonoBehaviour
 			}
 		}
 
-		if (inputManager.brake <= 0)
-		{
-			brakeFlag = false;
-		}
-		if (inputManager.brake > 1 && !brakeFlag)
-		{
-			//audioSource.Stop();
-			PlayAudioClip(sounds.brake);
-			AudioSetting(false, 1);
-		}
 	}
 
 	private void PlayAudioClip(AudioClip audioClip)
@@ -88,6 +119,7 @@ public class CarSound : MonoBehaviour
 [System.Serializable]
 public class Sounds
 {
+	public AudioClip carStart;
 	public AudioClip normal;
 	public AudioClip idle;
 	public AudioClip brake;

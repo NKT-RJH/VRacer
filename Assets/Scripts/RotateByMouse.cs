@@ -13,10 +13,12 @@ public class RotateByMouse : MonoBehaviour
     public float turnSpeed = 10;
 
     public GameManager gameManager;
+    public InputManager inputManager;
 
     private void FixedUpdate()
     {
         if (!gameManager.gameStart) return;
+        if (inputManager.inputCondition == InputCondition.Driving) return;
 
         x += speedX * Input.GetAxis("Mouse X") * speedX;
         y -= speedY * Input.GetAxis("Mouse Y") * speedY;

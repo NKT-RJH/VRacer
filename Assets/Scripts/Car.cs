@@ -29,6 +29,8 @@ public class Car : MonoBehaviour
 	private int motorTorque = 100;
 
 	public float KPH = 0;
+	private float KPTLimit = 150;
+	private float power = 10000;
 	private float breakPower = 7000;
 	private float radius = 6;
 	private float downForceValue = 50;
@@ -68,7 +70,6 @@ public class Car : MonoBehaviour
 		//{
 		//	boostFlag = true;
 		//}
-		
 		Drift();
 		//if (audioSource.clip == null) return;
 		//if (audioSource.time >= audioSource.clip.length -0.5f)
@@ -81,6 +82,7 @@ public class Car : MonoBehaviour
 	{
 		if (!gameManager.gameStart) return;
 
+		Brake();
 		AddDownForce();
 		AnimateHandle();
 		AnimateWheels();
@@ -94,37 +96,37 @@ public class Car : MonoBehaviour
 	{
 		if (inputManager.clutch > 0) return;
 
-        float stiffness = 0;
+		float stiffness = 0;
 
-        if (inputManager.brake > 0)
-        {
-            motorTorque = motorMin;
-			stiffness = 2 * (10 * inputManager.brake);
-        }
-        else
-        {
-            motorTorque = motorMax;
-            stiffness = 2;
-        }
+		if (inputManager.brake > 0)
+		{
+			motorTorque = motorMin;
+			stiffness = 2 * (20 * inputManager.brake);
+		}
+		else
+		{
+			motorTorque = motorMax;
+			stiffness = 2;
+		}
 
-        WheelFrictionCurve wheelFrictionCurve;
+		WheelFrictionCurve wheelFrictionCurve;
 
-        wheelFrictionCurve = wheels.frontLeft.forwardFriction;
-        wheelFrictionCurve.stiffness = stiffness;
-        wheels.frontLeft.forwardFriction = wheelFrictionCurve;
+		wheelFrictionCurve = wheels.frontLeft.forwardFriction;
+		wheelFrictionCurve.stiffness = stiffness;
+		wheels.frontLeft.forwardFriction = wheelFrictionCurve;
 
-        wheelFrictionCurve = wheels.frontRight.forwardFriction;
-        wheelFrictionCurve.stiffness = stiffness;
-        wheels.frontRight.forwardFriction = wheelFrictionCurve;
+		wheelFrictionCurve = wheels.frontRight.forwardFriction;
+		wheelFrictionCurve.stiffness = stiffness;
+		wheels.frontRight.forwardFriction = wheelFrictionCurve;
 
-        wheelFrictionCurve = wheels.backLeft.sidewaysFriction;
-        wheelFrictionCurve.stiffness = stiffness;
-        wheels.backLeft.sidewaysFriction = wheelFrictionCurve;
+		wheelFrictionCurve = wheels.backLeft.sidewaysFriction;
+		wheelFrictionCurve.stiffness = stiffness;
+		wheels.backLeft.sidewaysFriction = wheelFrictionCurve;
 
-        wheelFrictionCurve = wheels.backRight.sidewaysFriction;
-        wheelFrictionCurve.stiffness = stiffness;
-        wheels.backRight.sidewaysFriction = wheelFrictionCurve;
-    }
+		wheelFrictionCurve = wheels.backRight.sidewaysFriction;
+		wheelFrictionCurve.stiffness = stiffness;
+		wheels.backRight.sidewaysFriction = wheelFrictionCurve;
+	}
 
 	private void Drift()
 	{
@@ -223,6 +225,7 @@ public class Car : MonoBehaviour
 
 	private void MoveVehicle()
 	{
+		if (inputManager.gear == 0) return;
 		if (inputManager.clutch > 0) return;
 
 		/// ÀÌ°Ç Àü·û ÈÄ·û Á¶Àı  ±â´É ³Ö±â!
@@ -245,6 +248,37 @@ public class Car : MonoBehaviour
 				break;
 		}
 
+		switch(inputManager.gear)
+		{
+			case 1:
+				KPTLimit = 100;
+				power = 7500;
+				break;
+            case 2:
+                KPTLimit = 120;
+                power = 8000;
+                break;
+            case 3:
+                KPTLimit = 140;
+                power = 8500;
+                break;
+            case 4:
+                KPTLimit = 160;
+                power = 9000;
+                break;
+            case 5:
+                KPTLimit = 180;
+                power = 9500;
+                break;
+            case 6:
+                KPTLimit = 200;
+                power = 10000;
+                break;
+            case 7:
+                KPTLimit = 30;
+				power = 7500;
+                break;
+        }
 
 		//if (inputManager.inputCondition == InputCondition.KeyBoard)
 		//{
@@ -273,34 +307,34 @@ public class Car : MonoBehaviour
 		//}
 		//else if (inputManager.inputCondition == InputCondition.Driving)
 		//{
-			wheels.frontLeft.motorTorque = inputManager.gas * (motorTorque / startSet);
-			wheels.frontRight.motorTorque = inputManager.gas * (motorTorque / startSet);
-			wheels.backLeft.motorTorque = inputManager.gas * (motorTorque / endSet);
-			wheels.backRight.motorTorque = inputManager.gas * (motorTorque / endSet);
+		wheels.frontLeft.motorTorque = inputManager.gas * (motorTorque / startSet);
+		wheels.frontRight.motorTorque = inputManager.gas * (motorTorque / startSet);
+		wheels.backLeft.motorTorque = inputManager.gas * (motorTorque / endSet);
+		wheels.backRight.motorTorque = inputManager.gas * (motorTorque / endSet);
 
-			if (inputManager.gas > 0 && inputManager.gear < 7 && inputManager.brake < 0 && KPH < 150)
-			{
-				rigidBody.AddRelativeForce(Vector3.forward * 10000 * inputManager.gas);
-				wheels.backLeft.brakeTorque = 0;
-				wheels.backRight.brakeTorque = 0;
-			}
-			else if (inputManager.gas < 0 && inputManager.gear < 7 && KPH < 150)
-			{
-				wheels.backLeft.brakeTorque = breakPower;
-				wheels.backRight.brakeTorque = breakPower;
-			}
+		if (inputManager.gas > 0 && inputManager.gear < 7 && inputManager.brake < 0 && KPH < 150)
+		{
+			rigidBody.AddRelativeForce(power * inputManager.gas * Vector3.forward);
+			wheels.backLeft.brakeTorque = 0;
+			wheels.backRight.brakeTorque = 0;
+		}
+		else if (inputManager.gas < 0 && inputManager.gear < 7 && KPH < KPTLimit)
+		{
+			wheels.backLeft.brakeTorque = breakPower;
+			wheels.backRight.brakeTorque = breakPower;
+		}
 		if (inputManager.brake > 0)
 		{
-            wheels.backLeft.brakeTorque = breakPower;
-            wheels.backRight.brakeTorque = breakPower;
-        }
+			wheels.backLeft.brakeTorque = breakPower;
+			wheels.backRight.brakeTorque = breakPower;
+		}
 
-			if (inputManager.gear == 7 && inputManager.gas > 0 && KPH < 150)
-			{
-				rigidBody.AddRelativeForce(Vector3.back * 10000 * inputManager.brake);
-				wheels.backLeft.brakeTorque = 0;
-				wheels.backRight.brakeTorque = 0;
-			}
+		if (inputManager.gear == 7 && inputManager.gas > 0 && KPH < KPTLimit)
+		{
+			rigidBody.AddRelativeForce(power * inputManager.gas * Vector3.back);
+			wheels.backLeft.brakeTorque = 0;
+			wheels.backRight.brakeTorque = 0;
+		}
 		//}
 
 		KPH = rigidBody.velocity.magnitude * 3.6f;
@@ -367,18 +401,10 @@ public class Car : MonoBehaviour
 
 	private void AnimateHandle()
 	{
-		//Vector3 path = Vector3.zero;
-		//if (inputManager.inputCondition == InputCondition.KeyBoard)
-		//{
-		//	path = Vector3.forward * -inputManager.horizontal * 100;
-		//}
-		//else if (inputManager.inputCondition == InputCondition.Driving)
-		//{
-			Vector3 path = Vector3.forward * -inputManager.horizontal * 100;
-		//}
+		Vector3 path = 450 * -inputManager.horizontal * Vector3.forward;
+
 		if (path == Vector3.zero) return;
 
-		//handle.rotation = Quaternion.LookRotation(path);
 		handle.localRotation = Quaternion.Euler(path);
 	}
 

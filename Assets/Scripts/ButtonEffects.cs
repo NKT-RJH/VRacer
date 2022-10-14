@@ -28,12 +28,17 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 		maxFontSize = text.fontSize + 50;
 	}
 
+	public void OnClick()
+	{
+		audioSource.PlayOneShot(click);
+	}
+
 	private IEnumerator Bigger()
 	{
 		audioSource.PlayOneShot(drag);
 
 		float currentFontSize = text.fontSize;
-		for (float count = currentFontSize; count <= maxFontSize; count++)
+		for (float count = currentFontSize; count <= maxFontSize; count += 3)
 		{
 			text.fontSize = count;
 			yield return null;
@@ -43,7 +48,7 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	private IEnumerator Smaller()
 	{
 		float currentFontSize = text.fontSize;
-		for (float count = currentFontSize; count >= maxFontSize - 50; count--)
+		for (float count = currentFontSize; count >= maxFontSize - 50; count -= 5)
 		{
 			text.fontSize = count;
 			yield return null;

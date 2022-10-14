@@ -38,10 +38,10 @@ public class LogitechSteeringWheel : MonoBehaviour
         LogitechGSDK.LogiSteeringInitialize(false);
     }
 
-    //void OnApplicationQuit()
-    //{
-    //    Debug.Log("SteeringShutdown:" + LogitechGSDK.LogiSteeringShutdown());
-    //}
+    void OnApplicationQuit()
+    {
+        LogitechGSDK.LogiSteeringShutdown();
+    }
 
     //void OnGUI()
     //{
@@ -141,7 +141,8 @@ public class LogitechSteeringWheel : MonoBehaviour
              * actualState += "extra axes forces 2 :" + rec.rglFSlider[1] + "\n";
              */
 
-            //int shifterTipe = LogitechGSDK.LogiGetShifterMode(0);
+            int shifterTipe = LogitechGSDK.LogiGetShifterMode(0);
+            //print(shifterTipe);
             //string shifterString = "";
             //if (shifterTipe == 1) shifterString = "Gated";
             //else if (shifterTipe == 0) shifterString = "Sequential";

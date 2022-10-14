@@ -11,6 +11,8 @@ public class CameraSetting : MonoBehaviour
 
 	private Vector3 cameraRigPosition = Vector3.zero;
 
+    public CountDown countDown;
+
 	private void Awake()
 	{
 		cameraRigPosition = canvasTransform.GetComponent<RectTransform>().position;
@@ -18,25 +20,30 @@ public class CameraSetting : MonoBehaviour
 
 	private void Start()
     {
-        ChangeCamera();
+        //ChangeCamera();
+        StartCoroutine(Wait());
     }
 
-    private void Update()
+    private IEnumerator Wait()
     {
+        while (!countDown.countDownEnd)
+        {
+            yield return null;
+        }
+        cameraRig.transform.Find("Camera").transform.localPosition = Vector3.zero;
+        cameraRig.transform.Find("Camera").transform.localRotation = Quaternion.identity;
         ChangeCamera();
     }
 
     private void ChangeCamera()
     {
-		//print(SteamVR.);
-        if (!SteamVR.active)
+        if (PlayData.equipment == 1)
         {
             if (!cameraRig.activeSelf) return;
 
             cameraRig.SetActive(false);
             cameraPC.SetActive(true);
 			canvasTransform.SetParent(cameraPC.transform);
-			//canvasTransform.transform.position = cameraPC.transform.position + Vector3.forward * 0.1f;
 			// 각도랑 위치 설정하기
 			canvasTransform.transform.localPosition = Vector3.zero;
         }
