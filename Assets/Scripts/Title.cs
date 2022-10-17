@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Valve.VR;
 
 [RequireComponent(typeof(AudioSource))]
 public class Title : MonoBehaviour
@@ -16,6 +18,7 @@ public class Title : MonoBehaviour
 	public GameObject playScreen;
 	public GameObject carScreen;
 	public GameObject equipmentScreen;
+	[SerializeField] private Transform 
 
     private AudioSource audioSource;
 
@@ -67,6 +70,8 @@ public class Title : MonoBehaviour
 
 	private void Update()
 	{
+
+
 		if (!isStart) return;
 
 		if (isPlayScreen)
