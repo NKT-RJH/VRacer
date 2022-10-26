@@ -145,36 +145,6 @@ public class Car : MonoBehaviour
             stiffness = 2;
         }
 
-  //      if (inputManager.inputCondition == InputCondition.Driving)
-		//{
-		//	if (inputManager.o)
-		//	{
-		//		motorTorque = motorMin;
-		//		stiffness = 1;
-		//	}
-		//	else
-		//	{
-		//		motorTorque = motorMax;
-		//		stiffness = 2;
-		//	}
-		//}
-		//else if (inputManager.inputCondition == InputCondition.KeyBoard)
-		//{
-		//	if (!(Input.GetKey(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.LeftShift))) return;
-			
-		//	if (Input.GetKey(KeyCode.LeftShift))
-		//	{
-		//		motorTorque = motorMin;
-		//		stiffness = 1;
-		//	}
-		//	if (Input.GetKeyUp(KeyCode.LeftShift))
-		//	{
-		//		motorTorque = motorMax;
-		//		stiffness = 2;
-		//	}
-		//}
-
-
 		WheelFrictionCurve wheelFrictionCurve;
 
 		wheelFrictionCurve = wheels.frontLeft.forwardFriction;
@@ -228,7 +198,6 @@ public class Car : MonoBehaviour
 		if (inputManager.gear == 0) return;
 		if (inputManager.clutch > 0) return;
 
-		/// 이건 전륜 후륜 조절  기능 넣기!
 		int startSet = 0;
 		int endSet = 0;
 
@@ -279,34 +248,6 @@ public class Car : MonoBehaviour
 				power = 7500;
                 break;
         }
-
-		//if (inputManager.inputCondition == InputCondition.KeyBoard)
-		//{
-		//	wheels.frontLeft.motorTorque = inputManager.gas * (motorTorque / startSet);
-		//	wheels.frontRight.motorTorque = inputManager.gas * (motorTorque / startSet);
-		//	wheels.backLeft.motorTorque = inputManager.gas * (motorTorque / endSet);
-		//	wheels.backRight.motorTorque = inputManager.gas * (motorTorque / endSet);
-
-		//	if (inputManager.gas > 0 && (KPH) < 150)
-		//	{
-		//		rigidBody.AddRelativeForce(Vector3.forward * 10000);
-		//		wheels.backLeft.brakeTorque = 0;
-		//		wheels.backRight.brakeTorque = 0;
-		//	}
-		//	else if (inputManager.gas < 0)
-		//	{
-		//		rigidBody.AddRelativeForce(Vector3.back * 10000);
-		//		wheels.backLeft.brakeTorque = 0;
-		//		wheels.backRight.brakeTorque = 0;
-		//	}
-		//	else if (inputManager.gas == 0)
-		//	{
-		//		wheels.backLeft.brakeTorque = breakPower;
-		//		wheels.backRight.brakeTorque = breakPower;
-		//	}
-		//}
-		//else if (inputManager.inputCondition == InputCondition.Driving)
-		//{
 		wheels.frontLeft.motorTorque = inputManager.gas * (motorTorque / startSet);
 		wheels.frontRight.motorTorque = inputManager.gas * (motorTorque / startSet);
 		wheels.backLeft.motorTorque = inputManager.gas * (motorTorque / endSet);
@@ -335,33 +276,12 @@ public class Car : MonoBehaviour
 			wheels.backLeft.brakeTorque = 0;
 			wheels.backRight.brakeTorque = 0;
 		}
-		//}
 
 		KPH = rigidBody.velocity.magnitude * 3.6f;
 	}
 
 	private void SteerVehicle()
 	{
-		//if (inputManager.inputCondition == InputCondition.KeyBoard)
-		//{
-		//	if (inputManager.horizontal > 0)
-		//	{
-		//		wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
-		//		wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
-		//	}
-		//	else if (inputManager.horizontal < 0)
-		//	{
-		//		wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
-		//		wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
-		//	}
-		//	else
-		//	{
-		//		wheels.frontLeft.steerAngle = 0;
-		//		wheels.frontRight.steerAngle = 0;
-		//	}
-		//}
-		//else if (inputManager.inputCondition == InputCondition.Driving)
-		//{
 			if (inputManager.horizontal > 0)
 			{
 				wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
@@ -377,7 +297,6 @@ public class Car : MonoBehaviour
 				wheels.frontLeft.steerAngle = 0;
 				wheels.frontRight.steerAngle = 0;
 			}
-		//}
 	}
 
 	private void AnimateWheels()
