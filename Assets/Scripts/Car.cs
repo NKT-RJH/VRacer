@@ -31,13 +31,13 @@ public class Car : MonoBehaviour
 	public float KPH = 0;
 	private float KPTLimit = 150;
 	private float power = 10000;
-	private float breakPower = 7000;
+	private float brakePower = 7000;
 	private float radius = 6;
 	private float downForceValue = 50;
 	private float limtSpeed;
 
-	private bool isBoost = false;
-	private bool boostFlag = false;
+	//private bool isBoost = false;
+	//private bool boostFlag = false;
 
 	private Transform checkPoint;
 	private GameManager gameManager;
@@ -96,12 +96,25 @@ public class Car : MonoBehaviour
 	{
 		if (inputManager.clutch > 0) return;
 
+		if (inputManager.brake <= 0) return;
+
+		if (KPH < 10) return;
+
+		rigidBody.AddRelativeForce(40000 * Vector3.back);
+		wheels.backLeft.brakeTorque = brakePower;
+		wheels.backRight.brakeTorque = brakePower;
+	}
+
+	private void Drift()
+	{
+		if (inputManager.clutch > 0) return;
+
 		float stiffness = 0;
 
-		if (inputManager.brake > 0)
+		if (inputManager.drift)
 		{
 			motorTorque = motorMin;
-			stiffness = 2 * (20 * inputManager.brake);
+			stiffness = 1.4f;
 		}
 		else
 		{
@@ -128,69 +141,33 @@ public class Car : MonoBehaviour
 		wheels.backRight.sidewaysFriction = wheelFrictionCurve;
 	}
 
-	private void Drift()
-	{
-		if (inputManager.clutch > 0) return;
+	//private void Boost()
+	//{
+	//	if (boostFlag)
+	//	{
+	//		boostFlag = false;
+	//		if (!isBoost)
+	//		{
+	//			limtSpeed = boostSpeed;
+	//			rigidBody.AddRelativeForce(Vector3.forward * 40000);
+	//			StartCoroutine(BoostStart());
+	//		}
+	//	}
+	//}
 
-		float stiffness = 0;
-
-		if (inputManager.drift)
-		{
-            motorTorque = motorMin;
-            stiffness = 1.5f;
-        }
-        else
-        {
-            motorTorque = motorMax;
-            stiffness = 2;
-        }
-
-		WheelFrictionCurve wheelFrictionCurve;
-
-		wheelFrictionCurve = wheels.frontLeft.forwardFriction;
-		wheelFrictionCurve.stiffness = stiffness;
-		wheels.frontLeft.forwardFriction = wheelFrictionCurve;
-
-		wheelFrictionCurve = wheels.frontRight.forwardFriction;
-		wheelFrictionCurve.stiffness = stiffness;
-		wheels.frontRight.forwardFriction = wheelFrictionCurve;
-
-		wheelFrictionCurve = wheels.backLeft.sidewaysFriction;
-		wheelFrictionCurve.stiffness = stiffness;
-		wheels.backLeft.sidewaysFriction = wheelFrictionCurve;
-
-		wheelFrictionCurve = wheels.backRight.sidewaysFriction;
-		wheelFrictionCurve.stiffness = stiffness;
-		wheels.backRight.sidewaysFriction = wheelFrictionCurve;
-	}
-
-	private void Boost()
-	{
-		if (boostFlag)
-		{
-			boostFlag = false;
-			if (!isBoost)
-			{
-				limtSpeed = boostSpeed;
-				rigidBody.AddRelativeForce(Vector3.forward * 40000);
-				StartCoroutine(BoostStart());
-			}
-		}
-	}
-
-	private IEnumerator BoostStart()
-	{
-		isBoost = true;
-		// 부스트 왜 안되는지 확인하기 아마 맥스 값이 원인인 듯 왜 안되냐 
-		yield return new WaitForSeconds(2.5f);
-		for (float i = limtSpeed; i >= nomalSpeed; i -= 1.0f)
-		{
-			limtSpeed = i;
-			yield return new WaitForSeconds(0.05f);
-		}
-		limtSpeed = nomalSpeed;
-		isBoost = false;
-	}
+	//private IEnumerator BoostStart()
+	//{
+	//	isBoost = true;
+	//	// 부스트 왜 안되는지 확인하기 아마 맥스 값이 원인인 듯 왜 안되냐 
+	//	yield return new WaitForSeconds(2.5f);
+	//	for (float i = limtSpeed; i >= nomalSpeed; i -= 1.0f)
+	//	{
+	//		limtSpeed = i;
+	//		yield return new WaitForSeconds(0.05f);
+	//	}
+	//	limtSpeed = nomalSpeed;
+	//	isBoost = false;
+	//}
 
 
 	private void MoveVehicle()
@@ -261,13 +238,8 @@ public class Car : MonoBehaviour
 		}
 		else if (inputManager.gas < 0 && inputManager.gear < 7 && KPH < KPTLimit)
 		{
-			wheels.backLeft.brakeTorque = breakPower;
-			wheels.backRight.brakeTorque = breakPower;
-		}
-		if (inputManager.brake > 0)
-		{
-			wheels.backLeft.brakeTorque = breakPower;
-			wheels.backRight.brakeTorque = breakPower;
+			wheels.backLeft.brakeTorque = brakePower;
+			wheels.backRight.brakeTorque = brakePower;
 		}
 
 		if (inputManager.gear == 7 && inputManager.gas > 0 && KPH < KPTLimit)

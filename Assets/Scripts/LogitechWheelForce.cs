@@ -9,7 +9,7 @@ public class LogitechWheelForce : MonoBehaviour
         SetDamperForce(70);
     }
 
-    private void SetDamperForce(int percentage)
+    private static void SetDamperForce(int percentage)
     {
         LogitechGSDK.LogiPlayDamperForce(0, percentage);
     }

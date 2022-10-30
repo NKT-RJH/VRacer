@@ -19,8 +19,6 @@ public class UICanvas
 [RequireComponent(typeof(AudioSource))]
 public class Title : MonoBehaviour
 {
-	
-
 	public AudioClip BGM;
 	public AudioClip carStart;
 	public AudioClip click;

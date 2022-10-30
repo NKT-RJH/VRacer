@@ -7,6 +7,7 @@ TagManager:
   - projectile
   - FxTemporaire
   - CheckPoint
+  - ClearCount
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Water
   - UI
   - VRUI
-  - 
+  - Map
   - 
   - 
   - 

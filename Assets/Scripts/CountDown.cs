@@ -7,16 +7,25 @@ using TMPro;
 public class CountDown : MonoBehaviour
 {
 	public GameManager gameManager;
-    public TextMeshProUGUI countDownText;
+    public TextMeshProUGUI textPC;
+	public TextMeshProUGUI textVR;
+
+	public LockVRCamera lockVRCamera;
 
     public AudioClip beep;
 
-    public Transform cameraTransform;
+    public Transform cameraPCTransform;
+	public Transform cameraVRTransform;
+	public Transform cameraRigTransform;
     public Transform[] cameraPaths = new Transform[3];
+
+	public GameObject[] objectsToTurnOff;
 
     private AudioSource audioSource;
 
-    public bool countDownEnd;
+	private Vector3 cameraRigPath = new Vector3(-0.375f, 0, 0.11f);
+
+	public bool countDownEnd;
 
     private void Awake()
     {
@@ -31,31 +40,55 @@ public class CountDown : MonoBehaviour
 
     private IEnumerator CountDownStart()
     {
-        cameraTransform.localPosition = cameraPaths[2].position;
-        cameraTransform.localRotation = cameraPaths[2].rotation;
-        yield return new WaitForSeconds(1);
+		lockVRCamera.cameraLock = true;
 
-        countDownText.gameObject.SetActive(true);
+		for (int count = 0; count < objectsToTurnOff.Length; count++)
+		{
+			objectsToTurnOff[count].SetActive(false);
+		}
+
+        cameraPCTransform.localPosition = cameraPaths[2].position;
+        cameraPCTransform.localRotation = cameraPaths[2].rotation;
+		cameraRigTransform.localPosition = cameraPaths[2].position;
+		cameraVRTransform.localRotation = cameraPaths[2].rotation;
+		yield return new WaitForSeconds(1);
+
+        textPC.gameObject.SetActive(true);
+        textVR.gameObject.SetActive(true);
 
         for (int count = 3; count > 0; count--)
         {
             audioSource.Play();
-            cameraTransform.localPosition = cameraPaths[count - 1].position;
-            cameraTransform.localRotation = cameraPaths[count - 1].rotation;
-            countDownText.text = count.ToString();
+            cameraPCTransform.localPosition = cameraPaths[count - 1].position;
+            cameraPCTransform.localRotation = cameraPaths[count - 1].rotation;
+			cameraRigTransform.localPosition = cameraPaths[count - 1].position;
+			cameraVRTransform.localRotation = cameraPaths[count - 1].rotation;
+            textPC.text = count.ToString();
+            textVR.text = count.ToString();
             yield return new WaitForSeconds(1.5f);
         }
+
+		cameraRigTransform.position = cameraRigPath;
 
         audioSource.pitch = 2;
         audioSource.Play();
 
-        countDownText.text = "Go!";
+        textPC.text = "Go!";
+        textVR.text = "Go!";
         gameManager.gameStart = true;
 
         countDownEnd = true;
 
-        yield return new WaitForSeconds(1.2f);
+		lockVRCamera.cameraLock = false;
 
-        countDownText.gameObject.SetActive(false);
+		for (int count = 0; count < objectsToTurnOff.Length; count++)
+		{
+			objectsToTurnOff[count].SetActive(true);
+		}
+
+		yield return new WaitForSeconds(1.2f);
+
+        textPC.gameObject.SetActive(false);
+        textVR.gameObject.SetActive(false);
     }
 }

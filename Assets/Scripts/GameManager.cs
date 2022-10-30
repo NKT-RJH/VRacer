@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
 	public bool gameStart;
 
+	public bool isClear;
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))

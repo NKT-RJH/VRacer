@@ -67,6 +67,7 @@ public class InputManager : MonoBehaviour
 						if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, (LogitechKeyCode)count))
 						{
 							gear = count - 11;
+							isPressed = true;
 						}
 					}
 

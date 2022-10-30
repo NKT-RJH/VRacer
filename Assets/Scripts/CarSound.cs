@@ -12,8 +12,8 @@ public class CarSound : MonoBehaviour
 
 	public Sounds sounds;
 
-	private bool brakeFlag;
-	private bool driftFlag;
+	private float brakeTime;
+	private float driftTime;
 
 	private void Start()
 	{
@@ -24,36 +24,35 @@ public class CarSound : MonoBehaviour
 	{
 		if (!gameManager.gameStart) return;
 
-		//if (inputManager.drift)
-		//{
-		//	if (!driftFlag)
-		//	{
-		//		audioSource.Stop();
-		//		audioSource.PlayOneShot(sounds.brake);
-		//		AudioSetting(false, 1);
-		//		driftFlag = true;
-		//	}
-		//}
-		//else
-		//{
-		//	driftFlag = false;
-		//}
+		brakeTime -= Time.deltaTime;
 
-		//if (driftFlag) return;
-
-		if (inputManager.brake <= 0)
+		if (inputManager.drift && driftTime <= 0)
 		{
-			brakeFlag = false;
-		}
-		if (inputManager.brake > 0 && !brakeFlag)
-		{
-			audioSource.Stop();
-			audioSource.PlayOneShot(sounds.brake);
+			PlayAudioClip(sounds.drift);
 			AudioSetting(false, 1);
-			brakeFlag = true;
+			driftTime = sounds.drift.length;
+		}
+		else if (!inputManager.drift && driftTime > 0)
+		{
+			StopAudioClip(sounds.drift);
+			driftTime = 0;
 		}
 
-		if (brakeFlag) return;
+		if (driftTime > 0) return;
+
+		if (inputManager.brake > 0 && brakeTime <= 0)
+		{
+			PlayAudioClip(sounds.brake);
+			AudioSetting(false, 1);
+			brakeTime = sounds.brake.length;
+		}
+		else if (inputManager.brake <= 0 && brakeTime > 0)
+		{
+			StopAudioClip(sounds.brake);
+			brakeTime = 0;
+		}
+
+		if (brakeTime > 0) return;
 
 		if (car.KPH <= 6)
 		{
@@ -70,14 +69,6 @@ public class CarSound : MonoBehaviour
 			PlayAudioClip(sounds.idle);
 			AudioSetting(true, car.KPH / 150);
 		}
-		else
-		{
-			if (!brakeFlag)
-			{
-				StopAudioClip(sounds.idle);
-			}
-		}
-
 	}
 
 	private void PlayAudioClip(AudioClip audioClip)
