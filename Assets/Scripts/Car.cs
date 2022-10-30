@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -74,7 +73,7 @@ public class Car : MonoBehaviour
 		//if (audioSource.clip == null) return;
 		//if (audioSource.time >= audioSource.clip.length -0.5f)
 		//{
-			//audioSource.clip = null;
+		//audioSource.clip = null;
 		//}
 	}
 
@@ -194,37 +193,37 @@ public class Car : MonoBehaviour
 				break;
 		}
 
-		switch(inputManager.gear)
+		switch (inputManager.gear)
 		{
 			case 1:
 				KPTLimit = 100;
 				power = 7500;
 				break;
-            case 2:
-                KPTLimit = 120;
-                power = 8000;
-                break;
-            case 3:
-                KPTLimit = 140;
-                power = 8500;
-                break;
-            case 4:
-                KPTLimit = 160;
-                power = 9000;
-                break;
-            case 5:
-                KPTLimit = 180;
-                power = 9500;
-                break;
-            case 6:
-                KPTLimit = 200;
-                power = 10000;
-                break;
-            case 7:
-                KPTLimit = 30;
+			case 2:
+				KPTLimit = 120;
+				power = 8000;
+				break;
+			case 3:
+				KPTLimit = 140;
+				power = 8500;
+				break;
+			case 4:
+				KPTLimit = 160;
+				power = 9000;
+				break;
+			case 5:
+				KPTLimit = 180;
+				power = 9500;
+				break;
+			case 6:
+				KPTLimit = 200;
+				power = 10000;
+				break;
+			case 7:
+				KPTLimit = 30;
 				power = 7500;
-                break;
-        }
+				break;
+		}
 		wheels.frontLeft.motorTorque = inputManager.gas * (motorTorque / startSet);
 		wheels.frontRight.motorTorque = inputManager.gas * (motorTorque / startSet);
 		wheels.backLeft.motorTorque = inputManager.gas * (motorTorque / endSet);
@@ -254,21 +253,21 @@ public class Car : MonoBehaviour
 
 	private void SteerVehicle()
 	{
-			if (inputManager.horizontal > 0)
-			{
-				wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
-				wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
-			}
-			else if (inputManager.horizontal < 0)
-			{
-				wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
-				wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
-			}
-			else
-			{
-				wheels.frontLeft.steerAngle = 0;
-				wheels.frontRight.steerAngle = 0;
-			}
+		if (inputManager.horizontal > 0)
+		{
+			wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
+			wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
+		}
+		else if (inputManager.horizontal < 0)
+		{
+			wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
+			wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
+		}
+		else
+		{
+			wheels.frontLeft.steerAngle = 0;
+			wheels.frontRight.steerAngle = 0;
+		}
 	}
 
 	private void AnimateWheels()

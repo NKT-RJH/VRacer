@@ -1,17 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
 
 public class CameraSetting : MonoBehaviour
 {
-    public GameObject cameraPC;
-    public GameObject cameraRig;
-    public RectTransform canvasTransform;
+	public GameObject cameraPC;
+	public GameObject cameraRig;
+	public RectTransform canvasTransform;
 
 	private Vector3 cameraRigPosition = Vector3.zero;
 
-    public CountDown countDown;
+	public CountDown countDown;
 
 	private void Awake()
 	{
@@ -19,42 +17,42 @@ public class CameraSetting : MonoBehaviour
 	}
 
 	private void Start()
-    {
-        //ChangeCamera();
-        StartCoroutine(Wait());
-    }
+	{
+		//ChangeCamera();
+		StartCoroutine(Wait());
+	}
 
-    private IEnumerator Wait()
-    {
-        while (!countDown.countDownEnd)
-        {
-            yield return null;
-        }
-        cameraRig.transform.Find("Camera").transform.localPosition = Vector3.zero;
-        cameraRig.transform.Find("Camera").transform.localRotation = Quaternion.identity;
-        ChangeCamera();
-    }
+	private IEnumerator Wait()
+	{
+		while (!countDown.countDownEnd)
+		{
+			yield return null;
+		}
+		cameraRig.transform.Find("Camera").transform.localPosition = Vector3.zero;
+		cameraRig.transform.Find("Camera").transform.localRotation = Quaternion.identity;
+		ChangeCamera();
+	}
 
-    private void ChangeCamera()
-    {
-        if (PlayData.equipment == 1)
-        {
-            if (!cameraRig.activeSelf) return;
+	private void ChangeCamera()
+	{
+		if (PlayData.equipment == 1)
+		{
+			if (!cameraRig.activeSelf) return;
 
-            cameraRig.SetActive(false);
-            cameraPC.SetActive(true);
+			cameraRig.SetActive(false);
+			cameraPC.SetActive(true);
 			canvasTransform.SetParent(cameraPC.transform);
 			// 각도랑 위치 설정하기
 			canvasTransform.transform.localPosition = Vector3.zero;
-        }
-        else
-        {
-            if (!cameraPC.activeSelf) return;
+		}
+		else
+		{
+			if (!cameraPC.activeSelf) return;
 
-            cameraPC.SetActive(false);
-            cameraRig.SetActive(true);
+			cameraPC.SetActive(false);
+			cameraRig.SetActive(true);
 			canvasTransform.SetParent(cameraRig.transform.Find("Camera"));
 			canvasTransform.position = cameraRigPosition;
-        }
-    }
+		}
+	}
 }

@@ -1,52 +1,51 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LockVRCamera : MonoBehaviour
 {
-    [SerializeField] private Transform cameraTransform;
+	[SerializeField] private Transform cameraTransform;
 
-    [SerializeField] private Vector3 lockPosition;
-    [SerializeField] private Quaternion lockRotation;
+	[SerializeField] private Vector3 lockPosition;
+	[SerializeField] private Quaternion lockRotation;
 
-    public bool cameraLock = true;
+	public bool cameraLock = true;
 
-    private Camera camera;
+	private Camera camera;
 
-    private void Start()
-    {
-        camera = cameraTransform.GetComponent<Camera>();
+	private void Start()
+	{
+		camera = cameraTransform.GetComponent<Camera>();
 
-        StartCoroutine(Updating());
-    }
+		StartCoroutine(Updating());
+	}
 
-    private IEnumerator Updating()
-    {
-        while(true)
-        {
-            camera.fieldOfView = 60;
-            if (cameraLock)
-            {
-                Lock();
-            }
-            else
-            {
-                UnLock();
-            }
+	private IEnumerator Updating()
+	{
+		while (true)
+		{
+			camera.fieldOfView = 60;
+			if (cameraLock)
+			{
+				Lock();
+			}
+			else
+			{
+				UnLock();
+			}
 
-            yield return null;
-        }
-    }
+			yield return null;
+		}
+	}
 
-    public void Lock()
-    {
-        cameraTransform.localPosition = Vector3.zero;
-        cameraTransform.rotation = lockRotation;
-        cameraLock = true;
-    }
+	public void Lock()
+	{
+		cameraTransform.localPosition = Vector3.zero;
+		cameraTransform.rotation = lockRotation;
+		cameraLock = true;
+	}
 
-    public void UnLock()
-    {
-        cameraLock = false;
-    }
+	public void UnLock()
+	{
+		cameraLock = false;
+	}
 }

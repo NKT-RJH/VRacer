@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class LogitechInput
 {
 	static LogitechGSDK.DIJOYSTATE2ENGINES rec;
@@ -14,7 +10,7 @@ public class LogitechInput
 
 		switch (axisName)
 		{
-			case "Steering Horizontal": 
+			case "Steering Horizontal":
 				return rec.lX / 32760f;
 			case "Gas Vertical":
 				return rec.lY / -32760f;

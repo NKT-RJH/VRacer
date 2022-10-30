@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarSound : MonoBehaviour
 {
-	public GameManager gameManager;
+	private GameManager gameManager;
 
 	public AudioSource audioSource;
 	public InputManager inputManager;
@@ -15,10 +13,15 @@ public class CarSound : MonoBehaviour
 	private float brakeTime;
 	private float driftTime;
 
+	private void Awake()
+	{
+		gameManager = FindObjectOfType<GameManager>();
+	}
+
 	private void Start()
 	{
-        audioSource.PlayOneShot(sounds.carStart);
-    }
+		audioSource.PlayOneShot(sounds.carStart);
+	}
 
 	private void Update()
 	{

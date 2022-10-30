@@ -15,10 +15,17 @@ public class RotateByMouse : MonoBehaviour
     public GameManager gameManager;
     public InputManager inputManager;
 
-    private void FixedUpdate()
+	private void Start()
+	{
+		if (inputManager.inputCondition == InputCondition.Driving)
+		{
+			enabled = false;
+		}
+	}
+
+	private void FixedUpdate()
     {
         if (!gameManager.gameStart) return;
-        if (inputManager.inputCondition == InputCondition.Driving) return;
 
         x += speedX * Input.GetAxis("Mouse X") * speedX;
         y -= speedY * Input.GetAxis("Mouse Y") * speedY;

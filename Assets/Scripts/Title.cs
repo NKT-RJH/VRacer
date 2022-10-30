@@ -1,11 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Valve.VR;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 [System.Serializable]
 public class UICanvas
@@ -24,11 +20,10 @@ public class Title : MonoBehaviour
 	public AudioClip click;
 
 	[SerializeField] private UICanvas[] uiCanvas = new UICanvas[2];
-	//[SerializeField] private Transform 
 
 	private AudioSource audioSource;
 
-	private bool isStart;
+	private bool isInput;
 
 	private bool isPlayScreen;
 	private bool isCarScreen;
@@ -57,32 +52,33 @@ public class Title : MonoBehaviour
 
 		for (int count1 = 0; count1 < uiCanvas.Length; count1++)
 		{
-			for (float count = 1; count >= 0; count -= 1 / 255f)
+			for (float count = 1; count >= 0; count -= 2 / 255f)
 			{
 				uiCanvas[count1].fadeIn.color = new Color(uiCanvas[count1].fadeIn.color.r, uiCanvas[count1].fadeIn.color.g, uiCanvas[count1].fadeIn.color.b, count);
-				if (count < 0.75f)
-				{
-					uiCanvas[count1].fadeIn.gameObject.SetActive(false);
-				}
 				yield return null;
 			}
+		}
+
+		for (int count = 0; count < uiCanvas.Length; count++)
+		{
+			uiCanvas[count].fadeIn.gameObject.SetActive(false);
 		}
 
 		audioSource.clip = BGM;
 		audioSource.Play();
 
-		isStart = true;
+		isInput = true;
 	}
 	private IEnumerator Delay()
 	{
-		isStart = false;
+		isInput = false;
 		yield return new WaitForSeconds(0.3f);
-		isStart = true;
+		isInput = true;
 	}
 
 	private void Update()
 	{
-		if (!isStart) return;
+		if (!isInput) return;
 
 		if (!isPlayScreen)
 		{

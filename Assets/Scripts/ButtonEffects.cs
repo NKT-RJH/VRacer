@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(AudioSource))]
@@ -15,7 +14,7 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 	private Coroutine biggerCoroutine;
 	private Coroutine smallerCoroutine;
-	
+
 	private AudioSource audioSource;
 
 	private void Awake()
