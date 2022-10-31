@@ -30,7 +30,7 @@ public class Title : MonoBehaviour
 	private bool isEquipmentScreen;
 
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-	static void BeforeStart()
+	private static void BeforeStart()
 	{
 		QualitySettings.vSyncCount = 0;
 		Application.targetFrameRate = 120;
