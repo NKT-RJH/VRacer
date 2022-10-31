@@ -196,31 +196,31 @@ public class Car : MonoBehaviour
 		switch (inputManager.gear)
 		{
 			case 1:
-				KPTLimit = 100;
-				power = 7500;
+				KPTLimit = 30;
+				power = 3000;
 				break;
 			case 2:
-				KPTLimit = 120;
-				power = 8000;
+				KPTLimit = 50;
+				power = 4000;
 				break;
 			case 3:
-				KPTLimit = 140;
-				power = 8500;
+				KPTLimit = 80;
+				power = 6500;
 				break;
 			case 4:
-				KPTLimit = 160;
-				power = 9000;
+				KPTLimit = 110;
+				power = 9000;//속도 수치 조절
 				break;
 			case 5:
-				KPTLimit = 180;
+				KPTLimit = 140;
 				power = 9500;
 				break;
 			case 6:
-				KPTLimit = 200;
+				KPTLimit = 160;
 				power = 10000;
 				break;
 			case 7:
-				KPTLimit = 30;
+				KPTLimit = 10;
 				power = 7500;
 				break;
 		}
