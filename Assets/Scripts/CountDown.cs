@@ -67,7 +67,7 @@ public class CountDown : MonoBehaviour
 			yield return new WaitForSeconds(1.5f);
 		}
 
-		cameraRigTransform.position = cameraRigPath;
+		cameraRigTransform.localPosition = cameraRigPath;
 
 		audioSource.pitch = 2;
 		audioSource.Play();

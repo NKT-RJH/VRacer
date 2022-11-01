@@ -2489,6 +2489,7 @@ GameObject:
   - component: {fileID: 2441476870784704210}
   - component: {fileID: 2441476870784704209}
   - component: {fileID: 2441476870784704214}
+  - component: {fileID: 8838135933872519813}
   m_Layer: 0
   m_Name: RedCar
   m_TagString: Untagged
@@ -2691,7 +2692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb5dd989707acb4ba450907a074f1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   audioSource: {fileID: 2441476870784704209}
   inputManager: {fileID: 2441476870784704210}
   car: {fileID: 2441476870784704211}
@@ -2702,6 +2702,22 @@ MonoBehaviour:
     brake: {fileID: 8300000, guid: 6d6c96baad010594eb59eedfbceab2ca, type: 3}
     drift: {fileID: 8300000, guid: 987c4100f67540b4ca0f90dbd24abfb6, type: 3}
     boom: {fileID: 0}
+--- !u!114 &8838135933872519813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709828128293170383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99a45a8e99121340b9d58587ac7a3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPC: {fileID: 0}
+  cameraRig: {fileID: 0}
+  canvasTransform: {fileID: 0}
+  countDown: {fileID: 0}
 --- !u!1 &2056301516959773657
 GameObject:
   m_ObjectHideFlags: 0
