@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -28,7 +30,7 @@ public class Car : MonoBehaviour
 	private int motorTorque = 100;
 
 	public float KPH = 0;
-	private float KPTLimit = 150;
+	public float KPHLimit = 30;
 	private float power = 10000;
 	private float brakePower = 7000;
 	private float radius = 6;
@@ -42,9 +44,12 @@ public class Car : MonoBehaviour
 	private GameManager gameManager;
 	private InputManager inputManager;
 	private Rigidbody rigidBody;
+	private LogitechSteeringWheel logitechSteeringWheel;
 
 	private void Awake()
 	{
+		logitechSteeringWheel = FindObjectOfType<LogitechSteeringWheel>();
+
 		gameManager = FindObjectOfType<GameManager>();
 
 		if (!gameManager) enabled = false;
@@ -91,6 +96,11 @@ public class Car : MonoBehaviour
 		//Boost();
 	}
 
+	private void LogitechWheelForce()
+	{
+		//logitechSteeringWheel.SetDamperForce(45 * (100 - KPH/160))
+	}
+
 	private void Brake()
 	{
 		if (inputManager.clutch > 0) return;
@@ -113,7 +123,7 @@ public class Car : MonoBehaviour
 		if (inputManager.drift)
 		{
 			motorTorque = motorMin;
-			stiffness = 1.4f;
+			stiffness = 1.5f;
 		}
 		else
 		{
@@ -171,7 +181,7 @@ public class Car : MonoBehaviour
 
 	private void MoveVehicle()
 	{
-		if (inputManager.gear == 0) return;
+		//if (inputManager.gear == 0) return;
 		if (inputManager.clutch > 0) return;
 
 		int startSet = 0;
@@ -195,33 +205,37 @@ public class Car : MonoBehaviour
 
 		switch (inputManager.gear)
 		{
+			case 0:
+				KPHLimit = 0;
+				power = 0;
+				break;
 			case 1:
-				KPTLimit = 30;
+				KPHLimit = 30;
 				power = 3000;
 				break;
 			case 2:
-				KPTLimit = 50;
+				KPHLimit = 50;
 				power = 4000;
 				break;
 			case 3:
-				KPTLimit = 80;
+				KPHLimit = 80;
 				power = 6500;
 				break;
 			case 4:
-				KPTLimit = 110;
-				power = 9000;//속도 수치 조절
+				KPHLimit = 110;
+				power = 9000;
 				break;
 			case 5:
-				KPTLimit = 140;
-				power = 9500;
+				KPHLimit = 140;
+				power = 11500;
 				break;
 			case 6:
-				KPTLimit = 160;
-				power = 10000;
+				KPHLimit = 160;
+				power = 12500;
 				break;
 			case 7:
-				KPTLimit = 10;
-				power = 7500;
+				KPHLimit = 10;
+				power = 3000;
 				break;
 		}
 		wheels.frontLeft.motorTorque = inputManager.gas * (motorTorque / startSet);
@@ -229,26 +243,39 @@ public class Car : MonoBehaviour
 		wheels.backLeft.motorTorque = inputManager.gas * (motorTorque / endSet);
 		wheels.backRight.motorTorque = inputManager.gas * (motorTorque / endSet);
 
-		if (inputManager.gas > 0 && inputManager.gear < 7 && inputManager.brake < 0 && KPH < 150)
+		if (inputManager.gas > 0 && inputManager.gear > 0 && inputManager.gear < 7 && inputManager.brake < 0 && KPH < KPHLimit)
 		{
 			rigidBody.AddRelativeForce(power * inputManager.gas * Vector3.forward);
 			wheels.backLeft.brakeTorque = 0;
 			wheels.backRight.brakeTorque = 0;
 		}
-		else if (inputManager.gas < 0 && inputManager.gear < 7 && KPH < KPTLimit)
+		else if (inputManager.gear <=0 )
 		{
 			wheels.backLeft.brakeTorque = brakePower;
 			wheels.backRight.brakeTorque = brakePower;
 		}
 
-		if (inputManager.gear == 7 && inputManager.gas > 0 && KPH < KPTLimit)
+		if (inputManager.gear == 7 && inputManager.gas > 0 && KPH < KPHLimit)
 		{
 			rigidBody.AddRelativeForce(power * inputManager.gas * Vector3.back);
 			wheels.backLeft.brakeTorque = 0;
 			wheels.backRight.brakeTorque = 0;
 		}
-
+		
 		KPH = rigidBody.velocity.magnitude * 3.6f;
+
+		if (KPH > KPHLimit && KPH > 2)
+		{
+			if (inputManager.gear < 7)
+			{
+				// 더 천천히 줄이기
+				rigidBody.AddRelativeForce(15000 * Vector3.back);
+			}
+			else
+			{
+				rigidBody.AddRelativeForce(1000 * Vector3.forward);
+			}
+		}
 	}
 
 	private void SteerVehicle()
@@ -326,22 +353,27 @@ public class Car : MonoBehaviour
 
 	public void CheckPointTeleport()
 	{
-		//if (inputManager.inputCondition == InputCondition.KeyBoard)
-		//{
-		//	if (!Input.GetKeyDown(KeyCode.R)) return;
-		//}
-		//else if (inputManager.inputCondition == InputCondition.Driving)
-		//{
-		//	if (!inputManager.t) return;
-		//}
 		if (!inputManager.respawn) return;
 
 		rigidBody.velocity = Vector3.zero;
 		KPH = 0;
 		transform.position = checkPoint.position;
 		transform.rotation = checkPoint.rotation;
+		StartCoroutine(ResetLogitechWheel());
 	}
 
+	private IEnumerator ResetLogitechWheel()
+	{
+		LogitechGSDK.LogiPlaySpringForce(0, 0, 100, 100);
+
+		while (inputManager.horizontal > 0.05f || inputManager.horizontal < -0.05f)
+		{
+			yield return null;
+		}
+
+		LogitechGSDK.LogiStopSpringForce(0);
+	}
+	
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("CheckPoint"))

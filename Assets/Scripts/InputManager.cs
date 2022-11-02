@@ -8,11 +8,12 @@ public enum InputCondition
 
 public class InputManager : MonoBehaviour
 {
+	[Header("Values")]
 	public float gas;
 	public float clutch;
 	public float brake;
 	public float horizontal;
-	public int gear = 0;
+	public int gear;
 	public bool respawn;
 	public bool drift;
 
@@ -70,7 +71,7 @@ public class InputManager : MonoBehaviour
 							isPressed = true;
 						}
 					}
-
+					
 					gear = isPressed ? gear : 0;
 
 					//x = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);

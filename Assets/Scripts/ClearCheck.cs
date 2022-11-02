@@ -46,7 +46,7 @@ public class ClearCheck : MonoBehaviour
 		if (!other.CompareTag("CheckPoint")) return;
 
 		int number = int.Parse(other.gameObject.name);
-
+		print(number);
 		clears[number] = true;
 
 		if (number != 0) return;

@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class LogitechSteeringWheel : MonoBehaviour
 {
-    private void Start()
+	private float damperForce = 45;
+
+	public float DamperForce { get { return damperForce; } }
+
+	private void Start()
     {
         LogitechGSDK.LogiSteeringInitialize(false);
     }
@@ -15,20 +19,20 @@ public class LogitechSteeringWheel : MonoBehaviour
     private void Update()
     {
         if (!(LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))) return;
-        // FORCES AND EFFECTS 
-        //activeForces = "Active forces and effects :\n";
+		// FORCES AND EFFECTS 
+		//activeForces = "Active forces and effects :\n";
 
-        //Spring Force -> S
-        //if (Input.GetKeyUp(KeyCode.S))
-        //{
-        //    if (LogitechGSDK.LogiIsPlaying(0, LogitechGSDK.LOGI_FORCE_SPRING))
-        //    {
-        //        LogitechGSDK.LogiStopSpringForce(0);
-        //        activeForceAndEffect[0] = "";
-        //    }
-        //    else
-        //    {
-        LogitechGSDK.LogiPlaySpringForce(0, 0, 70, 60);
+		//Spring Force -> S
+		//if (Input.GetKeyUp(KeyCode.S))
+		//{
+		//    if (LogitechGSDK.LogiIsPlaying(0, LogitechGSDK.LOGI_FORCE_SPRING))
+		//    {
+		//        LogitechGSDK.LogiStopSpringForce(0);
+		//        activeForceAndEffect[0] = "";
+		//    }
+		//    else
+		//    {
+		LogitechGSDK.LogiPlayDamperForce(0, 45);
         //        activeForceAndEffect[0] = "Spring Force\n ";
         //    }
         //}
@@ -178,4 +182,9 @@ public class LogitechSteeringWheel : MonoBehaviour
         //    activeForces += activeForceAndEffect[i];
         //}
     }
+
+	public void SetDamperForce(float value)
+	{
+		damperForce = value;
+	}
 }
