@@ -16,6 +16,10 @@ public class InputManager : MonoBehaviour
 	public int gear;
 	public bool respawn;
 	public bool drift;
+	public bool cross;
+	public bool circle;
+	public bool square;
+	public bool triangle;
 
 	[Header("Input Condition")]
 	public InputCondition inputCondition;
@@ -74,10 +78,12 @@ public class InputManager : MonoBehaviour
 					
 					gear = isPressed ? gear : 0;
 
-					//x = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
+					cross = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
 					drift = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
-					//s = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
+					circle = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
+					square = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
 					respawn = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
+					triangle = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
 
 				}
 				break;

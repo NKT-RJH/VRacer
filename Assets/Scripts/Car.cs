@@ -181,7 +181,6 @@ public class Car : MonoBehaviour
 
 	private void MoveVehicle()
 	{
-		//if (inputManager.gear == 0) return;
 		if (inputManager.clutch > 0) return;
 
 		int startSet = 0;
@@ -268,8 +267,7 @@ public class Car : MonoBehaviour
 		{
 			if (inputManager.gear < 7)
 			{
-				// 더 천천히 줄이기
-				rigidBody.AddRelativeForce(15000 * Vector3.back);
+				rigidBody.AddRelativeForce(5000 * Vector3.back);
 			}
 			else
 			{
