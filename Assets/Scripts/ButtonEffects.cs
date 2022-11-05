@@ -2,13 +2,14 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
-public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+[RequireComponent(typeof(Button))]
+public class ButtonEffects : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-	public TextMeshProUGUI text;
-	public AudioClip drag;
-	public AudioClip click;
+	[SerializeField] private AudioClip drag;
+	[SerializeField] private AudioClip click;
 
 	private float maxFontSize;
 
@@ -16,42 +17,46 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	private Coroutine smallerCoroutine;
 
 	private AudioSource audioSource;
+	private TextMeshProUGUI textMeshProUGUI;
+
+	private const int addButtonFontSize = 50;
 
 	private void Awake()
 	{
 		audioSource = GetComponent<AudioSource>();
+		textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
 	}
 
 	private void Start()
 	{
-		maxFontSize = text.fontSize + 50;
-	}
-
-	public void OnClick()
-	{
-		audioSource.PlayOneShot(click);
+		maxFontSize = textMeshProUGUI.fontSize + addButtonFontSize;
 	}
 
 	private IEnumerator Bigger()
 	{
 		audioSource.PlayOneShot(drag);
 
-		float currentFontSize = text.fontSize;
+		float currentFontSize = textMeshProUGUI.fontSize;
 		for (float count = currentFontSize; count <= maxFontSize; count += 3)
 		{
-			text.fontSize = count;
+			textMeshProUGUI.fontSize = count;
 			yield return null;
 		}
 	}
 
 	private IEnumerator Smaller()
 	{
-		float currentFontSize = text.fontSize;
-		for (float count = currentFontSize; count >= maxFontSize - 50; count -= 5)
+		float currentFontSize = textMeshProUGUI.fontSize;
+		for (float count = currentFontSize; count >= maxFontSize - addButtonFontSize; count -= 5)
 		{
-			text.fontSize = count;
+			textMeshProUGUI.fontSize = count;
 			yield return null;
 		}
+	}
+
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		audioSource.PlayOneShot(click);
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)

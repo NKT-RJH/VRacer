@@ -22,6 +22,7 @@ public class Title : MonoBehaviour
 	[SerializeField] private UICanvas[] uiCanvas = new UICanvas[2];
 
 	private AudioSource audioSource;
+	private InputManager inputManager;
 
 	private bool isInput;
 
@@ -39,6 +40,7 @@ public class Title : MonoBehaviour
 	private void Awake()
 	{
 		audioSource = GetComponent<AudioSource>();
+		inputManager = FindObjectOfType<InputManager>();
 	}
 
 	private void Start()
@@ -82,12 +84,12 @@ public class Title : MonoBehaviour
 
 		if (!isPlayScreen)
 		{
-			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle))
+			if (inputManager.Circle)
 			{
 				GamePlay();
 				StartCoroutine(Delay());
 			}
-			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross))
+			if (inputManager.Cross)
 			{
 				Exit();
 			}
@@ -101,18 +103,18 @@ public class Title : MonoBehaviour
 			{
 				ExitGamePlay();
 			}
-			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross))
+			if (inputManager.Cross)
 			{
 				ExitGamePlay();
 				StartCoroutine(Delay());
 			}
-			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle))
+			if (inputManager.Triangle)
 			{
 				SetMap(0);
 				GameCarPlay();
 				StartCoroutine(Delay());
 			}
-			else if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle))
+			else if (inputManager.Circle)
 			{
 				//SetMap(1);
 				//GameCarPlay();
@@ -128,17 +130,17 @@ public class Title : MonoBehaviour
 			{
 				ExitEquipmentPlay();
 			}
-			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross))
+			if (inputManager.Cross)
 			{
 				ExitEquipmentPlay();
 				StartCoroutine(Delay());
 			}
-			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle))
+			if (inputManager.Triangle)
 			{
 				SetEquipment(0);
 				MoveScene();
 			}
-			else if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle))
+			else if (inputManager.Circle)
 			{
 				SetEquipment(1);
 				MoveScene();
@@ -150,18 +152,18 @@ public class Title : MonoBehaviour
 			{
 				ExitGameCarPlay();
 			}
-			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross))
+			if (inputManager.Cross)
 			{
 				ExitGameCarPlay();
 				StartCoroutine(Delay());
 			}
-			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle))
+			if (inputManager.Triangle)
 			{
 				SetCar(0);
 				GameEquipmentPlay();
 				StartCoroutine(Delay());
 			}
-			else if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle))
+			else if (inputManager.Circle)
 			{
 				//SetCar(1);
 				//GameEquipmentPlay();

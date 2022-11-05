@@ -10,11 +10,16 @@ public class RotateByMouse : MonoBehaviour
     private float x = 0;
     private float y = 0;
 
-    public GameManager gameManager;
-	
+    private CountDown countDown;
+
+	private void Awake()
+	{
+		countDown = FindObjectOfType<CountDown>();
+	}
+
 	private void FixedUpdate()
     {
-        if (!gameManager.gameStart) return;
+        if (!countDown.CountDownEnd) return;
 
         x += speedX * Input.GetAxis("Mouse X") * speedX;
         y -= speedY * Input.GetAxis("Mouse Y") * speedY;

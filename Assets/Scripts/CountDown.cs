@@ -5,26 +5,28 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class CountDown : MonoBehaviour
 {
-	public GameManager gameManager;
-	public TextMeshProUGUI textPC;
-	public TextMeshProUGUI textVR;
+	[Header("Cashing")]
+	[SerializeField] private TextMeshProUGUI[] texts;
 
-	public LockVRCamera lockVRCamera;
+	[SerializeField] private LockVRCamera lockVRCamera;
 
-	public AudioClip beep;
+	[SerializeField] private AudioClip beep;
 
-	public Transform cameraPCTransform;
-	public Transform cameraVRTransform;
-	public Transform cameraRigTransform;
-	public Transform[] cameraPaths = new Transform[3];
+	[SerializeField] private Transform cameraPCTransform;
+	[SerializeField] private Transform cameraVRTransform;
+	[SerializeField] private Transform cameraRigTransform;
+	[SerializeField] private Transform[] cameraPaths = new Transform[3];
 
-	public GameObject[] objectsToTurnOff;
+	[SerializeField] private GameObject[] objectsToTurnOff;
 
+	[Header("Value")]
+	[SerializeField] private Vector3 cameraRigPath = new Vector3(-0.375f, 0, 0.11f);
+	
 	private AudioSource audioSource;
 
-	private Vector3 cameraRigPath = new Vector3(-0.375f, 0, 0.11f);
+	private bool countDownEnd;
 
-	public bool countDownEnd;
+	public bool CountDownEnd { get { return countDownEnd; } }
 
 	private void Awake()
 	{
@@ -34,12 +36,13 @@ public class CountDown : MonoBehaviour
 	private void Start()
 	{
 		audioSource.clip = beep;
+
 		StartCoroutine(CountDownStart());
 	}
 
 	private IEnumerator CountDownStart()
 	{
-		lockVRCamera.cameraLock = true;
+		lockVRCamera.Lock();
 
 		for (int count = 0; count < objectsToTurnOff.Length; count++)
 		{
@@ -52,18 +55,22 @@ public class CountDown : MonoBehaviour
 		cameraVRTransform.localRotation = cameraPaths[2].rotation;
 		yield return new WaitForSeconds(1);
 
-		textPC.gameObject.SetActive(true);
-		textVR.gameObject.SetActive(true);
+		for (int count = 0; count < texts.Length; count++)
+		{
+			texts[count].gameObject.SetActive(true);
+		}
 
-		for (int count = 3; count > 0; count--)
+		for (int count1 = 3; count1 > 0; count1--)
 		{
 			audioSource.Play();
-			cameraPCTransform.localPosition = cameraPaths[count - 1].position;
-			cameraPCTransform.localRotation = cameraPaths[count - 1].rotation;
-			cameraRigTransform.localPosition = cameraPaths[count - 1].position;
-			cameraVRTransform.localRotation = cameraPaths[count - 1].rotation;
-			textPC.text = count.ToString();
-			textVR.text = count.ToString();
+			cameraPCTransform.localPosition = cameraPaths[count1 - 1].position;
+			cameraPCTransform.localRotation = cameraPaths[count1 - 1].rotation;
+			cameraRigTransform.localPosition = cameraPaths[count1 - 1].position;
+			cameraVRTransform.localRotation = cameraPaths[count1 - 1].rotation;
+			for (int count2 = 0; count2 < texts.Length; count2++)
+			{
+				texts[count2].text = count2.ToString();
+			}
 			yield return new WaitForSeconds(1.5f);
 		}
 
@@ -72,13 +79,14 @@ public class CountDown : MonoBehaviour
 		audioSource.pitch = 2;
 		audioSource.Play();
 
-		textPC.text = "Go!";
-		textVR.text = "Go!";
-		gameManager.gameStart = true;
+		for (int count = 0; count < texts.Length; count++)
+		{
+			texts[count].text = "Go!";
+		}
 
 		countDownEnd = true;
 
-		lockVRCamera.cameraLock = false;
+		lockVRCamera.UnLock();
 
 		for (int count = 0; count < objectsToTurnOff.Length; count++)
 		{
@@ -87,7 +95,9 @@ public class CountDown : MonoBehaviour
 
 		yield return new WaitForSeconds(1.2f);
 
-		textPC.gameObject.SetActive(false);
-		textVR.gameObject.SetActive(false);
+		for (int count = 0; count < texts.Length; count++)
+		{
+			texts[count].gameObject.SetActive(false);
+		}
 	}
 }

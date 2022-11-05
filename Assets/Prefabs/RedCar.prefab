@@ -563,7 +563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedText: {fileID: 769764659564003466}
-  car: {fileID: 2441476870784704211}
 --- !u!1 &769764659609588283
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,7 +815,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedText: {fileID: 769764659752224697}
-  car: {fileID: 2441476870784704211}
 --- !u!1 &769764659808690552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,8 +1195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae73cb2c1192e044990a8403a6905f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 769764660191305730}
-  gameManager: {fileID: 0}
+  text: {fileID: 0}
+  countDown: {fileID: 0}
 --- !u!1 &769764660358370058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,8 +1469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae73cb2c1192e044990a8403a6905f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 769764660410282018}
-  gameManager: {fileID: 0}
+  text: {fileID: 0}
+  countDown: {fileID: 0}
 --- !u!1 &769764660480102265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,9 +1957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedX: 40
   speedY: 20
-  turnSpeed: 70
-  gameManager: {fileID: 0}
-  inputManager: {fileID: 2441476870784704210}
+  countDown: {fileID: 0}
 --- !u!1 &773865768706510128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,10 +2482,10 @@ GameObject:
   - component: {fileID: 2441476870784704220}
   - component: {fileID: 2441476870784704221}
   - component: {fileID: 2441476870784704211}
-  - component: {fileID: 2441476870784704210}
   - component: {fileID: 2441476870784704209}
   - component: {fileID: 2441476870784704214}
   - component: {fileID: 8838135933872519813}
+  - component: {fileID: 5704915772265041275}
   m_Layer: 0
   m_Name: RedCar
   m_TagString: Untagged
@@ -2562,28 +2558,6 @@ MonoBehaviour:
     frontRight: {fileID: 6882824975710212867}
     backLeft: {fileID: 6412020971525090705}
     backRight: {fileID: 3985085066821756022}
-  idle: {fileID: 8300000, guid: f19203f0923d08f4287c644a1b55d205, type: 3}
-  KPH: 0
---- !u!114 &2441476870784704210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709828128293170383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 280a14d39df26974a9a386d5654ed6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gas: 0
-  clutch: 0
-  brake: 0
-  horizontal: 0
-  gear: 0
-  respawn: 0
-  drift: 0
-  inputCondition: 0
 --- !u!82 &2441476870784704209
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2692,8 +2666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb5dd989707acb4ba450907a074f1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 2441476870784704209}
-  inputManager: {fileID: 2441476870784704210}
   car: {fileID: 2441476870784704211}
   sounds:
     carStart: {fileID: 8300000, guid: 99077207653a74846877ef5dc69cc8f0, type: 3}
@@ -2716,8 +2688,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraPC: {fileID: 0}
   cameraRig: {fileID: 0}
-  canvasTransform: {fileID: 0}
-  countDown: {fileID: 0}
+--- !u!114 &5704915772265041275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709828128293170383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5e87155b9936143a795ca8d9640666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClear: 0
 --- !u!1 &2056301516959773657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5138,8 +5121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7567377178661357947}
-  - component: {fileID: 7567377178663825957}
-  - component: {fileID: 7567377178664891297}
   - component: {fileID: 7567377178655664833}
   m_Layer: 0
   m_Name: '[CameraRig]'
@@ -5164,56 +5145,6 @@ Transform:
   m_Father: {fileID: 2441476870784704220}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &7567377178663825957
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7567377178661640323}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &7567377178664891297
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7567377178661640323}
-  m_Mesh: {fileID: 0}
 --- !u!114 &7567377178655664833
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,21 +1,24 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class CarSound : MonoBehaviour
 {
-	private GameManager gameManager;
-
-	public AudioSource audioSource;
-	public InputManager inputManager;
-	public Car car;
-
-	public Sounds sounds;
+	[Header("Cashing")]
+	[SerializeField] private Car car;
+	[SerializeField] private Sounds sounds;
+	
+	private InputManager inputManager;
+	private CountDown countDown;
+	private AudioSource audioSource;
 
 	private float brakeTime;
 	private float driftTime;
 
 	private void Awake()
 	{
-		gameManager = FindObjectOfType<GameManager>();
+		inputManager = FindObjectOfType<InputManager>();
+		countDown = FindObjectOfType<CountDown>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Start()
@@ -25,17 +28,17 @@ public class CarSound : MonoBehaviour
 
 	private void Update()
 	{
-		if (!gameManager.gameStart) return;
+		if (!countDown.CountDownEnd) return;
 
 		brakeTime -= Time.deltaTime;
 
-		if (inputManager.drift && driftTime <= 0)
+		if (inputManager.Drift && driftTime <= 0)
 		{
 			PlayAudioClip(sounds.drift);
 			AudioSetting(false, 1);
 			driftTime = sounds.drift.length;
 		}
-		else if (!inputManager.drift && driftTime > 0)
+		else if (!inputManager.Drift && driftTime > 0)
 		{
 			StopAudioClip(sounds.drift);
 			driftTime = 0;
@@ -43,13 +46,13 @@ public class CarSound : MonoBehaviour
 
 		if (driftTime > 0) return;
 
-		if (inputManager.brake > 0 && brakeTime <= 0)
+		if (inputManager.Brake > 0 && brakeTime <= 0)
 		{
 			PlayAudioClip(sounds.brake);
 			AudioSetting(false, 1);
 			brakeTime = sounds.brake.length;
 		}
-		else if (inputManager.brake <= 0 && brakeTime > 0)
+		else if (inputManager.Brake <= 0 && brakeTime > 0)
 		{
 			StopAudioClip(sounds.brake);
 			brakeTime = 0;
@@ -80,15 +83,14 @@ public class CarSound : MonoBehaviour
 		{
 			audioSource.clip = audioClip;
 			audioSource.Play();
+			return;
 		}
-		else
+
+		if (!audioSource.clip.Equals(audioClip))
 		{
-			if (!audioSource.clip.Equals(audioClip))
-			{
-				audioSource.Stop();
-				audioSource.clip = audioClip;
-				audioSource.Play();
-			}
+			audioSource.Stop();
+			audioSource.clip = audioClip;
+			audioSource.Play();
 		}
 	}
 
@@ -104,6 +106,7 @@ public class CarSound : MonoBehaviour
 	private void StopAudioClip(AudioClip audioClip)
 	{
 		if (audioSource.clip != audioClip) return;
+
 		audioSource.Stop();
 		audioSource.clip = null;
 	}

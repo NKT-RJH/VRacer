@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public bool gameStart;
-
 	public bool isClear;
 
 	private void Update()

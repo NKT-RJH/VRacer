@@ -11,7 +11,7 @@ using Valve.VR;
 
 namespace Valve.VR
 {
-    [ExecuteInEditMode, RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
+    [ExecuteInEditMode]
     public class SteamVR_PlayArea : MonoBehaviour
     {
         public float borderThickness = 0.15f;
@@ -157,20 +157,6 @@ namespace Valve.VR
             new Color(color.r, color.g, color.b, 0.0f),
             new Color(color.r, color.g, color.b, 0.0f)
             };
-
-            var mesh = new Mesh();
-            GetComponent<MeshFilter>().mesh = mesh;
-            mesh.vertices = vertices;
-            mesh.uv = uv;
-            mesh.colors = colors;
-            mesh.triangles = triangles;
-
-            var renderer = GetComponent<MeshRenderer>();
-            renderer.material = new Material(Shader.Find("Sprites/Default"));
-            renderer.reflectionProbeUsage = UnityEngine.Rendering.ReflectionProbeUsage.Off;
-            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-            renderer.receiveShadows = false;
-            renderer.lightProbeUsage = LightProbeUsage.Off;
         }
 
 #if UNITY_EDITOR
@@ -183,7 +169,7 @@ namespace Valve.VR
 
                 bool rebuild = false;
 
-                if (values == null || (borderThickness != 0.0f && GetComponent<MeshFilter>().sharedMesh == null))
+                if (values == null || (borderThickness != 0.0f))
                 {
                     rebuild = true;
                 }
@@ -246,9 +232,7 @@ namespace Valve.VR
         public void OnEnable()
         {
             if (Application.isPlaying)
-            {
-                GetComponent<MeshRenderer>().enabled = drawInGame;
-
+			{
                 // No need to remain enabled at runtime.
                 // Anyone that wants to change properties at runtime
                 // should call BuildMesh themselves.

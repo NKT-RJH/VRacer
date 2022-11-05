@@ -13,8 +13,8 @@ public class GearUI : MonoBehaviour
 			gearUI[count].SetActive(false);
 		}
 
-		if (inputManager.gear <= 0) return;
+		if (inputManager.Gear <= 0) return;
 
-		gearUI[inputManager.gear - 1].SetActive(true);
+		gearUI[inputManager.Gear - 1].SetActive(true);
 	}
 }

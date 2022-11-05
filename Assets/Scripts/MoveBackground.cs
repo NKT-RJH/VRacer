@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class MoveBackground : MonoBehaviour
 {
-	public float maxZposition;
-	public float returnZPosition;
+	[SerializeField] private float maxZposition;
+	[SerializeField] private float returnZPosition;
 
-	public Transform[] wheelsTransform = new Transform[4];
+	[SerializeField] private Transform[] wheelsTransform = new Transform[4];
 
-	public Transform wallTransform;
+	[SerializeField] private Transform wallTransform;
 
 	private float countTime;
 
@@ -24,7 +24,7 @@ public class MoveBackground : MonoBehaviour
 
 		for (int count = 0; count < wheelsTransform.Length; count++)
 		{
-			wheelsTransform[count].rotation = Quaternion.Euler(Vector3.right * countTime * 1000);
+			wheelsTransform[count].rotation = Quaternion.Euler(1000 * countTime * Vector3.right);
 		}
 
 		wallTransform.position += Vector3.back * 20 * Time.deltaTime;

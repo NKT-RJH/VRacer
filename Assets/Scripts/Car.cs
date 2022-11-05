@@ -1,9 +1,7 @@
 using System.Collections;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(InputManager))]
 public class Car : MonoBehaviour
 {
 	public enum DriveType
@@ -13,35 +11,32 @@ public class Car : MonoBehaviour
 		AllWheelDrive
 	}
 
-	public DriveType driveType;
+	[SerializeField] private DriveType driveType;
 
 	[Header("Variables")]
-	public float nomalSpeed;
-	public float boostSpeed;
-	public Transform handle;
-	public Wheels wheels;
-	public WheelMeshs wheelPaths;
-
-	[Header("Sounds")]
-	public AudioClip idle;
+	[SerializeField] private float nomalSpeed;
+	[SerializeField] private float boostSpeed;
+	[SerializeField] private Transform handle;
+	[SerializeField] private Wheels wheels;
+	[SerializeField] private WheelMeshs wheelPaths;
 
 	private int motorMax;
 	private int motorMin;
 	private int motorTorque = 100;
 
-	public float KPH = 0;
-	public float KPHLimit = 30;
+	private float kph;
+	private float kphLimit;
 	private float power = 10000;
-	private float brakePower = 7000;
-	private float radius = 6;
-	private float downForceValue = 50;
+	private const float brakePower = 20000;
+	private const float radius = 6;
+	private const float downForceValue = 50;
 	private float limtSpeed;
 
-	//private bool isBoost = false;
-	//private bool boostFlag = false;
+	public float KPH { get { return kph; } }
+	public float KPHLimit { get { return kphLimit; } }
 
 	private Transform checkPoint;
-	private GameManager gameManager;
+	private CountDown countDown;
 	private InputManager inputManager;
 	private Rigidbody rigidBody;
 	private LogitechSteeringWheel logitechSteeringWheel;
@@ -49,14 +44,13 @@ public class Car : MonoBehaviour
 	private void Awake()
 	{
 		logitechSteeringWheel = FindObjectOfType<LogitechSteeringWheel>();
-
-		gameManager = FindObjectOfType<GameManager>();
-
-		if (!gameManager) enabled = false;
-
-		inputManager = GetComponent<InputManager>();
+		countDown = FindObjectOfType<CountDown>();
+		inputManager = FindObjectOfType<InputManager>();
 		rigidBody = GetComponent<Rigidbody>();
+	}
 
+	private void Start()
+	{
 		rigidBody.centerOfMass = transform.Find("Mass").localPosition;
 
 		motorMax = motorTorque;
@@ -64,36 +58,29 @@ public class Car : MonoBehaviour
 		limtSpeed = nomalSpeed;
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
-		if (!gameManager.gameStart) return;
+		if (!countDown.CountDownEnd) return;
+
+		LogitechWheelForce();
 
 		CheckPointTeleport();
 
-		//if (Input.GetKeyDown(KeyCode.Space))
-		//{
-		//	boostFlag = true;
-		//}
 		Drift();
-		//if (audioSource.clip == null) return;
-		//if (audioSource.time >= audioSource.clip.length -0.5f)
-		//{
-		//audioSource.clip = null;
-		//}
-	}
-
-	private void FixedUpdate()
-	{
-		if (!gameManager.gameStart) return;
 
 		Brake();
+
 		AddDownForce();
+
 		AnimateHandle();
+
 		AnimateWheels();
+
 		MoveVehicle();
+
 		SteerVehicle();
+
 		LimitMoveSpeed();
-		//Boost();
 	}
 
 	private void LogitechWheelForce()
@@ -103,9 +90,9 @@ public class Car : MonoBehaviour
 
 	private void Brake()
 	{
-		if (inputManager.clutch > 0) return;
+		if (inputManager.Clutch > 0) return;
 
-		if (inputManager.brake <= 0) return;
+		if (inputManager.Brake <= 0) return;
 
 		if (KPH < 10) return;
 
@@ -116,11 +103,11 @@ public class Car : MonoBehaviour
 
 	private void Drift()
 	{
-		if (inputManager.clutch > 0) return;
+		if (inputManager.Clutch > 0) return;
 
-		float stiffness = 0;
+		float stiffness;
 
-		if (inputManager.drift)
+		if (inputManager.Drift)
 		{
 			motorTorque = motorMin;
 			stiffness = 1.5f;
@@ -150,38 +137,9 @@ public class Car : MonoBehaviour
 		wheels.backRight.sidewaysFriction = wheelFrictionCurve;
 	}
 
-	//private void Boost()
-	//{
-	//	if (boostFlag)
-	//	{
-	//		boostFlag = false;
-	//		if (!isBoost)
-	//		{
-	//			limtSpeed = boostSpeed;
-	//			rigidBody.AddRelativeForce(Vector3.forward * 40000);
-	//			StartCoroutine(BoostStart());
-	//		}
-	//	}
-	//}
-
-	//private IEnumerator BoostStart()
-	//{
-	//	isBoost = true;
-	//	// 부스트 왜 안되는지 확인하기 아마 맥스 값이 원인인 듯 왜 안되냐 
-	//	yield return new WaitForSeconds(2.5f);
-	//	for (float i = limtSpeed; i >= nomalSpeed; i -= 1.0f)
-	//	{
-	//		limtSpeed = i;
-	//		yield return new WaitForSeconds(0.05f);
-	//	}
-	//	limtSpeed = nomalSpeed;
-	//	isBoost = false;
-	//}
-
-
 	private void MoveVehicle()
 	{
-		if (inputManager.clutch > 0) return;
+		if (inputManager.Clutch > 0) return;
 
 		int startSet = 0;
 		int endSet = 0;
@@ -201,71 +159,71 @@ public class Car : MonoBehaviour
 				endSet = 2;
 				break;
 		}
-
-		switch (inputManager.gear)
+		// 낮은 기어일수록 시작 속도가 빨라야함
+		switch (inputManager.Gear)
 		{
 			case 0:
-				KPHLimit = 0;
+				kphLimit = 0;
 				power = 0;
 				break;
 			case 1:
-				KPHLimit = 30;
+				kphLimit = 30;
 				power = 3000;
 				break;
 			case 2:
-				KPHLimit = 50;
+				kphLimit = 50;
 				power = 4000;
 				break;
 			case 3:
-				KPHLimit = 80;
+				kphLimit = 80;
 				power = 6500;
 				break;
 			case 4:
-				KPHLimit = 110;
+				kphLimit = 110;
 				power = 9000;
 				break;
 			case 5:
-				KPHLimit = 140;
+				kphLimit = 140;
 				power = 11500;
 				break;
 			case 6:
-				KPHLimit = 160;
+				kphLimit = 160;
 				power = 12500;
 				break;
 			case 7:
-				KPHLimit = 10;
+				kphLimit = 10;
 				power = 3000;
 				break;
 		}
-		wheels.frontLeft.motorTorque = inputManager.gas * (motorTorque / startSet);
-		wheels.frontRight.motorTorque = inputManager.gas * (motorTorque / startSet);
-		wheels.backLeft.motorTorque = inputManager.gas * (motorTorque / endSet);
-		wheels.backRight.motorTorque = inputManager.gas * (motorTorque / endSet);
+		wheels.frontLeft.motorTorque = inputManager.Gas * (motorTorque / startSet);
+		wheels.frontRight.motorTorque = inputManager.Gas * (motorTorque / startSet);
+		wheels.backLeft.motorTorque = inputManager.Gas * (motorTorque / endSet);
+		wheels.backRight.motorTorque = inputManager.Gas * (motorTorque / endSet);
 
-		if (inputManager.gas > 0 && inputManager.gear > 0 && inputManager.gear < 7 && inputManager.brake < 0 && KPH < KPHLimit)
+		if (inputManager.Gas > 0 && inputManager.Gear > 0 && inputManager.Gear < 7 && inputManager.Brake < 0 && KPH < KPHLimit)
 		{
-			rigidBody.AddRelativeForce(power * inputManager.gas * Vector3.forward);
+			rigidBody.AddRelativeForce(power * inputManager.Gas * Vector3.forward);
 			wheels.backLeft.brakeTorque = 0;
 			wheels.backRight.brakeTorque = 0;
 		}
-		else if (inputManager.gear <=0 )
+		else if (inputManager.Gear <= 0)
 		{
 			wheels.backLeft.brakeTorque = brakePower;
 			wheels.backRight.brakeTorque = brakePower;
 		}
 
-		if (inputManager.gear == 7 && inputManager.gas > 0 && KPH < KPHLimit)
+		if (inputManager.Gear == 7 && inputManager.Gas > 0 && KPH < KPHLimit)
 		{
-			rigidBody.AddRelativeForce(power * inputManager.gas * Vector3.back);
+			rigidBody.AddRelativeForce(power * inputManager.Gas * Vector3.back);
 			wheels.backLeft.brakeTorque = 0;
 			wheels.backRight.brakeTorque = 0;
 		}
 		
-		KPH = rigidBody.velocity.magnitude * 3.6f;
+		kph = rigidBody.velocity.magnitude * 3.6f;
 
-		if (KPH > KPHLimit && KPH > 2)
+		if (kph > kphLimit && kph > 2)
 		{
-			if (inputManager.gear < 7)
+			if (inputManager.Gear < 7)
 			{
 				rigidBody.AddRelativeForce(5000 * Vector3.back);
 			}
@@ -278,15 +236,12 @@ public class Car : MonoBehaviour
 
 	private void SteerVehicle()
 	{
-		if (inputManager.horizontal > 0)
+		if (inputManager.Horizontal != 0)
 		{
-			wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
-			wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
-		}
-		else if (inputManager.horizontal < 0)
-		{
-			wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2))) * inputManager.horizontal;
-			wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * inputManager.horizontal;
+			int symbol = inputManager.Horizontal > 0 ? 1 : -1;
+
+			wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2) * symbol)) * inputManager.Horizontal;
+			wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2) * symbol)) * inputManager.Horizontal;
 		}
 		else
 		{
@@ -316,7 +271,7 @@ public class Car : MonoBehaviour
 
 	private void AnimateHandle()
 	{
-		Vector3 path = 450 * -inputManager.horizontal * Vector3.forward;
+		Vector3 path = 450 * -inputManager.Horizontal * Vector3.forward;
 
 		if (path == Vector3.zero) return;
 
@@ -325,7 +280,7 @@ public class Car : MonoBehaviour
 
 	private void AddDownForce()
 	{
-		rigidBody.AddForce(-transform.up * downForceValue * rigidBody.velocity.magnitude);
+		rigidBody.AddForce(downForceValue * rigidBody.velocity.magnitude * -transform.up);
 	}
 
 	private void LimitMoveSpeed()
@@ -351,12 +306,14 @@ public class Car : MonoBehaviour
 
 	public void CheckPointTeleport()
 	{
-		if (!inputManager.respawn) return;
+		if (!inputManager.Respawn) return;
 
 		rigidBody.velocity = Vector3.zero;
-		KPH = 0;
-		transform.position = checkPoint.position;
-		transform.rotation = checkPoint.rotation;
+
+		kph = 0;
+		
+		transform.SetPositionAndRotation(checkPoint.position, checkPoint.rotation);
+
 		StartCoroutine(ResetLogitechWheel());
 	}
 
@@ -364,7 +321,7 @@ public class Car : MonoBehaviour
 	{
 		LogitechGSDK.LogiPlaySpringForce(0, 0, 100, 100);
 
-		while (inputManager.horizontal > 0.05f || inputManager.horizontal < -0.05f)
+		while (inputManager.Horizontal > 0.05f || inputManager.Horizontal < -0.05f)
 		{
 			yield return null;
 		}
@@ -379,22 +336,4 @@ public class Car : MonoBehaviour
 			checkPoint = other.transform;
 		}
 	}
-}
-
-[System.Serializable]
-public class Wheels
-{
-	public WheelCollider frontLeft;
-	public WheelCollider frontRight;
-	public WheelCollider backLeft;
-	public WheelCollider backRight;
-}
-
-[System.Serializable]
-public class WheelMeshs
-{
-	public Transform frontLeft;
-	public Transform frontRight;
-	public Transform backLeft;
-	public Transform backRight;
 }

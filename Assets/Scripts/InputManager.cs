@@ -1,92 +1,78 @@
 using UnityEngine;
 
-public enum InputCondition
+public class InputManager : DontDestroyOnLoad<InputManager>
 {
-	KeyBoard = 0,
-	Driving = 1
-}
+	private float gas;
+	private float clutch;
+	private float brake;
+	private float horizontal;
+	private int gear;
+	private bool respawn;
+	private bool drift;
+	private bool cross;
+	private bool circle;
+	private bool square;
+	private bool triangle;
 
-public class InputManager : MonoBehaviour
-{
-	[Header("Values")]
-	public float gas;
-	public float clutch;
-	public float brake;
-	public float horizontal;
-	public int gear;
-	public bool respawn;
-	public bool drift;
-	public bool cross;
-	public bool circle;
-	public bool square;
-	public bool triangle;
-
-	[Header("Input Condition")]
-	public InputCondition inputCondition;
+	public float Gas { get { return gas; } }
+	public float Clutch { get { return clutch; } }
+	public float Brake { get { return brake; } }
+	public float Horizontal { get { return horizontal; } }
+	public int Gear { get { return gear; } }
+	public bool Respawn { get { return respawn; } }
+	public bool Drift { get { return drift; } }
+	public bool Cross { get { return cross; } }
+	public bool Circle { get { return circle; } }
+	public bool Square { get { return square; } }
+	public bool Triangle { get { return triangle; } }
 
 	private void Update()
 	{
-		if (!LogitechGSDK.LogiIsConnected(0))
+		gas = Input.GetAxis("Vertical");
+		horizontal = Input.GetAxis("Horizontal");
+		brake = Input.GetKey(KeyCode.S) ? 1 : -1;
+		clutch = Input.GetKey(KeyCode.F) ? 1 : -1;
+		drift = Input.GetKey(KeyCode.LeftShift);
+		respawn = Input.GetKeyDown(KeyCode.Space);
+		if (Input.GetKeyDown(KeyCode.E))
 		{
-			inputCondition = InputCondition.KeyBoard;
+			gear++;
+			if (gear > 7)
+			{
+				gear = 1;
+			}
 		}
-		else
+		else if (Input.GetKeyDown(KeyCode.Q))
 		{
-			inputCondition = InputCondition.Driving;
+			gear = 1;
 		}
 
-		switch (inputCondition)
+		if (!(LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected((int)LogitechKeyCode.FirstIndex))) return;
+
+		horizontal = LogitechInput.GetAxis("Steering Horizontal");
+		gas = LogitechInput.GetAxis("Gas Vertical");
+		brake = LogitechInput.GetAxis("Brake Vertical");
+		clutch = LogitechInput.GetAxis("Clutch Vertical");
+
+		bool isPressed = false;
+
+		for (int count = 12; count < 19; count++)
 		{
-			case InputCondition.KeyBoard:
-				gas = Input.GetAxis("Vertical");
-				horizontal = Input.GetAxis("Horizontal");
-				brake = Input.GetKey(KeyCode.S) ? 1 : -1;
-				clutch = Input.GetKey(KeyCode.F) ? 1 : -1;
-				drift = Input.GetKey(KeyCode.LeftShift);
-				respawn = Input.GetKeyDown(KeyCode.Space);
-				if (Input.GetKeyDown(KeyCode.E))
-				{
-					gear++;
-					if (gear > 7)
-					{
-						gear = 1;
-					}
-				}
-				else if (Input.GetKeyDown(KeyCode.Q))
-				{
-					gear = 1;
-				}
-				break;
-			case InputCondition.Driving:
-				if (LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected((int)LogitechKeyCode.FirstIndex))
-				{
-					horizontal = LogitechInput.GetAxis("Steering Horizontal");
-					gas = LogitechInput.GetAxis("Gas Vertical");
-					brake = LogitechInput.GetAxis("Brake Vertical");
-					clutch = LogitechInput.GetAxis("Clutch Vertical");
-
-					bool isPressed = false;
-
-					for (int count = 12; count < 19; count++)
-					{
-						if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, (LogitechKeyCode)count))
-						{
-							gear = count - 11;
-							isPressed = true;
-						}
-					}
-					
-					gear = isPressed ? gear : 0;
-
-					cross = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
-					drift = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
-					circle = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
-					square = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
-					respawn = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
-					triangle = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
-
-				}
-				break;
+			if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, (LogitechKeyCode)count))
+			{
+				gear = count - 11;
+				isPressed = true;
+			}
 		}
+
+		gear = isPressed ? gear : 0;
+
+		cross = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
+		drift = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
+		circle = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
+		square = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
+		respawn = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
+		triangle = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
 	}
+
 }

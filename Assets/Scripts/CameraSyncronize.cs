@@ -15,13 +15,6 @@ public class CameraSyncronize : MonoBehaviour
 
 	private void Update()
 	{
-		switch (inputManager.inputCondition)
-		{
-			case InputCondition.Driving:
-				
-				break;
-			case InputCondition.KeyBoard:
-				break;
-		}
+		// 카메라 위치 서로 동기화하기
 	}
 }

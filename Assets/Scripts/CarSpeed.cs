@@ -3,10 +3,17 @@ using UnityEngine;
 
 public class CarSpeed : MonoBehaviour
 {
-	public TextMeshProUGUI speedText;
-	public Car car;
+	[SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
 	private int speed;
+
+	private Car car;
+
+	private void Awake()
+	{
+		car = FindObjectOfType<Car>();
+	}
+
 	private void Update()
 	{
 		if (Mathf.Abs(car.KPH - speed) >= 1)
@@ -14,6 +21,6 @@ public class CarSpeed : MonoBehaviour
 			speed = (int)car.KPH;
 		}
 
-		speedText.text = string.Format("{0} KM/H", speed);
+		textMeshProUGUI.text = string.Format("{0} KM/H", speed);
 	}
 }

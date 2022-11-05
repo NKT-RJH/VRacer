@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Valve.VR;
 
 public class LockVRCamera : MonoBehaviour
 {
@@ -8,13 +9,23 @@ public class LockVRCamera : MonoBehaviour
 	[SerializeField] private Vector3 lockPosition;
 	[SerializeField] private Quaternion lockRotation;
 
-	public bool cameraLock = true;
+	private bool cameraLock = true;
 
+	public bool CameraLock { get { return cameraLock; } }
+
+	private float fieldOfView = 60;
+
+	public float FieldOfView { get { return fieldOfView; } }
+
+#pragma warning disable CS0108 // ¸â¹ö°¡ »ó¼ÓµÈ ¸â¹ö¸¦ ¼û±é´Ï´Ù. new Å°¿öµå°¡ ¾ø½À´Ï´Ù.
 	private Camera camera;
+#pragma warning restore CS0108 // ¸â¹ö°¡ »ó¼ÓµÈ ¸â¹ö¸¦ ¼û±é´Ï´Ù. new Å°¿öµå°¡ ¾ø½À´Ï´Ù.
+	private SteamVR_CameraHelper steamVRCameraHelper;
 
 	private void Start()
 	{
 		camera = cameraTransform.GetComponent<Camera>();
+		steamVRCameraHelper = cameraTransform.GetComponent<SteamVR_CameraHelper>();
 
 		StartCoroutine(Updating());
 	}
@@ -23,14 +34,17 @@ public class LockVRCamera : MonoBehaviour
 	{
 		while (true)
 		{
-			camera.fieldOfView = 60;
+			camera.fieldOfView = fieldOfView;
+
 			if (cameraLock)
 			{
-				Lock();
+				steamVRCameraHelper.enabled = false;
+				cameraTransform.localPosition = Vector3.zero;
+				cameraTransform.rotation = lockRotation;
 			}
 			else
 			{
-				UnLock();
+				steamVRCameraHelper.enabled = false;
 			}
 
 			yield return null;
@@ -39,13 +53,16 @@ public class LockVRCamera : MonoBehaviour
 
 	public void Lock()
 	{
-		cameraTransform.localPosition = Vector3.zero;
-		cameraTransform.rotation = lockRotation;
 		cameraLock = true;
 	}
 
 	public void UnLock()
 	{
 		cameraLock = false;
+	}
+
+	public void SetFieldOfView(float value)
+	{
+		fieldOfView = value;
 	}
 }
