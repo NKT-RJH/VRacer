@@ -21,7 +21,7 @@ public class CountDown : MonoBehaviour
 
 	[Header("Value")]
 	[SerializeField] private Vector3 cameraRigPath = new Vector3(-0.375f, 0, 0.11f);
-	
+
 	private AudioSource audioSource;
 
 	private bool countDownEnd;

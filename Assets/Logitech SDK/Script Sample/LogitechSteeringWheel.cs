@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class LogitechSteeringWheel : MonoBehaviour
 {
-	private float damperForce = 45;
+    private float damperForce = 45;
 
-	public float DamperForce { get { return damperForce; } }
+    public float DamperForce { get { return damperForce; } }
 
-	private bool isEnabled = false;
+    private bool isEnabled = false;
 
-	private void Start()
+    private void Start()
     {
-		if (isEnabled) return;
+        if (isEnabled) return;
 
         LogitechGSDK.LogiSteeringInitialize(false);
 
-		isEnabled = true;
+        isEnabled = true;
     }
 
     private void OnApplicationQuit()
@@ -26,11 +26,11 @@ public class LogitechSteeringWheel : MonoBehaviour
     {
         if (!(LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))) return;
 
-		LogitechGSDK.LogiPlayDamperForce(0, 45);
+        LogitechGSDK.LogiPlayDamperForce(0, 45);
     }
 
-	public void SetDamperForce(float value)
-	{
-		damperForce = value;
-	}
+    public void SetDamperForce(float value)
+    {
+        damperForce = value;
+    }
 }

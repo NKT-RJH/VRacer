@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Button))]
-public class ButtonEffects : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	[SerializeField] private AudioClip drag;
 	[SerializeField] private AudioClip click;
@@ -29,6 +29,8 @@ public class ButtonEffects : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
 	private void Start()
 	{
+		GetComponent<Button>().onClick.AddListener(delegate { PlayClickSound(); });
+		
 		maxFontSize = textMeshProUGUI.fontSize + addButtonFontSize;
 	}
 
@@ -54,7 +56,7 @@ public class ButtonEffects : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 		}
 	}
 
-	public void OnPointerClick(PointerEventData eventData)
+	public void PlayClickSound()
 	{
 		audioSource.PlayOneShot(click);
 	}

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(Car))]
+[RequireComponent(typeof(CarMove))]
 public class ClearCheck : MonoBehaviour
 {
 	private List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>();
@@ -48,7 +48,7 @@ public class ClearCheck : MonoBehaviour
 		if (!other.CompareTag("CheckPoint")) return;
 
 		int number = int.Parse(other.gameObject.name);
-		
+
 		clears[number] = true;
 
 		if (number != 0) return;

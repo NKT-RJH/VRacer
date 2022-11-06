@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RotateByMouse : MonoBehaviour
@@ -12,12 +10,12 @@ public class RotateByMouse : MonoBehaviour
 
     private CountDown countDown;
 
-	private void Awake()
-	{
-		countDown = FindObjectOfType<CountDown>();
-	}
+    private void Awake()
+    {
+        countDown = FindObjectOfType<CountDown>();
+    }
 
-	private void FixedUpdate()
+    private void FixedUpdate()
     {
         if (!countDown.CountDownEnd) return;
 

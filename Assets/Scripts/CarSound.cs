@@ -4,7 +4,7 @@ using UnityEngine;
 public class CarSound : MonoBehaviour
 {
 	[Header("Cashing")]
-	[SerializeField] private Car car;
+	[SerializeField] private CarMove car;
 	[SerializeField] private Sounds sounds;
 	
 	private InputManager inputManager;

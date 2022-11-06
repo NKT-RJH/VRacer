@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using MotionHouse;
+using UnityEngine;
 
 public class MotionGear : DontDestroyOnLoad<MotionGear>
 {
@@ -24,9 +21,9 @@ public class MotionGear : DontDestroyOnLoad<MotionGear>
 
 		isEnabled = true;
 	}
-	
-    private void Update()
-    {
+
+	private void Update()
+	{
 		if (isVibration)
 		{
 			vibration *= -1;
@@ -36,7 +33,7 @@ public class MotionGear : DontDestroyOnLoad<MotionGear>
 		{
 			MotionHouseSDK.MotionTelemetry(roll, pitch, 0, 0, vibration, 0, 0);
 		}
-    }
+	}
 
 	public void LeanMotionGear(float? pitch, float? roll)
 	{

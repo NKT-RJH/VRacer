@@ -7,11 +7,11 @@ public class CarSpeed : MonoBehaviour
 
 	private int speed;
 
-	private Car car;
+	private CarMove car;
 
 	private void Awake()
 	{
-		car = FindObjectOfType<Car>();
+		car = FindObjectOfType<CarMove>();
 	}
 
 	private void Update()

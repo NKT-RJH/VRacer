@@ -1,16 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-[System.Serializable]
-public class UICanvas
-{
-    public Image fadeIn;
-    public GameObject playScreen;
-    public GameObject carScreen;
-    public GameObject equipmentScreen;
-}
 
 [RequireComponent(typeof(AudioSource))]
 public class Title : MonoBehaviour
@@ -19,7 +9,7 @@ public class Title : MonoBehaviour
 	public AudioClip carStart;
 	public AudioClip click;
 
-	[SerializeField] private UICanvas[] uiCanvas = new UICanvas[2];
+	[SerializeField] private UITitle[] titleUI = new UITitle[2];
 
 	private AudioSource audioSource;
 	private InputManager inputManager;
@@ -52,18 +42,18 @@ public class Title : MonoBehaviour
 	{
 		audioSource.PlayOneShot(carStart);
 
-		for (int count1 = 0; count1 < uiCanvas.Length; count1++)
+		for (int count1 = 0; count1 < titleUI.Length; count1++)
 		{
 			for (float count = 1; count >= 0; count -= 2 / 255f)
 			{
-				uiCanvas[count1].fadeIn.color = new Color(uiCanvas[count1].fadeIn.color.r, uiCanvas[count1].fadeIn.color.g, uiCanvas[count1].fadeIn.color.b, count);
+				titleUI[count1].fadeIn.color = new Color(titleUI[count1].fadeIn.color.r, titleUI[count1].fadeIn.color.g, titleUI[count1].fadeIn.color.b, count);
 				yield return null;
 			}
 		}
 
-		for (int count = 0; count < uiCanvas.Length; count++)
+		for (int count = 0; count < titleUI.Length; count++)
 		{
-			uiCanvas[count].fadeIn.gameObject.SetActive(false);
+			titleUI[count].fadeIn.gameObject.SetActive(false);
 		}
 
 		audioSource.clip = BGM;
@@ -180,73 +170,73 @@ public class Title : MonoBehaviour
 	public void GamePlay()
 	{
 		audioSource.PlayOneShot(click);
-		for (int count = 0; count < uiCanvas.Length; count++)
+		for (int count = 0; count < titleUI.Length; count++)
 		{
-            uiCanvas[count].playScreen.SetActive(true);
-            uiCanvas[count].fadeIn.color = new Color(uiCanvas[count].fadeIn.color.r, uiCanvas[count].fadeIn.color.g, uiCanvas[count].fadeIn.color.b, 200 / 255f);
-            uiCanvas[count].fadeIn.gameObject.SetActive(true);
+			titleUI[count].playScreen.SetActive(true);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
+			titleUI[count].fadeIn.gameObject.SetActive(true);
 		}
 		isPlayScreen = true;
 	}
 
 	public void ExitGamePlay()
 	{
-        audioSource.PlayOneShot(click);
-		for (int count = 0; count < uiCanvas.Length; count++)
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
 		{
-            uiCanvas[count].playScreen.SetActive(false);
-            uiCanvas[count].fadeIn.gameObject.SetActive(false);
-            uiCanvas[count].fadeIn.color = new Color(uiCanvas[count].fadeIn.color.r, uiCanvas[count].fadeIn.color.g, uiCanvas[count].fadeIn.color.b, 1);
+			titleUI[count].playScreen.SetActive(false);
+			titleUI[count].fadeIn.gameObject.SetActive(false);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
 		}
 		isPlayScreen = false;
-    }
+	}
 
 	public void GameCarPlay()
 	{
-        audioSource.PlayOneShot(click);
-		for (int count = 0; count < uiCanvas.Length; count++)
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
 		{
-            uiCanvas[count].playScreen.SetActive(false);
-            uiCanvas[count].carScreen.SetActive(true);
+			titleUI[count].playScreen.SetActive(false);
+			titleUI[count].carScreen.SetActive(true);
 		}
 		isCarScreen = true;
 	}
 	public void ExitGameCarPlay()
 	{
-        audioSource.PlayOneShot(click);
-		for (int count = 0; count < uiCanvas.Length; count++)
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
 		{
-            uiCanvas[count].carScreen.SetActive(false);
-            uiCanvas[count].fadeIn.gameObject.SetActive(false);
-            uiCanvas[count].fadeIn.color = new Color(uiCanvas[count].fadeIn.color.r, uiCanvas[count].fadeIn.color.g, uiCanvas[count].fadeIn.color.b, 1);
+			titleUI[count].carScreen.SetActive(false);
+			titleUI[count].fadeIn.gameObject.SetActive(false);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
 		}
 		isPlayScreen = false;
 		isCarScreen = false;
-    }
+	}
 
 	public void GameEquipmentPlay()
 	{
-        audioSource.PlayOneShot(click);
-		for (int count = 0; count < uiCanvas.Length; count++)
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
 		{
-            uiCanvas[count].carScreen.SetActive(false);
-            uiCanvas[count].equipmentScreen.SetActive(true);
+			titleUI[count].carScreen.SetActive(false);
+			titleUI[count].equipmentScreen.SetActive(true);
 		}
-        isEquipmentScreen = true;
-    }
-    public void ExitEquipmentPlay()
-    {
-        audioSource.PlayOneShot(click);
-		for (int count = 0; count < uiCanvas.Length; count++)
+		isEquipmentScreen = true;
+	}
+	public void ExitEquipmentPlay()
+	{
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
 		{
-            uiCanvas[count].equipmentScreen.SetActive(false);
-            uiCanvas[count].fadeIn.gameObject.SetActive(false);
-            uiCanvas[count].fadeIn.color = new Color(uiCanvas[count].fadeIn.color.r, uiCanvas[count].fadeIn.color.g, uiCanvas[count].fadeIn.color.b, 1);
+			titleUI[count].equipmentScreen.SetActive(false);
+			titleUI[count].fadeIn.gameObject.SetActive(false);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
 		}
-        isPlayScreen = false;
-        isCarScreen = false;
+		isPlayScreen = false;
+		isCarScreen = false;
 		isEquipmentScreen = false;
-    }
+	}
 
 	public void MoveScene()
 	{

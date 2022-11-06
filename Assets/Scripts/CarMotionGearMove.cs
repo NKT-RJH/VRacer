@@ -7,13 +7,13 @@ public class CarMotionGearMove : MonoBehaviour
 
 	private InputManager inputManager;
 	private MotionGear motionGear;
-	private Car car;
+	private CarMove car;
 
 	private void Awake()
 	{
 		inputManager = FindObjectOfType<InputManager>();
 		motionGear = FindObjectOfType<MotionGear>();
-		car = FindObjectOfType<Car>();
+		car = FindObjectOfType<CarMove>();
 	}
 
 	private void Update()

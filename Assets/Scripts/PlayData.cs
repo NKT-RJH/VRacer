@@ -1,6 +1,6 @@
 public class PlayData
 {
-	public static int map;
-	public static int car;
-	public static int equipment;
+	public static int map = 0;
+	public static int car = 0;
+	public static int equipment = 1;
 }
