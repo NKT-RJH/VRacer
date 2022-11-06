@@ -4,7 +4,12 @@ public class GearUI : MonoBehaviour
 {
 	[SerializeField] private GameObject[] gearUI = new GameObject[7];
 
-	[SerializeField] private InputManager inputManager;
+	private InputManager inputManager;
+
+	private void Awake()
+	{
+		inputManager = FindObjectOfType<InputManager>();
+	}
 
 	private void Update()
 	{

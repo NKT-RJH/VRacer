@@ -4,9 +4,9 @@ using UnityEngine;
 public class CarSound : MonoBehaviour
 {
 	[Header("Cashing")]
-	[SerializeField] private CarMove car;
 	[SerializeField] private Sounds sounds;
 	
+	private Car carMove;
 	private InputManager inputManager;
 	private CountDown countDown;
 	private AudioSource audioSource;
@@ -16,6 +16,7 @@ public class CarSound : MonoBehaviour
 
 	private void Awake()
 	{
+		carMove = GetComponent<Car>();
 		inputManager = FindObjectOfType<InputManager>();
 		countDown = FindObjectOfType<CountDown>();
 		audioSource = GetComponent<AudioSource>();
@@ -60,7 +61,7 @@ public class CarSound : MonoBehaviour
 
 		if (brakeTime > 0) return;
 
-		if (car.KPH <= 6)
+		if (carMove.KPH <= 6)
 		{
 			PlayAudioClip(sounds.normal);
 			AudioSetting(true, 1);
@@ -70,10 +71,10 @@ public class CarSound : MonoBehaviour
 			StopAudioClip(sounds.normal);
 		}
 
-		if (car.KPH > 6)
+		if (carMove.KPH > 6)
 		{
 			PlayAudioClip(sounds.idle);
-			AudioSetting(true, car.KPH / 150);
+			AudioSetting(true, carMove.KPH / 150);
 		}
 	}
 

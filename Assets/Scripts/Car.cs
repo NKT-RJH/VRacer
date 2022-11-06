@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class CarMove : MonoBehaviour
+public class Car : MonoBehaviour
 {
 	public enum DriveType
 	{
@@ -14,8 +14,6 @@ public class CarMove : MonoBehaviour
 	[SerializeField] private DriveType driveType;
 
 	[Header("Variables")]
-	[SerializeField] private float nomalSpeed;
-	[SerializeField] private float boostSpeed;
 	[SerializeField] private Transform handle;
 	[SerializeField] private Wheels wheels;
 	[SerializeField] private WheelMeshs wheelPaths;
@@ -24,26 +22,35 @@ public class CarMove : MonoBehaviour
 	private int motorMin;
 	private int motorTorque = 100;
 
+	private bool isCrash;
+
 	private float kph;
 	private float kphLimit;
 	private float power = 10000;
 	private const float brakePower = 20000;
 	private const float radius = 6;
 	private const float downForceValue = 50;
-	private float limtSpeed;
+
+	public bool IsCrash { get { return isCrash; } }
 
 	public float KPH { get { return kph; } }
 	public float KPHLimit { get { return kphLimit; } }
 
+	private Vector3 bodyTlit;
+
+	public Vector3 BodyTlit { get { return bodyTlit; } }
+
+	private Quaternion rotationOffset;
+
+	private ClearCheck clearCheck;
 	private Transform checkPoint;
 	private CountDown countDown;
 	private InputManager inputManager;
 	private Rigidbody rigidBody;
-	private LogitechSteeringWheel logitechSteeringWheel;
 
 	private void Awake()
 	{
-		logitechSteeringWheel = FindObjectOfType<LogitechSteeringWheel>();
+		clearCheck = GetComponent<ClearCheck>();
 		countDown = FindObjectOfType<CountDown>();
 		inputManager = FindObjectOfType<InputManager>();
 		rigidBody = GetComponent<Rigidbody>();
@@ -51,16 +58,36 @@ public class CarMove : MonoBehaviour
 
 	private void Start()
 	{
+		rotationOffset = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+
 		rigidBody.centerOfMass = transform.Find("Mass").localPosition;
 
 		motorMax = motorTorque;
 		motorMin = motorMax / 2;
-		limtSpeed = nomalSpeed;
+	}
+
+	private void Update()
+	{
+		if (!countDown.CountDownEnd) return;
+		if (clearCheck.IsClear) return;
+
+		SetIsCrash();
+
+		SetBodyTilt();
 	}
 
 	private void FixedUpdate()
 	{
 		if (!countDown.CountDownEnd) return;
+		if (clearCheck.IsClear)
+		{
+			Stop();
+			if (kph > 5)
+			{
+				rigidBody.AddRelativeForce(10000 * Vector3.back);
+			}
+			return;
+		}
 
 		LogitechWheelForce();
 
@@ -83,9 +110,26 @@ public class CarMove : MonoBehaviour
 		LimitMoveSpeed();
 	}
 
+	private void Stop()
+	{
+		rigidBody.velocity = Vector3.zero;
+	}
+
+	private void SetIsCrash()
+	{
+		//if 
+	}
+
+	private void SetBodyTilt()
+	{
+		bodyTlit = transform.localEulerAngles;
+	}
+
 	private void LogitechWheelForce()
 	{
-		//logitechSteeringWheel.SetDamperForce(45 * (100 - KPH/160))
+		if (!(LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))) return;
+
+		LogitechGSDK.LogiPlayDamperForce(0, 70 - Mathf.RoundToInt(kph/6));
 	}
 
 	private void Brake()
@@ -104,13 +148,14 @@ public class CarMove : MonoBehaviour
 	private void Drift()
 	{
 		if (inputManager.Clutch > 0) return;
+		if (kph < 20) return;
 
 		float stiffness;
 
 		if (inputManager.Drift)
 		{
 			motorTorque = motorMin;
-			stiffness = 1.5f;
+			stiffness = 1.75f;
 		}
 		else
 		{
@@ -160,6 +205,9 @@ public class CarMove : MonoBehaviour
 				break;
 		}
 		// 낮은 기어일수록 시작 속도가 빨라야함
+
+		float boostPower = 0;
+
 		switch (inputManager.Gear)
 		{
 			case 0:
@@ -168,27 +216,37 @@ public class CarMove : MonoBehaviour
 				break;
 			case 1:
 				kphLimit = 30;
-				power = 3000;
+				boostPower = (kphLimit + 1 - kph);
+				if (kph < 10)
+				{
+					boostPower *= 1.5f;
+				}
+				power = 3000 * boostPower;	
 				break;
 			case 2:
 				kphLimit = 50;
-				power = 4000;
+				boostPower = Mathf.Clamp((kphLimit - kph) / 5, 1, (kphLimit - kph) / 5);
+				power = 3500 * boostPower;
 				break;
 			case 3:
 				kphLimit = 80;
-				power = 6500;
+				boostPower = Mathf.Clamp(kph / kphLimit / 2, 0.2f, 1.2f);
+				power = 6500 * boostPower;
 				break;
 			case 4:
 				kphLimit = 110;
-				power = 9000;
+				boostPower = Mathf.Clamp(kph / kphLimit / 3, 0.15f, 1.1f);
+				power = 9000 * boostPower;
 				break;
 			case 5:
 				kphLimit = 140;
-				power = 11500;
+				boostPower = Mathf.Clamp(kph / kphLimit / 4, 0.1f, 1.05f);
+				power = 11500 * boostPower;
 				break;
 			case 6:
 				kphLimit = 160;
-				power = 12500;
+				boostPower = Mathf.Clamp(kph / kphLimit / 5, 0.1f, 1f);
+				power = 12500 * boostPower;
 				break;
 			case 7:
 				kphLimit = 10;
@@ -200,23 +258,23 @@ public class CarMove : MonoBehaviour
 		wheels.backLeft.motorTorque = inputManager.Gas * (motorTorque / endSet);
 		wheels.backRight.motorTorque = inputManager.Gas * (motorTorque / endSet);
 
+		if (inputManager.Gear == 7 && inputManager.Gas > 0 && KPH < KPHLimit)
+		{
+			rigidBody.AddRelativeForce(power * inputManager.Gas * Vector3.back);
+			wheels.backLeft.brakeTorque = 0;
+			wheels.backRight.brakeTorque = 0;
+		}
+
 		if (inputManager.Gas > 0 && inputManager.Gear > 0 && inputManager.Gear < 7 && inputManager.Brake < 0 && KPH < KPHLimit)
 		{
 			rigidBody.AddRelativeForce(power * inputManager.Gas * Vector3.forward);
 			wheels.backLeft.brakeTorque = 0;
 			wheels.backRight.brakeTorque = 0;
 		}
-		else if (inputManager.Gear <= 0)
+		else if (inputManager.Gear <= 0 || (inputManager.Gear ==7 && kph > kphLimit))
 		{
 			wheels.backLeft.brakeTorque = brakePower;
 			wheels.backRight.brakeTorque = brakePower;
-		}
-
-		if (inputManager.Gear == 7 && inputManager.Gas > 0 && KPH < KPHLimit)
-		{
-			rigidBody.AddRelativeForce(power * inputManager.Gas * Vector3.back);
-			wheels.backLeft.brakeTorque = 0;
-			wheels.backRight.brakeTorque = 0;
 		}
 		
 		kph = rigidBody.velocity.magnitude * 3.6f;
@@ -225,11 +283,7 @@ public class CarMove : MonoBehaviour
 		{
 			if (inputManager.Gear < 7)
 			{
-				rigidBody.AddRelativeForce(5000 * Vector3.back);
-			}
-			else
-			{
-				rigidBody.AddRelativeForce(1000 * Vector3.forward);
+				rigidBody.AddRelativeForce(2000 * Vector3.back);
 			}
 		}
 	}
@@ -276,6 +330,7 @@ public class CarMove : MonoBehaviour
 		if (path == Vector3.zero) return;
 
 		handle.localRotation = Quaternion.Euler(path);
+		handle.eulerAngles = new Vector3(23.253f, handle.eulerAngles.y, handle.eulerAngles.z);
 	}
 
 	private void AddDownForce()
@@ -285,28 +340,30 @@ public class CarMove : MonoBehaviour
 
 	private void LimitMoveSpeed()
 	{
-		if (rigidBody.velocity.x > limtSpeed)
+		if (rigidBody.velocity.x > kphLimit)
 		{
-			rigidBody.velocity = new Vector3(limtSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
+			rigidBody.velocity = new Vector3(kphLimit, rigidBody.velocity.y, rigidBody.velocity.z);
 		}
-		if (rigidBody.velocity.x < (limtSpeed * -1))
+		if (rigidBody.velocity.x < (kphLimit * -1))
 		{
-			rigidBody.velocity = new Vector3((limtSpeed * -1), rigidBody.velocity.y, rigidBody.velocity.z);
+			rigidBody.velocity = new Vector3((kphLimit * -1), rigidBody.velocity.y, rigidBody.velocity.z);
 		}
 
-		if (rigidBody.velocity.z > limtSpeed)
+		if (rigidBody.velocity.z > kphLimit)
 		{
-			rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, limtSpeed);
+			rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, kphLimit);
 		}
-		if (rigidBody.velocity.z < (limtSpeed * -1))
+		if (rigidBody.velocity.z < (kphLimit * -1))
 		{
-			rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, (limtSpeed * -1));
+			rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, (kphLimit * -1));
 		}
 	}
 
 	public void CheckPointTeleport()
 	{
 		if (!inputManager.Respawn) return;
+
+		StartCoroutine(WatingTime());
 
 		rigidBody.velocity = Vector3.zero;
 
@@ -315,6 +372,17 @@ public class CarMove : MonoBehaviour
 		transform.SetPositionAndRotation(checkPoint.position, checkPoint.rotation);
 
 		StartCoroutine(ResetLogitechWheel());
+	}
+
+	private IEnumerator WatingTime()
+	{
+		rigidBody.useGravity = false;
+		GetComponentInChildren<MeshCollider>().enabled = false;
+
+		yield return new WaitForSeconds(1.5f);
+
+		GetComponentInChildren<MeshCollider>().enabled = true;
+		rigidBody.useGravity = true;
 	}
 
 	private IEnumerator ResetLogitechWheel()

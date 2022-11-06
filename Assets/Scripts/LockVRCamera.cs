@@ -4,10 +4,7 @@ using Valve.VR;
 
 public class LockVRCamera : MonoBehaviour
 {
-	[SerializeField] private Transform cameraTransform;
-
-	[SerializeField] private Vector3 lockPosition;
-	[SerializeField] private Quaternion lockRotation;
+	private Quaternion lockRotation;
 
 	private bool cameraLock = true;
 
@@ -20,12 +17,14 @@ public class LockVRCamera : MonoBehaviour
 #pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
 	private Camera camera;
 #pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
+	private Transform cameraTransform;
 	private SteamVR_CameraHelper steamVRCameraHelper;
 
 	private void Start()
-	{
-		camera = cameraTransform.GetComponent<Camera>();
-		steamVRCameraHelper = cameraTransform.GetComponent<SteamVR_CameraHelper>();
+	{ // 이것도 충돌 조심 혹시 모름 네트워크에서 
+		steamVRCameraHelper = FindObjectOfType<SteamVR_CameraHelper>();
+		camera = steamVRCameraHelper.GetComponent<Camera>();
+		cameraTransform = camera.transform;
 
 		StartCoroutine(Updating());
 	}
@@ -64,5 +63,15 @@ public class LockVRCamera : MonoBehaviour
 	public void SetFieldOfView(float value)
 	{
 		fieldOfView = value;
+	}
+
+	public void SetRotation(Vector3 vector3)
+	{
+		lockRotation.eulerAngles = vector3;
+	}
+
+	public void SetRotation(Quaternion quaternion)
+	{
+		lockRotation = quaternion;
 	}
 }

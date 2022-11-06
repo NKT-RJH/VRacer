@@ -3,9 +3,15 @@ using UnityEngine;
 public class SyncronizeCamera : MonoBehaviour
 {
 	[Header("Cashing")]
-	[SerializeField] private LockVRCamera lockVRCamera;
 	[SerializeField] private Transform cameraPC;
 	[SerializeField] private Transform cameraRig;
+	
+	private LockVRCamera lockVRCamera;
+
+	private void Awake()
+	{
+		lockVRCamera = FindObjectOfType<LockVRCamera>();
+	}
 
 	private void Start()
 	{

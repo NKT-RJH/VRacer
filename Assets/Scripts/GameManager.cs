@@ -16,4 +16,9 @@ public class GameManager : MonoBehaviour
 			SceneManager.LoadScene("Title");
 		}
 	}
+
+	public void GoTitle()
+	{
+		SceneManager.LoadScene("Title");
+	}
 }

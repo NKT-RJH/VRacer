@@ -16,6 +16,7 @@ public class Title : MonoBehaviour
 
 	private bool isInput;
 
+	private bool isOptionScreen;
 	private bool isPlayScreen;
 	private bool isCarScreen;
 	private bool isEquipmentScreen;
@@ -72,11 +73,25 @@ public class Title : MonoBehaviour
 	{
 		if (!isInput) return;
 
+		if (isOptionScreen)
+		{
+			if (inputManager.Cross)
+			{
+				ExitOptions();
+				StartCoroutine(Delay());
+			}
+		}
+
 		if (!isPlayScreen)
 		{
 			if (inputManager.Circle)
 			{
 				GamePlay();
+				StartCoroutine(Delay());
+			}
+			if (inputManager.Triangle)
+			{
+				Options();
 				StartCoroutine(Delay());
 			}
 			if (inputManager.Cross)
@@ -177,6 +192,30 @@ public class Title : MonoBehaviour
 			titleUI[count].fadeIn.gameObject.SetActive(true);
 		}
 		isPlayScreen = true;
+	}
+
+	public void Options()
+	{
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
+		{
+			titleUI[count].optionScreen.SetActive(true);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
+			titleUI[count].fadeIn.gameObject.SetActive(true);
+		}
+		isOptionScreen = true;
+	}
+
+	public void ExitOptions()
+	{
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
+		{
+			titleUI[count].optionScreen.SetActive(false);
+			titleUI[count].fadeIn.gameObject.SetActive(false);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
+		}
+		isOptionScreen = false;
 	}
 
 	public void ExitGamePlay()

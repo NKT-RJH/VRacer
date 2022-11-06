@@ -6,7 +6,7 @@ public class InputManager : DontDestroyOnLoad<InputManager>
 	private float clutch;
 	private float brake;
 	private float horizontal;
-	private int gear;
+	private int gear = 1;
 	private bool respawn;
 	private bool drift;
 	private bool cross;
@@ -39,12 +39,16 @@ public class InputManager : DontDestroyOnLoad<InputManager>
 			gear++;
 			if (gear > 7)
 			{
-				gear = 1;
+				gear = 0;
 			}
 		}
 		else if (Input.GetKeyDown(KeyCode.Q))
 		{
-			gear = 1;
+			gear--;
+			if (gear < 0)
+			{
+				gear = 7;
+			}
 		}
 
 		if (!(LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected((int)LogitechKeyCode.FirstIndex))) return;

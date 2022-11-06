@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager : DontDestroyOnLoad<SaveManager>
 {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void LoadSaveFile()
@@ -34,7 +34,12 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public static void Save()
+	private void OnApplicationQuit()
+	{
+		Save();
+	}
+
+	public static void Save()
     {
         PlayerPrefs.SetInt("Volume", OptionData.volume);
         PlayerPrefs.SetInt("Fog", Convert.ToInt32(OptionData.fog));

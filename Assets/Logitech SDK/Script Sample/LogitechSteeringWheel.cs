@@ -22,13 +22,6 @@ public class LogitechSteeringWheel : MonoBehaviour
         LogitechGSDK.LogiSteeringShutdown();
     }
 
-    private void Update()
-    {
-        if (!(LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected(0))) return;
-
-        LogitechGSDK.LogiPlayDamperForce(0, 45);
-    }
-
     public void SetDamperForce(float value)
     {
         damperForce = value;
