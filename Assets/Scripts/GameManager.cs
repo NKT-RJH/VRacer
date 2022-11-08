@@ -26,6 +26,6 @@ public class GameManager : MonoBehaviour
 
 	public void GoTitle()
 	{
-		SceneManager.LoadScene("Title");
+		LoadScene.MoveTo("Title");
 	}
 }

@@ -23,7 +23,7 @@ public class CarMotionGearMove : MonoBehaviour
 
 		float brakeValue = 0;
 
-		motionGear.Vibration(Mathf.Clamp(car.KPH / 30, 0.5f, car.KPH / 30));
+		motionGear.Vibration(Mathf.Clamp(car.KPH / 50, 0.5f, car.KPH / 50));
 
 		if (inputManager.Brake > 0 && car.KPH > 10)
 		{

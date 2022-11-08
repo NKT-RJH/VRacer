@@ -54,8 +54,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432690185807273575}
-  m_LocalRotation: {x: -0.00000004371139, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.357, y: 0.797, z: 0.562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -916,7 +916,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1754200656690580254}
-  m_PlaneDistance: 0.1
+  m_PlaneDistance: 0.07
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2845,7 +2845,7 @@ MonoBehaviour:
   - {fileID: 1754200655728878905}
   - {fileID: 1754200656434250485}
   - {fileID: 1754200655617923039}
-  cameraRigPath: {x: -0.3605, y: 0, z: -0.01}
+  cameraRigPath: {x: -0.3605, y: 0, z: 0.01}
 --- !u!82 &1754200655946189559
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3634,7 +3634,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1754200655506844017}
-  m_PlaneDistance: 0.1
+  m_PlaneDistance: 0.07
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -4764,14 +4764,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2610986338420235140}
-  m_LocalRotation: {x: 0.1305262, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: -0.37335014, y: 0.9162356, z: 0.5620308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.068235695, z: 0.000030755997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7126266999264117352}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2616434979193194442
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5316,7 +5316,6 @@ MonoBehaviour:
   - {fileID: 1754200655886524602}
   - {fileID: 1754200655983794475}
   clearSound: {fileID: 8300000, guid: 5633262279599f2408c8896891dd3c09, type: 3}
-  perfectclearSound: {fileID: 0}
   clearCountText:
   - {fileID: 1754200654777488578}
   - {fileID: 1754200655728878887}
@@ -5334,7 +5333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f1a9ca37dd67844b9ba1a9f76176da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mark: {fileID: 6970771946044518316, guid: 52055b6a3082b08418ab937fa61478ca, type: 3}
+  mark: {fileID: 6970771946044518314, guid: 52055b6a3082b08418ab937fa61478ca, type: 3}
   preset: -200
 --- !u!1 &2611154130726771554
 GameObject:

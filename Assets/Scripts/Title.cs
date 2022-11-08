@@ -19,7 +19,6 @@ public class Title : MonoBehaviour
 	private bool isOptionScreen;
 	private bool isMapScreen;
 	private bool isModeScreen;
-	private bool isPlayScreen;
 	private bool isCarScreen;
 	private bool isEquipmentScreen;
 
@@ -32,6 +31,11 @@ public class Title : MonoBehaviour
 
 	private void Awake()
 	{
+		MotionGear motionGear = FindObjectOfType<MotionGear>();
+
+		motionGear.StopLeanMotionGear();
+		motionGear.StopVibration();
+
 		audioSource = GetComponent<AudioSource>();
 		inputManager = FindObjectOfType<InputManager>();
 	}
@@ -47,7 +51,7 @@ public class Title : MonoBehaviour
 
 		for (int count1 = 0; count1 < titleUI.Length; count1++)
 		{
-			for (float count = 1; count >= 0; count -= 2 / 255f)
+			for (float count = 1; count >= 0; count -= 15 / 255f)
 			{
 				titleUI[count1].fadeIn.color = new Color(titleUI[count1].fadeIn.color.r, titleUI[count1].fadeIn.color.g, titleUI[count1].fadeIn.color.b, count);
 				yield return null;
@@ -86,22 +90,22 @@ public class Title : MonoBehaviour
 			return;
 		}
 
-		if (!isPlayScreen)
+		if (!isEquipmentScreen)
 		{
 			if (inputManager.Circle)
 			{
-				GamePlay();
-				StartCoroutine(Delay());
+				GameMap();
 			}
-			if (inputManager.Triangle)
+			else if (inputManager.Triangle)
 			{
 				Options();
-				StartCoroutine(Delay());
 			}
-			if (inputManager.Cross)
+			else if (inputManager.Cross)
 			{
 				Exit();
 			}
+
+			StartCoroutine(Delay());
 
 			return;
 		}
@@ -110,52 +114,25 @@ public class Title : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
-				ExitGamePlay();
+				ExitEquipmentPlay();
 			}
+
 			if (inputManager.Cross)
 			{
-				ExitGamePlay();
-				StartCoroutine(Delay());
+				ExitEquipmentPlay();
 			}
-			if (inputManager.Triangle)
+			else if (inputManager.Triangle)
 			{
-				SetMap(0);
+				SetEquipment(0);
 				GameCarPlay();
-				StartCoroutine(Delay());
-			}
+            }
 			else if (inputManager.Circle)
 			{
-				//SetMap(1);
-				//GameCarPlay();
-				//StartCoroutine(Delay());
-			}
+				SetEquipment(1);
+                GameCarPlay();
+            }
 
-			return;
-		}
-
-		if (!isEquipmentScreen)
-		{
-			if (Input.GetKeyDown(KeyCode.Escape))
-			{
-				ExitGameCarPlay();
-			}
-			if (inputManager.Cross)
-			{
-				ExitGameCarPlay();
-				StartCoroutine(Delay());
-			}
-			if (inputManager.Triangle)
-			{
-				SetCar(0);
-				GameEquipmentPlay();
-				StartCoroutine(Delay());
-			}
-			else if (inputManager.Circle)
-			{
-				//SetCar(1);
-				//GameEquipmentPlay();
-				//StartCoroutine(Delay());
-			}
+			StartCoroutine(Delay());
 
 			return;
 		}
@@ -164,27 +141,29 @@ public class Title : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
-				ExitEquipmentPlay();
+				ExitGameCarPlay();
 			}
+			
 			if (inputManager.Cross)
 			{
-				ExitEquipmentPlay();
-				StartCoroutine(Delay());
+				ExitGameCarPlay();
 			}
-			if (inputManager.Triangle)
+			else if (inputManager.Triangle)
 			{
-				SetEquipment(0);
+				SetCar(0);
 				GameModePlay();
-                StartCoroutine(Delay());
-            }
+			}
 			else if (inputManager.Circle)
 			{
-				SetEquipment(1);
-                GameModePlay();
-                StartCoroutine(Delay());
-            }
+				SetCar(1);
+				GameModePlay();
+			}
+			StartCoroutine(Delay());
+
+			return;
 		}
-		else
+
+		if (!isMapScreen)
 		{
 			// 모드 선택
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -194,41 +173,52 @@ public class Title : MonoBehaviour
             if (inputManager.Cross)
             {
                 ExitGameModePlay();
-                StartCoroutine(Delay());
             }
             if (inputManager.Triangle)
             {
 				SetMode(0);
-                MoveScene();
+				GameMap();
             }
             else if (inputManager.Circle)
             {
                 SetMode(1);
-                MoveScene();
+				GameMap();
             }
             else if (inputManager.Square)
             {
-                SetMode(2);
-                MoveScene();
+                SetMode(-1);
+                GameMap();
             }
+			StartCoroutine(Delay());
+		}
+		else
+		{
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				ExitGameMap();
+			}
+
+			if (inputManager.Cross)
+			{
+				ExitGameMap();
+			}
+			else if (inputManager.Triangle)
+			{
+				SetMap(0);
+				MoveScene();
+			}
+			else if (inputManager.Circle)
+			{
+				SetMap(1);
+				MoveScene();
+			}
+			StartCoroutine(Delay());
         }
 	}
 
 	public void Exit()
 	{
 		Application.Quit();
-	}
-
-	public void GamePlay()
-	{
-		audioSource.PlayOneShot(click);
-		for (int count = 0; count < titleUI.Length; count++)
-		{
-			titleUI[count].playScreen.SetActive(true);
-			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
-			titleUI[count].fadeIn.gameObject.SetActive(true);
-		}
-		isPlayScreen = true;
 	}
 
 	public void Options()
@@ -255,7 +245,19 @@ public class Title : MonoBehaviour
 		isOptionScreen = false;
 	}
 
-	public void ExitGamePlay()
+	public void GameMap()
+	{
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
+		{
+			titleUI[count].modeScreen.SetActive(false);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
+			titleUI[count].playScreen.SetActive(true);
+		}
+		isMapScreen = true;
+	}
+
+	public void ExitGameMap()
 	{
 		audioSource.PlayOneShot(click);
 		for (int count = 0; count < titleUI.Length; count++)
@@ -264,7 +266,10 @@ public class Title : MonoBehaviour
 			titleUI[count].fadeIn.gameObject.SetActive(false);
 			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
 		}
-		isPlayScreen = false;
+		isEquipmentScreen = false;
+		isCarScreen = false;
+		isModeScreen = false;
+		isMapScreen = false;
 	}
 
 	public void GameCarPlay()
@@ -272,7 +277,8 @@ public class Title : MonoBehaviour
 		audioSource.PlayOneShot(click);
 		for (int count = 0; count < titleUI.Length; count++)
 		{
-			titleUI[count].playScreen.SetActive(false);
+			titleUI[count].equipmentScreen.SetActive(false);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
 			titleUI[count].carScreen.SetActive(true);
 		}
 		isCarScreen = true;
@@ -286,7 +292,7 @@ public class Title : MonoBehaviour
 			titleUI[count].fadeIn.gameObject.SetActive(false);
 			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
 		}
-		isPlayScreen = false;
+		isEquipmentScreen = false;
 		isCarScreen = false;
 	}
 
@@ -295,8 +301,9 @@ public class Title : MonoBehaviour
 		audioSource.PlayOneShot(click);
 		for (int count = 0; count < titleUI.Length; count++)
 		{
-			titleUI[count].carScreen.SetActive(false);
 			titleUI[count].equipmentScreen.SetActive(true);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
+			titleUI[count].fadeIn.gameObject.SetActive(true);
 		}
 		isEquipmentScreen = true;
 	}
@@ -309,8 +316,6 @@ public class Title : MonoBehaviour
 			titleUI[count].fadeIn.gameObject.SetActive(false);
 			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
 		}
-		isPlayScreen = false;
-		isCarScreen = false;
 		isEquipmentScreen = false;
 	}
 
@@ -319,8 +324,9 @@ public class Title : MonoBehaviour
         audioSource.PlayOneShot(click);
         for (int count = 0; count < titleUI.Length; count++)
         {
-            titleUI[count].equipmentScreen.SetActive(false);
-            titleUI[count].modeScreen.SetActive(true);
+            titleUI[count].carScreen.SetActive(false);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
+			titleUI[count].modeScreen.SetActive(true);
         }
         isModeScreen = true;
     }
@@ -334,21 +340,31 @@ public class Title : MonoBehaviour
             titleUI[count].fadeIn.gameObject.SetActive(false);
             titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
         }
-        isPlayScreen = false;
-        isCarScreen = false;
-        isEquipmentScreen = false;
+		isEquipmentScreen = false;
+		isCarScreen = false;
 		isModeScreen = false;
     }
 
 	public void MoveScene()
 	{
+		if (PlayData.mode == -1)
+		{
+			LoadScene.MoveTo("Tutorial");
+			return;
+		}
+		if (PlayData.mode == 1)
+		{
+			LoadScene.MoveTo("MultyRoom");
+			return;
+		}
+
 		switch (PlayData.map)
 		{
 			case 0:
-				SceneManager.LoadScene("Lake");
+				LoadScene.MoveTo("Lake");
 				break;
 			case 1:
-				SceneManager.LoadScene("Mountain");
+				LoadScene.MoveTo("Mountain");
 				break;
 		}
 	}

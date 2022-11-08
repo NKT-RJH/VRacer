@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lake.unity
     guid: 2e1336748f3797f4798cf9e588e2620f
+  - enabled: 1
+    path: Assets/Scenes/Mountain.unity
+    guid: 19333f7b4eb3259429d8674904f1a3b5
+  - enabled: 1
+    path: Assets/Scenes/Load.unity
+    guid: 6aa63ed0612e1ef45b40aeff301a16a6
+  - enabled: 1
+    path: Assets/Scenes/MultyRoom.unity
+    guid: 815b67f4a486d044db020e67e06ab4aa
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: b5db3bdba60517d4c8fa6b7e9ed9130e, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d7d433ff4d5546f40ad1f03131a14590, type: 2}

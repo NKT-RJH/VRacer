@@ -1,21 +1,28 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapMark : MonoBehaviour
 {
-	[SerializeField] private Transform mark;
+	[SerializeField] private GameObject mark;
 
 	[SerializeField] private float preset = -200;
 
+	private Transform markTransform;
+
 	private void Start()
 	{
-		Instantiate(mark.gameObject);
+		markTransform = Instantiate(mark).transform;
+		if (PlayData.map == 1)
+		{
+			markTransform.localScale = Vector3.one * 0.5f;
+		}
 	}
 
 	private void Update()
 	{
-		mark.position = transform.position;
-		mark.position = new Vector3(transform.position.x, preset, transform.position.z);
+		markTransform.position = transform.position;
+		markTransform.position = new Vector3(transform.position.x, preset, transform.position.z);
 
-		mark.forward = transform.forward;
+		markTransform.forward = transform.forward;
 	}
 }

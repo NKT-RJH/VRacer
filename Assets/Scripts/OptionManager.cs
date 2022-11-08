@@ -102,7 +102,7 @@ public class OptionManager : MonoBehaviour
 			{
 				soundSetting.SetVolume();
 			}
-			catch(MissingReferenceException)
+			catch (MissingReferenceException)
 			{
 				soundSetting = FindObjectOfType<SoundSetting>();
 			}
@@ -154,5 +154,25 @@ public class OptionManager : MonoBehaviour
 	{
 		uiGraphicOption[value].onText.color = new Color(Color.gray.r, Color.gray.g, Color.gray.b, 200 / 255f);
 		uiGraphicOption[value].offText.color = Color.yellow;
+	}
+
+	public void SetFog(bool value)
+	{
+		OptionData.fog = value;
+	}
+
+	public void SetAntiAliasing(bool value)
+	{
+		OptionData.antiAliasing = value;
+	}
+
+	public void SetMotionBlur(bool value)
+	{
+		OptionData.motionBlur = value;
+	}
+
+	public void SetBloom(bool value)
+	{
+		OptionData.bloom = value;
 	}
 }
