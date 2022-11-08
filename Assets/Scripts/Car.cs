@@ -71,6 +71,8 @@ public class Car : MonoBehaviour
 		if (!countDown.CountDownEnd) return;
 		if (clearCheck.IsClear) return;
 
+		LogitechWheelForce();
+		
 		SetIsCrash();
 
 		SetBodyTilt();
@@ -89,7 +91,6 @@ public class Car : MonoBehaviour
 			return;
 		}
 
-		LogitechWheelForce();
 
 		CheckPointTeleport();
 
@@ -211,7 +212,7 @@ public class Car : MonoBehaviour
 		switch (inputManager.Gear)
 		{
 			case 0:
-				kphLimit = 0;
+				//kphLimit = 0;
 				power = 0;
 				break;
 			case 1:
@@ -224,32 +225,32 @@ public class Car : MonoBehaviour
 				power = 3000 * boostPower;	
 				break;
 			case 2:
-				kphLimit = 50;
+				kphLimit = 65;
 				boostPower = Mathf.Clamp((kphLimit - kph) / 5, 1, (kphLimit - kph) / 5);
 				power = 3500 * boostPower;
 				break;
 			case 3:
-				kphLimit = 80;
-				boostPower = Mathf.Clamp(kph / kphLimit / 2, 0.2f, 1.2f);
+				kphLimit = 100;
+				boostPower = Mathf.Clamp(kph / kphLimit / 1.2f, 0.2f, 1.2f);
 				power = 6500 * boostPower;
 				break;
 			case 4:
-				kphLimit = 110;
-				boostPower = Mathf.Clamp(kph / kphLimit / 3, 0.15f, 1.1f);
+				kphLimit = 140;
+				boostPower = Mathf.Clamp(kph / kphLimit / 1.4f, 0.15f, 1.1f);
 				power = 9000 * boostPower;
 				break;
 			case 5:
-				kphLimit = 140;
-				boostPower = Mathf.Clamp(kph / kphLimit / 4, 0.1f, 1.05f);
+				kphLimit = 175;
+				boostPower = Mathf.Clamp(kph / kphLimit / 1.6f, 0.1f, 1.05f);
 				power = 11500 * boostPower;
 				break;
 			case 6:
-				kphLimit = 160;
-				boostPower = Mathf.Clamp(kph / kphLimit / 5, 0.1f, 1f);
+				kphLimit = 200;
+				boostPower = Mathf.Clamp(kph / kphLimit / 1.8f, 0.1f, 1f);
 				power = 12500 * boostPower;
 				break;
 			case 7:
-				kphLimit = 10;
+				kphLimit = 30;
 				power = 3000;
 				break;
 		}
@@ -258,12 +259,6 @@ public class Car : MonoBehaviour
 		wheels.backLeft.motorTorque = inputManager.Gas * (motorTorque / endSet);
 		wheels.backRight.motorTorque = inputManager.Gas * (motorTorque / endSet);
 
-		if (inputManager.Gear == 7 && inputManager.Gas > 0 && KPH < KPHLimit)
-		{
-			rigidBody.AddRelativeForce(power * inputManager.Gas * Vector3.back);
-			wheels.backLeft.brakeTorque = 0;
-			wheels.backRight.brakeTorque = 0;
-		}
 
 		if (inputManager.Gas > 0 && inputManager.Gear > 0 && inputManager.Gear < 7 && inputManager.Brake < 0 && KPH < KPHLimit)
 		{
@@ -275,6 +270,13 @@ public class Car : MonoBehaviour
 		{
 			wheels.backLeft.brakeTorque = brakePower;
 			wheels.backRight.brakeTorque = brakePower;
+		}
+
+		if (inputManager.Gear == 7 && inputManager.Gas > 0 && kph < kphLimit)
+		{
+			rigidBody.AddRelativeForce(power * inputManager.Gas * Vector3.back);
+			wheels.backLeft.brakeTorque = 0;
+			wheels.backRight.brakeTorque = 0;
 		}
 		
 		kph = rigidBody.velocity.magnitude * 3.6f;

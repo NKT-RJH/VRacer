@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -102,6 +103,8 @@ public class CountDown : MonoBehaviour
 		countDownEnd = true;
 
 		lockVRCamera.UnLock();
+
+		cameraVRTransform.localEulerAngles = cameraPaths[2].localEulerAngles;
 
 		for (int count = 0; count < anotherUI.Length; count++)
 		{

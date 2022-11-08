@@ -98,7 +98,14 @@ public class OptionManager : MonoBehaviour
 
 			OptionData.volume = (int)value;
 
-			soundSetting.SetVolume();
+			try
+			{
+				soundSetting.SetVolume();
+			}
+			catch(MissingReferenceException)
+			{
+				soundSetting = FindObjectOfType<SoundSetting>();
+			}
 
 			yield return null;
 		}

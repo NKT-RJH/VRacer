@@ -17,18 +17,21 @@ public class CarMotionGearMove : MonoBehaviour
 
 	private void Update()
 	{// 진동값 높이기, 자동차 각도에 따라 회전하기, 부딪히면 소리 및 덜컹거리기
-		float bodyTlitPitch = (car.BodyTlit.x > 0 ? -car.BodyTlit.x : 360 - car.BodyTlit.x) * 0.8f;
-		float bodyTlitRoll = car.BodyTlit.z > 0 ? -car.BodyTlit.z : 360 - car.BodyTlit.z;
+		// 더 줄이기
+		float bodyTlitPitch = (car.BodyTlit.x <= 180 ? -car.BodyTlit.x : 360 - car.BodyTlit.x) * 0.8f;
+		float bodyTlitRoll = car.BodyTlit.z <= 180 ? car.BodyTlit.z : car.BodyTlit.z - 360;
 
-		motionGear.Vibration(Mathf.Clamp(car.KPH / 10, 0.5f, car.KPH / 10));
+		float brakeValue = 0;
+
+		motionGear.Vibration(Mathf.Clamp(car.KPH / 30, 0.5f, car.KPH / 30));
 
 		if (inputManager.Brake > 0 && car.KPH > 10)
 		{
-			motionGear.LeanMotionGear(-6 * inputManager.Brake + bodyTlitPitch, null);
+			brakeValue = -6 * inputManager.Brake + bodyTlitPitch;
 		}
 		else
 		{
-			motionGear.LeanMotionGear(0 + bodyTlitPitch, null);
+			brakeValue = 0;
 		}
 
 		float driftValue = 0;
@@ -41,6 +44,6 @@ public class CarMotionGearMove : MonoBehaviour
 
 		vibrationRollValue = (vibrationRollValue > 0 ? -1 : 1) * (Random.Range(0.05f, 0.2f) + car.KPH / 75);
 
-		motionGear.LeanMotionGear(bodyTlitPitch, driftValue + vibrationRollValue + bodyTlitRoll);
+		motionGear.LeanMotionGear(bodyTlitPitch + brakeValue, driftValue + vibrationRollValue + bodyTlitRoll);
 	}
 }

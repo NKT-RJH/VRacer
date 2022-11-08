@@ -9,4 +9,5 @@ public class UITitle
     public GameObject playScreen;
     public GameObject carScreen;
     public GameObject equipmentScreen;
+    public GameObject modeScreen;
 }

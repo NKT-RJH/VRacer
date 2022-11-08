@@ -12,17 +12,31 @@ public class GraphicSetting : DontDestroyOnLoad<GraphicSetting>
 
         if (volume.profile.TryGet(out Fog fog))
         {
-            fog.active = OptionData.fog;
+            fog.enabled.value = OptionData.fog;
         }
 
         if (volume.profile.TryGet(out MotionBlur motionBlur))
         {
-            motionBlur.active = OptionData.motionBlur;
+            if (OptionData.motionBlur)
+            {
+                motionBlur.intensity.value = 1.5f;
+            }
+            else
+            {
+                motionBlur.intensity.value = 0;
+            }
         }
 
         if (volume.profile.TryGet(out Bloom bloom))
         {
-            bloom.active = OptionData.bloom;
+            if (OptionData.motionBlur)
+            {
+                bloom.intensity.value = 0.3f;
+            }
+            else
+            {
+                bloom.intensity.value = 0;
+            }
         }
 
         for (int count = 0; count < hdAdditionalCameraDatas.Length; count++)

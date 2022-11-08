@@ -5,15 +5,22 @@ public class GameManager : MonoBehaviour
 {
 	public bool isClear;
 
+	private InputManager inputManager;
+
+	private void Awake()
+	{
+		inputManager = FindObjectOfType<InputManager>();
+	}
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			SceneManager.LoadScene("Title");
+			GoTitle();
 		}
-		if (LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross))
+		if (inputManager.Cross)
 		{
-			SceneManager.LoadScene("Title");
+			GoTitle();
 		}
 	}
 

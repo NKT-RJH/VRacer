@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Valve.VR;
+using UnityEngine.SpatialTracking;
 
 public class LockVRCamera : MonoBehaviour
 {
@@ -17,37 +18,31 @@ public class LockVRCamera : MonoBehaviour
 #pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
 	private Camera camera;
 #pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
-	private Transform cameraTransform;
-	private SteamVR_CameraHelper steamVRCameraHelper;
 
 	private void Start()
 	{ // 이것도 충돌 조심 혹시 모름 네트워크에서 
-		steamVRCameraHelper = FindObjectOfType<SteamVR_CameraHelper>();
-		camera = steamVRCameraHelper.GetComponent<Camera>();
-		cameraTransform = camera.transform;
-
-		StartCoroutine(Updating());
+		camera = GetComponent<Camera>();
 	}
 
-	private IEnumerator Updating()
+	private void Update()
 	{
-		while (true)
+		if (cameraLock)
 		{
+			if(GetComponent<TrackedPoseDriver>())
+			{
+				GetComponent<TrackedPoseDriver>().enabled = false;
+			}
 			camera.fieldOfView = fieldOfView;
-
-			if (cameraLock)
-			{
-				steamVRCameraHelper.enabled = false;
-				cameraTransform.localPosition = Vector3.zero;
-				cameraTransform.rotation = lockRotation;
-			}
-			else
-			{
-				steamVRCameraHelper.enabled = false;
-			}
-
-			yield return null;
+			transform.localPosition = Vector3.zero;
+			transform.rotation = lockRotation;
 		}
+		else
+		{
+            if (GetComponent<TrackedPoseDriver>())
+            {
+                GetComponent<TrackedPoseDriver>().enabled = true;
+            }
+        }
 	}
 
 	public void Lock()

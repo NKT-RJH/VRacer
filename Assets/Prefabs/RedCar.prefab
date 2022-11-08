@@ -119,7 +119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -160}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3181195809993854559
@@ -1038,7 +1038,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 0
-  m_AllowDynamicResolution: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 17
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 3
   SMAAQuality: 2
@@ -1086,12 +1086,12 @@ MonoBehaviour:
   flipYMode: 0
   xrRendering: 0
   fullscreenPassthrough: 0
-  allowDynamicResolution: 1
+  allowDynamicResolution: 0
   customRenderingSettings: 0
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 49
   hasPersistentHistory: 0
   allowDeepLearningSuperSampling: 1
   deepLearningSuperSamplingUseCustomQualitySettings: 0
@@ -1940,6 +1940,7 @@ GameObject:
   - component: {fileID: 5704915772265041275}
   - component: {fileID: 461073481517661276}
   - component: {fileID: 606580675890004427}
+  - component: {fileID: 8421381751523343114}
   m_Layer: 0
   m_Name: RedCar
   m_TagString: Untagged
@@ -1954,8 +1955,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709828128293170383}
-  m_LocalRotation: {x: 0, y: -0.86602545, z: 0, w: 0.49999994}
-  m_LocalPosition: {x: -153.26, y: -6.76, z: 348.91}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1971,7 +1972,7 @@ Transform:
   - {fileID: 7610091310625662435}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -120, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2441476870784704221
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2116,7 +2117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPC: {fileID: 769764661026374559}
-  cameraRig: {fileID: 7567377178661357947}
+  cameraVR: {fileID: 7569016667569186145}
 --- !u!114 &5704915772265041275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2133,7 +2134,7 @@ MonoBehaviour:
   clearText:
   - {fileID: 884571534071223773}
   - {fileID: 8804845505134144108}
-  clearSound: {fileID: 0}
+  clearSound: {fileID: 8300000, guid: 5633262279599f2408c8896891dd3c09, type: 3}
   clearCountText:
   - {fileID: 6853031036120876538}
   - {fileID: 1031257092838311476}
@@ -2175,6 +2176,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0052a933d830c574fa8f626c49640a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8421381751523343114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709828128293170383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f1a9ca37dd67844b9ba1a9f76176da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mark: {fileID: 6970771946044518316, guid: 52055b6a3082b08418ab937fa61478ca, type: 3}
+  preset: -200
 --- !u!1 &1886189425906586591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,7 +2309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -30, y: 0}
+  m_AnchoredPosition: {x: -250, y: 0}
   m_SizeDelta: {x: 250, y: 270}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &8590232640842717764
@@ -3979,7 +3994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: 25}
+  m_AnchoredPosition: {x: -250, y: -135}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &290023760486559871
@@ -5087,7 +5102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55, y: 25}
+  m_AnchoredPosition: {x: 255, y: -135}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1208985368800832857
@@ -7160,7 +7175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 30}
+  m_AnchoredPosition: {x: 250, y: 30}
   m_SizeDelta: {x: 230, y: 230}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8432111953267113180
@@ -7273,6 +7288,7 @@ GameObject:
   - component: {fileID: 7585104776918093115}
   - component: {fileID: 7535009379731352911}
   - component: {fileID: 7585104776918093112}
+  - component: {fileID: 6759701718823791761}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -7288,7 +7304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7568075915790848383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000013768673, y: 0, z: -0.0000054091215}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7368,7 +7384,7 @@ MonoBehaviour:
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 17
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 3
   SMAAQuality: 2
@@ -7399,7 +7415,7 @@ MonoBehaviour:
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
-    m_Bits: 471
+    m_Bits: 81
   hasPersistentHistory: 0
   allowDeepLearningSuperSampling: 1
   deepLearningSuperSamplingUseCustomQualitySettings: 0
@@ -7476,6 +7492,18 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &6759701718823791761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568075915790848383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8996c97bcd4219b4aac347a5362d0d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7818539801991751135
 GameObject:
   m_ObjectHideFlags: 0

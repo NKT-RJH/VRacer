@@ -1,0 +1,961 @@
+2022.11.07 16:17:29, 
+2022.11.07 16:17:29, MHSDKManager::GetInstance() g_MHSDKInitCount:1.
+2022.11.07 16:17:29, MotionHouseSDK version :2022101701
+2022.11.07 16:17:29, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2022.11.07 16:17:29, BeltChecker don't be used.
+2022.11.07 16:17:29, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.07 16:17:29, PositionManagerVersion: 16122301, usageTime: 0, serialNumber: -1527540952 productDate: -2084114992 powerOnTime: 1677250082
+2022.11.07 16:17:29, PositionManager initialized 16122301
+2022.11.07 16:17:29, DeviceConnectted DEVICE_TYPE_MH_STEP_MOTION_4DOF
+2022.11.07 16:17:29, Default LoadConfig success
+2022.11.07 16:17:30, Calibration is already done.
+2022.11.07 16:17:30, Cylinder[0] min:4639  max:57287 center:30963
+2022.11.07 16:17:30, Cylinder[1] min:4638  max:57245 center:30941
+2022.11.07 16:17:30, Cylinder[2] min:4637  max:57211 center:30924
+2022.11.07 16:17:30, Cylinder[3] min:4634  max:57125 center:30879
+2022.11.07 16:17:30, Local\MHTrace_23, Create shared memory success
+2022.11.07 16:17:30, Device Connected 1
+2022.11.07 16:17:30, process list start
+2022.11.07 16:17:30, process path C:\Windows\System32\sihost.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:17:30, process path C:\Program Files (x86)\SecretDNS\SecretDNS.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\taskhostw.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\ctfmon.exe
+2022.11.07 16:17:30, process path C:\Windows\explorer.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:17:30, process path C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:17:30, process path C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:17:30, process path C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy\LockApp.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:17:30, process path C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:17:30, process path C:\Program Files\WindowsApps\Microsoft.YourPhone_1.22082.119.0_x64__8wekyb3d8bbwe\PhoneExperienceHost.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:17:30, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:17:30, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:17:30, process path C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe
+2022.11.07 16:17:30, process path C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+2022.11.07 16:17:30, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:17:30, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:17:30, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\SecurityHealthSystray.exe
+2022.11.07 16:17:30, process path C:\Program Files\Logitech Gaming Software\LCore.exe
+2022.11.07 16:17:30, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:17:30, process path C:\Program Files\LGHUB\lghub_agent.exe
+2022.11.07 16:17:30, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:17:30, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:17:30, process path C:\Program Files\LGHUB\logi_crashpad_handler.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\wbem\unsecapp.exe
+2022.11.07 16:17:30, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveEyeSettings\ViveSettings.exe
+2022.11.07 16:17:30, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\ApplicationFrameHost.exe
+2022.11.07 16:17:30, process path C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.2103.8.0_x64__8wekyb3d8bbwe\Calculator.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:17:30, process path C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+2022.11.07 16:17:30, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrserver.exe
+2022.11.07 16:17:30, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRServer\ViveVRServer.exe
+2022.11.07 16:17:30, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:17:31, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\WaveConsole.exe
+2022.11.07 16:17:31, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\LhStatusMonitor.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe
+2022.11.07 16:17:31, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\ViveVRCompositor.exe
+2022.11.07 16:17:31, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\Utility\ViveVRHelper.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrdashboard.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrmonitor.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:17:31, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\tools\lighthouse\bin\win64\vivelink.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:17:31, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\VivePostProcessor.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\oobe\UserOOBEBroker.exe
+2022.11.07 16:17:31, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:17:31, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:17:31, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:17:31, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:17:31, process path C:\Program Files\Unity Hub\UnityLicensingClient_V1\Unity.Licensing.Client.exe
+2022.11.07 16:17:31, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:17:31, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:17:31, process path C:\Windows\explorer.exe
+2022.11.07 16:17:31, process path C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2022.30070.26007.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\smartscreen.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\audiodg.exe
+2022.11.07 16:17:31, process path D:\UnityHubEditor\2021.3.10f1\Editor\Unity.exe
+2022.11.07 16:17:31, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityCrashHandler64.exe
+2022.11.07 16:17:31, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Resources\PackageManager\Server\UnityPackageManager.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:17:31, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityShaderCompiler.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\PerfWatson2.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\controller\Microsoft.ServiceHub.Controller.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.VSDetouredHost.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.RoslynCodeAnalysisService.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.ThreadedWaitDialog.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.IdentityHost.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.IndexingService.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.SettingsHost.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x64\ServiceHub.IntellicodeModelService.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.Host.netfx.x86.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.Host.AnyCPU.exe
+2022.11.07 16:17:31, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.TestWindowStoreHost.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:17:31, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\NetCoreRuntime\dotnet.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:17:31, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:17:31, process list end
+2022.11.07 16:17:31, Default MotionProfile
+2022.11.07 16:17:31, m_UseFlag: 1
+2022.11.07 16:17:31, m_Roll: 25
+2022.11.07 16:17:31, m_Pitch: 25
+2022.11.07 16:17:31, m_TrationLoss: 0
+2022.11.07 16:17:31, m_Sway: 40
+2022.11.07 16:17:31, m_Surge: 40
+2022.11.07 16:17:31, m_Heave: 5
+2022.11.07 16:17:31, m_Accel: 6
+2022.11.07 16:17:31, m_Smooth: 4
+2022.11.07 16:17:31, m_Vibration: 5
+2022.11.07 16:17:31, m_MaxSpeed: 850
+2022.11.07 16:17:31, MotionHouseSDK 2022101701 all initialization process done
+2022.11.07 16:17:31, called SetCenterPosition()
+2022.11.07 16:18:27, called SetBottomPosition()
+2022.11.07 16:18:27, called MHStop()
+2022.11.07 16:21:42, 
+2022.11.07 16:21:42, MHSDKManager::GetInstance() g_MHSDKInitCount:2.
+2022.11.07 16:21:42, MotionHouseSDK version :2022101701
+2022.11.07 16:21:42, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2022.11.07 16:21:42, BeltChecker don't be used.
+2022.11.07 16:21:42, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.07 16:21:42, PositionManagerVersion: 16122301, usageTime: 0, serialNumber: -1483084520 productDate: -1518942464 powerOnTime: 1677250082
+2022.11.07 16:21:43, PositionManager initialized 16122301
+2022.11.07 16:21:43, DeviceConnectted DEVICE_TYPE_MH_STEP_MOTION_4DOF
+2022.11.07 16:21:43, Default LoadConfig success
+2022.11.07 16:21:43, Calibration is already done.
+2022.11.07 16:21:43, Cylinder[0] min:4639  max:57287 center:30963
+2022.11.07 16:21:43, Cylinder[1] min:4638  max:57245 center:30941
+2022.11.07 16:21:43, Cylinder[2] min:4637  max:57211 center:30924
+2022.11.07 16:21:43, Cylinder[3] min:4634  max:57125 center:30879
+2022.11.07 16:21:44, Local\MHTrace_23, Create shared memory success
+2022.11.07 16:21:44, Device Connected 1
+2022.11.07 16:21:44, process list start
+2022.11.07 16:21:44, process path C:\Windows\System32\sihost.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\SecretDNS\SecretDNS.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\taskhostw.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\ctfmon.exe
+2022.11.07 16:21:44, process path C:\Windows\explorer.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:21:44, process path C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:21:44, process path C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:21:44, process path C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy\LockApp.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:21:44, process path C:\Program Files\WindowsApps\Microsoft.YourPhone_1.22082.119.0_x64__8wekyb3d8bbwe\PhoneExperienceHost.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:21:44, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:21:44, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:21:44, process path C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe
+2022.11.07 16:21:44, process path C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+2022.11.07 16:21:44, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:21:44, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:21:44, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\SecurityHealthSystray.exe
+2022.11.07 16:21:44, process path C:\Program Files\Logitech Gaming Software\LCore.exe
+2022.11.07 16:21:44, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:21:44, process path C:\Program Files\LGHUB\lghub_agent.exe
+2022.11.07 16:21:44, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:21:44, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:21:44, process path C:\Program Files\LGHUB\logi_crashpad_handler.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\wbem\unsecapp.exe
+2022.11.07 16:21:44, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveEyeSettings\ViveSettings.exe
+2022.11.07 16:21:44, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\ApplicationFrameHost.exe
+2022.11.07 16:21:44, process path C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.2103.8.0_x64__8wekyb3d8bbwe\Calculator.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:21:44, process path C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrserver.exe
+2022.11.07 16:21:44, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRServer\ViveVRServer.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:21:44, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\WaveConsole.exe
+2022.11.07 16:21:44, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\LhStatusMonitor.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe
+2022.11.07 16:21:44, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\ViveVRCompositor.exe
+2022.11.07 16:21:44, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\Utility\ViveVRHelper.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrdashboard.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrmonitor.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:21:44, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\tools\lighthouse\bin\win64\vivelink.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:21:44, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\VivePostProcessor.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\oobe\UserOOBEBroker.exe
+2022.11.07 16:21:44, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:21:44, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:21:44, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:21:44, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:21:44, process path C:\Program Files\Unity Hub\UnityLicensingClient_V1\Unity.Licensing.Client.exe
+2022.11.07 16:21:44, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:21:44, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:21:44, process path C:\Windows\explorer.exe
+2022.11.07 16:21:44, process path C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2022.30070.26007.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\audiodg.exe
+2022.11.07 16:21:44, process path D:\UnityHubEditor\2021.3.10f1\Editor\Unity.exe
+2022.11.07 16:21:44, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityCrashHandler64.exe
+2022.11.07 16:21:44, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Resources\PackageManager\Server\UnityPackageManager.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:21:44, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityShaderCompiler.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\PerfWatson2.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\controller\Microsoft.ServiceHub.Controller.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.VSDetouredHost.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.RoslynCodeAnalysisService.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.ThreadedWaitDialog.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.IdentityHost.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.IndexingService.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.SettingsHost.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x64\ServiceHub.IntellicodeModelService.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.Host.netfx.x86.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.Host.AnyCPU.exe
+2022.11.07 16:21:44, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.TestWindowStoreHost.exe
+2022.11.07 16:21:44, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\NetCoreRuntime\dotnet.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:21:44, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:21:44, process list end
+2022.11.07 16:21:44, Default MotionProfile
+2022.11.07 16:21:44, m_UseFlag: 1
+2022.11.07 16:21:44, m_Roll: 25
+2022.11.07 16:21:44, m_Pitch: 25
+2022.11.07 16:21:44, m_TrationLoss: 0
+2022.11.07 16:21:44, m_Sway: 40
+2022.11.07 16:21:44, m_Surge: 40
+2022.11.07 16:21:44, m_Heave: 5
+2022.11.07 16:21:44, m_Accel: 6
+2022.11.07 16:21:44, m_Smooth: 4
+2022.11.07 16:21:44, m_Vibration: 5
+2022.11.07 16:21:44, m_MaxSpeed: 850
+2022.11.07 16:21:44, MotionHouseSDK 2022101701 all initialization process done
+2022.11.07 16:21:44, called SetCenterPosition()
+2022.11.07 16:22:20, called SetBottomPosition()
+2022.11.07 16:22:20, called MHStop()
+2022.11.07 16:24:56, 
+2022.11.07 16:24:56, MHSDKManager::GetInstance() g_MHSDKInitCount:3.
+2022.11.07 16:24:56, MotionHouseSDK version :2022101701
+2022.11.07 16:24:56, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2022.11.07 16:24:56, BeltChecker don't be used.
+2022.11.07 16:24:56, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.07 16:24:56, PositionManagerVersion: 16122301, usageTime: 0, serialNumber: -1531687336 productDate: -2132130688 powerOnTime: 1677250082
+2022.11.07 16:24:57, PositionManager initialized 16122301
+2022.11.07 16:24:57, DeviceConnectted DEVICE_TYPE_MH_STEP_MOTION_4DOF
+2022.11.07 16:24:57, Default LoadConfig success
+2022.11.07 16:24:57, Calibration is already done.
+2022.11.07 16:24:57, Cylinder[0] min:4639  max:57287 center:30963
+2022.11.07 16:24:57, Cylinder[1] min:4638  max:57245 center:30941
+2022.11.07 16:24:57, Cylinder[2] min:4637  max:57211 center:30924
+2022.11.07 16:24:57, Cylinder[3] min:4634  max:57125 center:30879
+2022.11.07 16:24:58, Local\MHTrace_23, Create shared memory success
+2022.11.07 16:24:58, Device Connected 1
+2022.11.07 16:24:58, process list start
+2022.11.07 16:24:58, process path C:\Windows\System32\sihost.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\SecretDNS\SecretDNS.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\taskhostw.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\ctfmon.exe
+2022.11.07 16:24:58, process path C:\Windows\explorer.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:24:58, process path C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:24:58, process path C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:24:58, process path C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy\LockApp.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:24:58, process path C:\Program Files\WindowsApps\Microsoft.YourPhone_1.22082.119.0_x64__8wekyb3d8bbwe\PhoneExperienceHost.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:24:58, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:24:58, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:24:58, process path C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe
+2022.11.07 16:24:58, process path C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+2022.11.07 16:24:58, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:24:58, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:24:58, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\SecurityHealthSystray.exe
+2022.11.07 16:24:58, process path C:\Program Files\Logitech Gaming Software\LCore.exe
+2022.11.07 16:24:58, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:24:58, process path C:\Program Files\LGHUB\lghub_agent.exe
+2022.11.07 16:24:58, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:24:58, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:24:58, process path C:\Program Files\LGHUB\logi_crashpad_handler.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\wbem\unsecapp.exe
+2022.11.07 16:24:58, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveEyeSettings\ViveSettings.exe
+2022.11.07 16:24:58, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\ApplicationFrameHost.exe
+2022.11.07 16:24:58, process path C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.2103.8.0_x64__8wekyb3d8bbwe\Calculator.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:24:58, process path C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrserver.exe
+2022.11.07 16:24:58, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRServer\ViveVRServer.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:24:58, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\WaveConsole.exe
+2022.11.07 16:24:58, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\LhStatusMonitor.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe
+2022.11.07 16:24:58, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\ViveVRCompositor.exe
+2022.11.07 16:24:58, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\Utility\ViveVRHelper.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrdashboard.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrmonitor.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:24:58, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\tools\lighthouse\bin\win64\vivelink.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:24:58, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\VivePostProcessor.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\oobe\UserOOBEBroker.exe
+2022.11.07 16:24:58, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:24:58, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:24:58, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:24:58, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:24:58, process path C:\Program Files\Unity Hub\UnityLicensingClient_V1\Unity.Licensing.Client.exe
+2022.11.07 16:24:58, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:24:58, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:24:58, process path C:\Windows\explorer.exe
+2022.11.07 16:24:58, process path C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2022.30070.26007.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\audiodg.exe
+2022.11.07 16:24:58, process path D:\UnityHubEditor\2021.3.10f1\Editor\Unity.exe
+2022.11.07 16:24:58, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityCrashHandler64.exe
+2022.11.07 16:24:58, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Resources\PackageManager\Server\UnityPackageManager.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:24:58, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityShaderCompiler.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\PerfWatson2.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\controller\Microsoft.ServiceHub.Controller.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.VSDetouredHost.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.RoslynCodeAnalysisService.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.ThreadedWaitDialog.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.IdentityHost.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.IndexingService.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.SettingsHost.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x64\ServiceHub.IntellicodeModelService.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.Host.netfx.x86.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.Host.AnyCPU.exe
+2022.11.07 16:24:58, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.TestWindowStoreHost.exe
+2022.11.07 16:24:58, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\NetCoreRuntime\dotnet.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:24:58, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:24:58, process list end
+2022.11.07 16:24:58, Default MotionProfile
+2022.11.07 16:24:58, m_UseFlag: 1
+2022.11.07 16:24:58, m_Roll: 25
+2022.11.07 16:24:58, m_Pitch: 25
+2022.11.07 16:24:58, m_TrationLoss: 0
+2022.11.07 16:24:58, m_Sway: 40
+2022.11.07 16:24:58, m_Surge: 40
+2022.11.07 16:24:58, m_Heave: 5
+2022.11.07 16:24:58, m_Accel: 6
+2022.11.07 16:24:58, m_Smooth: 4
+2022.11.07 16:24:58, m_Vibration: 5
+2022.11.07 16:24:58, m_MaxSpeed: 850
+2022.11.07 16:24:58, MotionHouseSDK 2022101701 all initialization process done
+2022.11.07 16:24:58, called SetCenterPosition()
+2022.11.07 16:28:11, called SetBottomPosition()
+2022.11.07 16:28:11, called MHStop()
+2022.11.07 16:32:00, 
+2022.11.07 16:32:00, MHSDKManager::GetInstance() g_MHSDKInitCount:4.
+2022.11.07 16:32:00, MotionHouseSDK version :2022101701
+2022.11.07 16:32:00, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2022.11.07 16:32:00, BeltChecker don't be used.
+2022.11.07 16:32:00, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.07 16:32:00, PositionManagerVersion: 16122301, usageTime: 0, serialNumber: -784554456 productDate: -2138500416 powerOnTime: 1677250082
+2022.11.07 16:32:00, PositionManager initialized 16122301
+2022.11.07 16:32:00, DeviceConnectted DEVICE_TYPE_MH_STEP_MOTION_4DOF
+2022.11.07 16:32:00, Default LoadConfig success
+2022.11.07 16:32:01, Calibration is already done.
+2022.11.07 16:32:01, Cylinder[0] min:4639  max:57287 center:30963
+2022.11.07 16:32:01, Cylinder[1] min:4638  max:57245 center:30941
+2022.11.07 16:32:01, Cylinder[2] min:4637  max:57211 center:30924
+2022.11.07 16:32:01, Cylinder[3] min:4634  max:57125 center:30879
+2022.11.07 16:32:02, Local\MHTrace_23, Create shared memory success
+2022.11.07 16:32:02, Device Connected 1
+2022.11.07 16:32:02, process list start
+2022.11.07 16:32:02, process path C:\Windows\System32\sihost.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\SecretDNS\SecretDNS.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\taskhostw.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\ctfmon.exe
+2022.11.07 16:32:02, process path C:\Windows\explorer.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:32:02, process path C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:32:02, process path C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:32:02, process path C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy\LockApp.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:32:02, process path C:\Program Files\WindowsApps\Microsoft.YourPhone_1.22082.119.0_x64__8wekyb3d8bbwe\PhoneExperienceHost.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:32:02, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:32:02, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:32:02, process path C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe
+2022.11.07 16:32:02, process path C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+2022.11.07 16:32:02, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:32:02, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:32:02, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\SecurityHealthSystray.exe
+2022.11.07 16:32:02, process path C:\Program Files\Logitech Gaming Software\LCore.exe
+2022.11.07 16:32:02, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:32:02, process path C:\Program Files\LGHUB\lghub_agent.exe
+2022.11.07 16:32:02, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:32:02, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:32:02, process path C:\Program Files\LGHUB\logi_crashpad_handler.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\wbem\unsecapp.exe
+2022.11.07 16:32:02, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveEyeSettings\ViveSettings.exe
+2022.11.07 16:32:02, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\ApplicationFrameHost.exe
+2022.11.07 16:32:02, process path C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.2103.8.0_x64__8wekyb3d8bbwe\Calculator.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:32:02, process path C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrserver.exe
+2022.11.07 16:32:02, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRServer\ViveVRServer.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:32:02, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\WaveConsole.exe
+2022.11.07 16:32:02, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\LhStatusMonitor.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe
+2022.11.07 16:32:02, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\ViveVRCompositor.exe
+2022.11.07 16:32:02, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\Utility\ViveVRHelper.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrdashboard.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrmonitor.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:32:02, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\tools\lighthouse\bin\win64\vivelink.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:32:02, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\VivePostProcessor.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\oobe\UserOOBEBroker.exe
+2022.11.07 16:32:02, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:32:02, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:32:02, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:32:02, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:32:02, process path C:\Program Files\Unity Hub\UnityLicensingClient_V1\Unity.Licensing.Client.exe
+2022.11.07 16:32:02, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:32:02, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:32:02, process path C:\Windows\explorer.exe
+2022.11.07 16:32:02, process path C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2022.30070.26007.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\audiodg.exe
+2022.11.07 16:32:02, process path D:\UnityHubEditor\2021.3.10f1\Editor\Unity.exe
+2022.11.07 16:32:02, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityCrashHandler64.exe
+2022.11.07 16:32:02, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Resources\PackageManager\Server\UnityPackageManager.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:32:02, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityShaderCompiler.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\PerfWatson2.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\controller\Microsoft.ServiceHub.Controller.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.VSDetouredHost.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.RoslynCodeAnalysisService.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.ThreadedWaitDialog.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.IdentityHost.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.IndexingService.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.SettingsHost.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x64\ServiceHub.IntellicodeModelService.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.Host.netfx.x86.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.Host.AnyCPU.exe
+2022.11.07 16:32:02, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.TestWindowStoreHost.exe
+2022.11.07 16:32:02, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\NetCoreRuntime\dotnet.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:32:02, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:32:02, process list end
+2022.11.07 16:32:02, Default MotionProfile
+2022.11.07 16:32:02, m_UseFlag: 1
+2022.11.07 16:32:02, m_Roll: 25
+2022.11.07 16:32:02, m_Pitch: 25
+2022.11.07 16:32:02, m_TrationLoss: 0
+2022.11.07 16:32:02, m_Sway: 40
+2022.11.07 16:32:02, m_Surge: 40
+2022.11.07 16:32:02, m_Heave: 5
+2022.11.07 16:32:02, m_Accel: 6
+2022.11.07 16:32:02, m_Smooth: 4
+2022.11.07 16:32:02, m_Vibration: 5
+2022.11.07 16:32:02, m_MaxSpeed: 850
+2022.11.07 16:32:02, MotionHouseSDK 2022101701 all initialization process done
+2022.11.07 16:32:02, called SetCenterPosition()
+2022.11.07 16:32:42, called SetBottomPosition()
+2022.11.07 16:32:43, called MHStop()
+2022.11.07 16:33:23, 
+2022.11.07 16:33:23, MHSDKManager::GetInstance() g_MHSDKInitCount:5.
+2022.11.07 16:33:23, MotionHouseSDK version :2022101701
+2022.11.07 16:33:23, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2022.11.07 16:33:23, BeltChecker don't be used.
+2022.11.07 16:33:23, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.07 16:33:23, PositionManagerVersion: 16122301, usageTime: 0, serialNumber: -1545498840 productDate: -1526206672 powerOnTime: 1677250082
+2022.11.07 16:33:23, PositionManager initialized 16122301
+2022.11.07 16:33:23, DeviceConnectted DEVICE_TYPE_MH_STEP_MOTION_4DOF
+2022.11.07 16:33:23, Default LoadConfig success
+2022.11.07 16:33:24, Calibration is already done.
+2022.11.07 16:33:24, Cylinder[0] min:4639  max:57287 center:30963
+2022.11.07 16:33:24, Cylinder[1] min:4638  max:57245 center:30941
+2022.11.07 16:33:24, Cylinder[2] min:4637  max:57211 center:30924
+2022.11.07 16:33:24, Cylinder[3] min:4634  max:57125 center:30879
+2022.11.07 16:33:25, Local\MHTrace_23, Create shared memory success
+2022.11.07 16:33:25, Device Connected 1
+2022.11.07 16:33:25, process list start
+2022.11.07 16:33:25, process path C:\Windows\System32\sihost.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\SecretDNS\SecretDNS.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\taskhostw.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\ctfmon.exe
+2022.11.07 16:33:25, process path C:\Windows\explorer.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:33:25, process path C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:33:25, process path C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:33:25, process path C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy\LockApp.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:33:25, process path C:\Program Files\WindowsApps\Microsoft.YourPhone_1.22082.119.0_x64__8wekyb3d8bbwe\PhoneExperienceHost.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:33:25, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:33:25, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:33:25, process path C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe
+2022.11.07 16:33:25, process path C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+2022.11.07 16:33:25, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:33:25, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:33:25, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\SecurityHealthSystray.exe
+2022.11.07 16:33:25, process path C:\Program Files\Logitech Gaming Software\LCore.exe
+2022.11.07 16:33:25, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:33:25, process path C:\Program Files\LGHUB\lghub_agent.exe
+2022.11.07 16:33:25, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:33:25, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:33:25, process path C:\Program Files\LGHUB\logi_crashpad_handler.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\wbem\unsecapp.exe
+2022.11.07 16:33:25, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveEyeSettings\ViveSettings.exe
+2022.11.07 16:33:25, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\ApplicationFrameHost.exe
+2022.11.07 16:33:25, process path C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.2103.8.0_x64__8wekyb3d8bbwe\Calculator.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:33:25, process path C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrserver.exe
+2022.11.07 16:33:25, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRServer\ViveVRServer.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:33:25, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\WaveConsole.exe
+2022.11.07 16:33:25, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\LhStatusMonitor.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe
+2022.11.07 16:33:25, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\ViveVRCompositor.exe
+2022.11.07 16:33:25, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\Utility\ViveVRHelper.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrdashboard.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrmonitor.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:33:25, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\tools\lighthouse\bin\win64\vivelink.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:33:25, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\VivePostProcessor.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\oobe\UserOOBEBroker.exe
+2022.11.07 16:33:25, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:33:25, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:33:25, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:33:25, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:33:25, process path C:\Program Files\Unity Hub\UnityLicensingClient_V1\Unity.Licensing.Client.exe
+2022.11.07 16:33:25, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:33:25, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:33:25, process path C:\Windows\explorer.exe
+2022.11.07 16:33:25, process path C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2022.30070.26007.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\audiodg.exe
+2022.11.07 16:33:25, process path D:\UnityHubEditor\2021.3.10f1\Editor\Unity.exe
+2022.11.07 16:33:25, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityCrashHandler64.exe
+2022.11.07 16:33:25, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Resources\PackageManager\Server\UnityPackageManager.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:33:25, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityShaderCompiler.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\PerfWatson2.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\controller\Microsoft.ServiceHub.Controller.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.VSDetouredHost.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.RoslynCodeAnalysisService.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.ThreadedWaitDialog.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.IdentityHost.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.IndexingService.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.SettingsHost.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x64\ServiceHub.IntellicodeModelService.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.Host.netfx.x86.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.Host.AnyCPU.exe
+2022.11.07 16:33:25, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.TestWindowStoreHost.exe
+2022.11.07 16:33:25, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\NetCoreRuntime\dotnet.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:33:25, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:33:25, process list end
+2022.11.07 16:33:25, Default MotionProfile
+2022.11.07 16:33:25, m_UseFlag: 1
+2022.11.07 16:33:25, m_Roll: 25
+2022.11.07 16:33:25, m_Pitch: 25
+2022.11.07 16:33:25, m_TrationLoss: 0
+2022.11.07 16:33:25, m_Sway: 40
+2022.11.07 16:33:25, m_Surge: 40
+2022.11.07 16:33:25, m_Heave: 5
+2022.11.07 16:33:25, m_Accel: 6
+2022.11.07 16:33:25, m_Smooth: 4
+2022.11.07 16:33:25, m_Vibration: 5
+2022.11.07 16:33:25, m_MaxSpeed: 850
+2022.11.07 16:33:25, MotionHouseSDK 2022101701 all initialization process done
+2022.11.07 16:33:25, called SetCenterPosition()
+2022.11.07 16:34:38, called SetBottomPosition()
+2022.11.07 16:34:38, called MHStop()
+2022.11.07 16:35:20, 
+2022.11.07 16:35:20, MHSDKManager::GetInstance() g_MHSDKInitCount:6.
+2022.11.07 16:35:20, MotionHouseSDK version :2022101701
+2022.11.07 16:35:20, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2022.11.07 16:35:20, BeltChecker don't be used.
+2022.11.07 16:35:20, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.07 16:35:20, PositionManagerVersion: 16122301, usageTime: 0, serialNumber: -1545495400 productDate: -1531497360 powerOnTime: 1677250082
+2022.11.07 16:35:21, PositionManager initialized 16122301
+2022.11.07 16:35:21, DeviceConnectted DEVICE_TYPE_MH_STEP_MOTION_4DOF
+2022.11.07 16:35:21, Default LoadConfig success
+2022.11.07 16:35:21, Calibration is already done.
+2022.11.07 16:35:21, Cylinder[0] min:4639  max:57287 center:30963
+2022.11.07 16:35:21, Cylinder[1] min:4638  max:57245 center:30941
+2022.11.07 16:35:21, Cylinder[2] min:4637  max:57211 center:30924
+2022.11.07 16:35:21, Cylinder[3] min:4634  max:57125 center:30879
+2022.11.07 16:35:22, Local\MHTrace_23, Create shared memory success
+2022.11.07 16:35:22, Device Connected 1
+2022.11.07 16:35:22, process list start
+2022.11.07 16:35:22, process path C:\Windows\System32\sihost.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\SecretDNS\SecretDNS.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\taskhostw.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\ctfmon.exe
+2022.11.07 16:35:22, process path C:\Windows\explorer.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:35:22, process path C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:35:22, process path C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:35:22, process path C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy\LockApp.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:35:22, process path C:\Program Files\WindowsApps\Microsoft.YourPhone_1.22082.119.0_x64__8wekyb3d8bbwe\PhoneExperienceHost.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:35:22, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:35:22, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:35:22, process path C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe
+2022.11.07 16:35:22, process path C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+2022.11.07 16:35:22, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:35:22, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:35:22, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\SecurityHealthSystray.exe
+2022.11.07 16:35:22, process path C:\Program Files\Logitech Gaming Software\LCore.exe
+2022.11.07 16:35:22, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:35:22, process path C:\Program Files\LGHUB\lghub_agent.exe
+2022.11.07 16:35:22, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:35:22, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:35:22, process path C:\Program Files\LGHUB\logi_crashpad_handler.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\wbem\unsecapp.exe
+2022.11.07 16:35:22, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveEyeSettings\ViveSettings.exe
+2022.11.07 16:35:22, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\ApplicationFrameHost.exe
+2022.11.07 16:35:22, process path C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.2103.8.0_x64__8wekyb3d8bbwe\Calculator.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:35:22, process path C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrserver.exe
+2022.11.07 16:35:22, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRServer\ViveVRServer.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:35:22, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\WaveConsole.exe
+2022.11.07 16:35:22, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\LhStatusMonitor.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe
+2022.11.07 16:35:22, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\ViveVRCompositor.exe
+2022.11.07 16:35:22, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\Utility\ViveVRHelper.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrdashboard.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrmonitor.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:35:22, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\tools\lighthouse\bin\win64\vivelink.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:35:22, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\VivePostProcessor.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\oobe\UserOOBEBroker.exe
+2022.11.07 16:35:22, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:35:22, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:35:22, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:35:22, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:35:22, process path C:\Program Files\Unity Hub\UnityLicensingClient_V1\Unity.Licensing.Client.exe
+2022.11.07 16:35:22, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:35:22, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:35:22, process path C:\Windows\explorer.exe
+2022.11.07 16:35:22, process path C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2022.30070.26007.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\audiodg.exe
+2022.11.07 16:35:22, process path D:\UnityHubEditor\2021.3.10f1\Editor\Unity.exe
+2022.11.07 16:35:22, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityCrashHandler64.exe
+2022.11.07 16:35:22, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Resources\PackageManager\Server\UnityPackageManager.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:35:22, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityShaderCompiler.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\PerfWatson2.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\controller\Microsoft.ServiceHub.Controller.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.VSDetouredHost.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.RoslynCodeAnalysisService.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.ThreadedWaitDialog.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.IdentityHost.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.IndexingService.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.SettingsHost.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x64\ServiceHub.IntellicodeModelService.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.Host.netfx.x86.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.Host.AnyCPU.exe
+2022.11.07 16:35:22, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.TestWindowStoreHost.exe
+2022.11.07 16:35:22, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\NetCoreRuntime\dotnet.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:35:22, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:35:22, process list end
+2022.11.07 16:35:22, Default MotionProfile
+2022.11.07 16:35:22, m_UseFlag: 1
+2022.11.07 16:35:22, m_Roll: 25
+2022.11.07 16:35:22, m_Pitch: 25
+2022.11.07 16:35:22, m_TrationLoss: 0
+2022.11.07 16:35:22, m_Sway: 40
+2022.11.07 16:35:22, m_Surge: 40
+2022.11.07 16:35:22, m_Heave: 5
+2022.11.07 16:35:22, m_Accel: 6
+2022.11.07 16:35:22, m_Smooth: 4
+2022.11.07 16:35:22, m_Vibration: 5
+2022.11.07 16:35:22, m_MaxSpeed: 850
+2022.11.07 16:35:22, MotionHouseSDK 2022101701 all initialization process done
+2022.11.07 16:35:22, called SetCenterPosition()
+2022.11.07 16:36:13, called SetBottomPosition()
+2022.11.07 16:36:13, called MHStop()
+2022.11.07 16:40:27, 
+2022.11.07 16:40:27, MHSDKManager::GetInstance() g_MHSDKInitCount:7.
+2022.11.07 16:40:27, MotionHouseSDK version :2022101701
+2022.11.07 16:40:27, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2022.11.07 16:40:27, BeltChecker don't be used.
+2022.11.07 16:40:27, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.07 16:40:27, PositionManagerVersion: 16122301, usageTime: 0, serialNumber: -1444101528 productDate: -1518944640 powerOnTime: 1677250082
+2022.11.07 16:40:27, PositionManager initialized 16122301
+2022.11.07 16:40:27, DeviceConnectted DEVICE_TYPE_MH_STEP_MOTION_4DOF
+2022.11.07 16:40:27, Default LoadConfig success
+2022.11.07 16:40:28, Calibration is already done.
+2022.11.07 16:40:28, Cylinder[0] min:4639  max:57287 center:30963
+2022.11.07 16:40:28, Cylinder[1] min:4638  max:57245 center:30941
+2022.11.07 16:40:28, Cylinder[2] min:4637  max:57211 center:30924
+2022.11.07 16:40:28, Cylinder[3] min:4634  max:57125 center:30879
+2022.11.07 16:40:28, Local\MHTrace_23, Create shared memory success
+2022.11.07 16:40:28, Device Connected 1
+2022.11.07 16:40:28, process list start
+2022.11.07 16:40:28, process path C:\Windows\System32\sihost.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\SecretDNS\SecretDNS.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\taskhostw.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\ctfmon.exe
+2022.11.07 16:40:28, process path C:\Windows\explorer.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:40:28, process path C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:40:28, process path C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:40:28, process path C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy\LockApp.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:40:28, process path C:\Program Files\WindowsApps\Microsoft.YourPhone_1.22082.119.0_x64__8wekyb3d8bbwe\PhoneExperienceHost.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:40:28, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:40:28, process path C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe
+2022.11.07 16:40:28, process path C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe
+2022.11.07 16:40:28, process path C:\Program Files\NVIDIA Corporation\ShadowPlay\nvsphelper64.exe
+2022.11.07 16:40:28, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:40:28, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:40:28, process path C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\SecurityHealthSystray.exe
+2022.11.07 16:40:28, process path C:\Program Files\Logitech Gaming Software\LCore.exe
+2022.11.07 16:40:28, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:40:28, process path C:\Program Files\LGHUB\lghub_agent.exe
+2022.11.07 16:40:28, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:40:28, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:40:28, process path C:\Program Files\LGHUB\logi_crashpad_handler.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\wbem\unsecapp.exe
+2022.11.07 16:40:28, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveEyeSettings\ViveSettings.exe
+2022.11.07 16:40:28, process path C:\Program Files\LGHUB\lghub.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\ApplicationFrameHost.exe
+2022.11.07 16:40:28, process path C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.2103.8.0_x64__8wekyb3d8bbwe\Calculator.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:40:28, process path C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrserver.exe
+2022.11.07 16:40:28, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRServer\ViveVRServer.exe
+2022.11.07 16:40:28, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:40:28, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\WaveConsole.exe
+2022.11.07 16:40:28, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\WaveConsole\LhStatusMonitor.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrcompositor.exe
+2022.11.07 16:40:28, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\ViveVRCompositor.exe
+2022.11.07 16:40:28, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\Utility\ViveVRHelper.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrdashboard.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\win64\vrmonitor.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:40:28, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:40:29, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:40:29, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\bin\vrwebhelper\win64\vrwebhelper.exe
+2022.11.07 16:40:29, process path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\tools\lighthouse\bin\win64\vivelink.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:40:29, process path D:\SteamLibrary\steamapps\common\VIVEDriver\App\ViveVRRuntime\ViveVR\ViveVRCompositor\VivePostProcessor.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\oobe\UserOOBEBroker.exe
+2022.11.07 16:40:29, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:40:29, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:40:29, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:40:29, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:40:29, process path C:\Program Files\Unity Hub\UnityLicensingClient_V1\Unity.Licensing.Client.exe
+2022.11.07 16:40:29, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:40:29, process path C:\Program Files\Unity Hub\Unity Hub.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\svchost.exe
+2022.11.07 16:40:29, process path C:\Windows\explorer.exe
+2022.11.07 16:40:29, process path C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2022.30070.26007.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\RuntimeBroker.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\audiodg.exe
+2022.11.07 16:40:29, process path D:\UnityHubEditor\2021.3.10f1\Editor\Unity.exe
+2022.11.07 16:40:29, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityCrashHandler64.exe
+2022.11.07 16:40:29, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Resources\PackageManager\Server\UnityPackageManager.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:40:29, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\Tools\UnityShaderCompiler.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\PerfWatson2.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\controller\Microsoft.ServiceHub.Controller.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.VSDetouredHost.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.RoslynCodeAnalysisService.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.ThreadedWaitDialog.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.IdentityHost.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.IndexingService.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.SettingsHost.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x64\ServiceHub.IntellicodeModelService.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.Dotnet.x64\ServiceHub.Host.dotnet.x64.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.netfx.x86\ServiceHub.Host.netfx.x86.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.Host.AnyCPU.exe
+2022.11.07 16:40:29, process path D:\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.AnyCPU\ServiceHub.TestWindowStoreHost.exe
+2022.11.07 16:40:29, process path D:\UnityHubEditor\2021.3.10f1\Editor\Data\NetCoreRuntime\dotnet.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\conhost.exe
+2022.11.07 16:40:29, process path C:\Windows\System32\dllhost.exe
+2022.11.07 16:40:29, process list end
+2022.11.07 16:40:29, Default MotionProfile
+2022.11.07 16:40:29, m_UseFlag: 1
+2022.11.07 16:40:29, m_Roll: 25
+2022.11.07 16:40:29, m_Pitch: 25
+2022.11.07 16:40:29, m_TrationLoss: 0
+2022.11.07 16:40:29, m_Sway: 40
+2022.11.07 16:40:29, m_Surge: 40
+2022.11.07 16:40:29, m_Heave: 5
+2022.11.07 16:40:29, m_Accel: 6
+2022.11.07 16:40:29, m_Smooth: 4
+2022.11.07 16:40:29, m_Vibration: 5
+2022.11.07 16:40:29, m_MaxSpeed: 850
+2022.11.07 16:40:29, MotionHouseSDK 2022101701 all initialization process done
+2022.11.07 16:40:29, called SetCenterPosition()
+2022.11.07 16:42:50, called SetBottomPosition()
+2022.11.07 16:42:50, called MHStop()

@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -9,7 +11,6 @@ public class ClearCheck : MonoBehaviour
 	[SerializeField] private Transform clearPath;
 	[SerializeField] private GameObject[] clearText = new GameObject[2];
 	[SerializeField] private AudioClip clearSound;
-	[SerializeField] private AudioClip perfectclearSound;
 	[SerializeField] private TextMeshProUGUI[] clearCountText = new TextMeshProUGUI[2];
 	[SerializeField] private Transform cameraPCTransform;
 	[SerializeField] private Transform cameraRigTransform;
@@ -23,21 +24,31 @@ public class ClearCheck : MonoBehaviour
 
 	private AudioSource audioSource;
 
-	private bool[] clears =
-	{
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false
-	};
+	private bool[] clears;
 
 	private void Awake()
 	{
 		audioSource = GetComponent<AudioSource>();
 	}
+
+	private void Start()
+	{
+		GameObject[] checkPoints = GameObject.FindGameObjectsWithTag("CheckPoint");
+
+		int checkPointLength = 0;
+
+		for (int count = 0; count < checkPoints.Length; count++)
+		{
+			int temporary = int.Parse(checkPoints[count].name);
+
+			if (temporary > checkPointLength)
+			{
+				checkPointLength = temporary;
+			}
+		}
+
+		clears = new bool[checkPointLength + 1];
+    }
 
 	private void Update()
 	{
@@ -69,6 +80,8 @@ public class ClearCheck : MonoBehaviour
 
 		if (counter == clears.Length)
 		{
+			audioSource.PlayOneShot(clearSound);
+
 			for (int count = 0; count < clears.Length; count++)
 			{
 				clears[count] = false;
@@ -91,16 +104,20 @@ public class ClearCheck : MonoBehaviour
 		GetComponentInChildren<RotateByMouse>().enabled = false;
 
 		lockVRCamera.Lock();
-		lockVRCamera.SetRotation(clearPath.eulerAngles);
 		cameraPCTransform.localPosition = clearPath.localPosition;
 		cameraPCTransform.localRotation = clearPath.localRotation;
 		cameraRigTransform.localPosition = clearPath.localPosition;
+		lockVRCamera.SetRotation(clearPath.eulerAngles);
 
 		for (int count = 0; count < clearText.Length; count++)
 		{
 			clearText[count].SetActive(true);
 		}
-		//audioSource.PlayOneShot(clearSound);
+
+		audioSource.pitch = 2;
+		audioSource.clip = clearSound;
+
+		audioSource.Play();
 
 		yield return new WaitForSeconds(5);
 
