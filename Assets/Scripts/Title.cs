@@ -110,7 +110,7 @@ public class Title : MonoBehaviour
 			return;
 		}
 
-		if (!isCarScreen)
+		if (!isModeScreen)
 		{
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
@@ -124,12 +124,12 @@ public class Title : MonoBehaviour
 			else if (inputManager.Triangle)
 			{
 				SetEquipment(0);
-				GameCarPlay();
+				GameModePlay();
             }
 			else if (inputManager.Circle)
 			{
 				SetEquipment(1);
-                GameCarPlay();
+                GameModePlay();
             }
 
 			StartCoroutine(Delay());
@@ -137,7 +137,38 @@ public class Title : MonoBehaviour
 			return;
 		}
 
-		if (!isModeScreen)
+		if (!isCarScreen)
+		{
+			// 모드 선택
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ExitGameModePlay();
+            }
+            if (inputManager.Cross)
+            {
+                ExitGameModePlay();
+            }
+            if (inputManager.Triangle)
+            {
+				SetMode(0);
+				GameCarPlay();
+            }
+            else if (inputManager.Circle)
+            {
+                SetMode(1);
+                GameCarPlay();
+            }
+            else if (inputManager.Square)
+            {
+                SetMode(-1);
+				MoveScene();
+            }
+			StartCoroutine(Delay());
+
+			return;
+		}
+
+		if (!isMapScreen)
 		{
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
@@ -158,37 +189,6 @@ public class Title : MonoBehaviour
 				SetCar(1);
 				GameModePlay();
 			}
-			StartCoroutine(Delay());
-
-			return;
-		}
-
-		if (!isMapScreen)
-		{
-			// 모드 선택
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                ExitGameModePlay();
-            }
-            if (inputManager.Cross)
-            {
-                ExitGameModePlay();
-            }
-            if (inputManager.Triangle)
-            {
-				SetMode(0);
-				GameMap();
-            }
-            else if (inputManager.Circle)
-            {
-                SetMode(1);
-				GameMap();
-            }
-            else if (inputManager.Square)
-            {
-                SetMode(-1);
-                GameMap();
-            }
 			StartCoroutine(Delay());
 		}
 		else
@@ -250,7 +250,7 @@ public class Title : MonoBehaviour
 		audioSource.PlayOneShot(click);
 		for (int count = 0; count < titleUI.Length; count++)
 		{
-			titleUI[count].modeScreen.SetActive(false);
+			titleUI[count].carScreen.SetActive(false);
 			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
 			titleUI[count].playScreen.SetActive(true);
 		}
@@ -277,7 +277,7 @@ public class Title : MonoBehaviour
 		audioSource.PlayOneShot(click);
 		for (int count = 0; count < titleUI.Length; count++)
 		{
-			titleUI[count].equipmentScreen.SetActive(false);
+			titleUI[count].modeScreen.SetActive(false);
 			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
 			titleUI[count].carScreen.SetActive(true);
 		}
@@ -293,6 +293,7 @@ public class Title : MonoBehaviour
 			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
 		}
 		isEquipmentScreen = false;
+		isModeScreen = false;
 		isCarScreen = false;
 	}
 
@@ -324,7 +325,7 @@ public class Title : MonoBehaviour
         audioSource.PlayOneShot(click);
         for (int count = 0; count < titleUI.Length; count++)
         {
-            titleUI[count].carScreen.SetActive(false);
+            titleUI[count].equipmentScreen.SetActive(false);
 			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
 			titleUI[count].modeScreen.SetActive(true);
         }
@@ -341,7 +342,6 @@ public class Title : MonoBehaviour
             titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
         }
 		isEquipmentScreen = false;
-		isCarScreen = false;
 		isModeScreen = false;
     }
 

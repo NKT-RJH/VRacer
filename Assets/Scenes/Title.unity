@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2035111234}
-  m_IndirectSpecularColor: {r: 0.5257082, g: 0.538126, b: 0.70898604, a: 1}
+  m_IndirectSpecularColor: {r: 0.52571154, g: 0.53813076, b: 0.7089863, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2000,7 +2000,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1360139323}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: GameModePlay
+        m_MethodName: GameMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2701,7 +2701,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1360139323}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: GameModePlay
+        m_MethodName: GameMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3127,7 +3127,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1360139323}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: GameCarPlay
+        m_MethodName: GameModePlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3857,8 +3857,8 @@ RectTransform:
   - {fileID: 56748869}
   - {fileID: 3869242589957227656}
   - {fileID: 157310745}
-  - {fileID: 938350323}
   - {fileID: 1083616544}
+  - {fileID: 938350323}
   - {fileID: 906157287}
   m_Father: {fileID: 0}
   m_RootOrder: 18
@@ -8661,7 +8661,7 @@ RectTransform:
   - {fileID: 928132165}
   - {fileID: 1844569401}
   m_Father: {fileID: 514524283}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10012,7 +10012,7 @@ RectTransform:
   - {fileID: 856459881}
   - {fileID: 88907916}
   m_Father: {fileID: 514524283}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10404,7 +10404,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1360139323}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: GameCarPlay
+        m_MethodName: GameModePlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13046,8 +13046,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1360139323}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: GameMap
-        m_Mode: 1
+        m_MethodName: SetMode
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13058,8 +13058,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1360139323}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: SetMode
-        m_Mode: 3
+        m_MethodName: GameCarPlay
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14224,24 +14224,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1360139323}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: GameMap
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1360139323}
-        m_TargetAssemblyTypeName: Title, Assembly-CSharp
         m_MethodName: SetMode
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1360139323}
+        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_MethodName: GameCarPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MultyRoom.unity
     guid: 815b67f4a486d044db020e67e06ab4aa
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 5f2b6123c57c3474d9169ea3c0b23a5a
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: b5db3bdba60517d4c8fa6b7e9ed9130e, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d7d433ff4d5546f40ad1f03131a14590, type: 2}
