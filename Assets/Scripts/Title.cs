@@ -22,13 +22,6 @@ public class Title : MonoBehaviour
 	private bool isCarScreen;
 	private bool isEquipmentScreen;
 
-	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-	private static void BeforeStart()
-	{
-		QualitySettings.vSyncCount = 0;
-		Application.targetFrameRate = 120;
-	}
-
 	private void Awake()
 	{
 		MotionGear motionGear = FindObjectOfType<MotionGear>();
@@ -94,7 +87,7 @@ public class Title : MonoBehaviour
 		{
 			if (inputManager.Circle)
 			{
-				GameMap();
+				GameEquipmentPlay();
 			}
 			else if (inputManager.Triangle)
 			{
@@ -182,12 +175,12 @@ public class Title : MonoBehaviour
 			else if (inputManager.Triangle)
 			{
 				SetCar(0);
-				GameModePlay();
+				GameMap();
 			}
 			else if (inputManager.Circle)
 			{
 				SetCar(1);
-				GameModePlay();
+				GameMap();
 			}
 			StartCoroutine(Delay());
 		}

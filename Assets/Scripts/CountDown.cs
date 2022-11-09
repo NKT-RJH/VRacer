@@ -1,4 +1,5 @@
 using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class CountDown : MonoBehaviour
 	private AudioSource audioSource;
 
 	private bool countDownEnd;
+	private bool skip;
 
 	public bool CountDownEnd { get { return countDownEnd; } }
 
@@ -43,73 +45,88 @@ public class CountDown : MonoBehaviour
 
 	private IEnumerator CountDownStart()
 	{
-		Transform countDownPathTransform = GameObject.Find("CountDownPath").transform;
-		Transform[] cameraPaths = new Transform[3];
-
-		for (int count = 0; count < countDownPathTransform.childCount; count++)
+		Transform countDownPathTransform = transform;
+		try
 		{
-			cameraPaths[count] = countDownPathTransform.GetChild(count);
+			countDownPathTransform = GameObject.Find("CountDownPath").transform;
+		}
+		catch (NullReferenceException)
+		{
+			skip = true;
 		}
 
-		lockVRCamera.Lock();
-
-		for (int count = 0; count < anotherUI.Length; count++)
+		if (!skip)
 		{
-			anotherUI[count].SetActive(false);
-		}
 
-		cameraPCTransform.localPosition = cameraPaths[0].position;
-		cameraPCTransform.localRotation = cameraPaths[0].rotation;
-		cameraRigTransform.localPosition = cameraPaths[0].position;
-		cameraVRTransform.localRotation = cameraPaths[0].rotation;
+			Transform[] cameraPaths = new Transform[3];
 
-		lockVRCamera.SetRotation(cameraVRTransform.eulerAngles);
-
-		yield return new WaitForSeconds(1);
-
-		for (int count = 0; count < textMeshProUGUIs.Length; count++)
-		{
-			textMeshProUGUIs[count].gameObject.SetActive(true);
-		}
-
-		for (int count1 = 0; count1 < 3; count1++)
-		{
-			audioSource.Play();
-			
-			cameraPCTransform.localPosition = cameraPaths[count1].position;
-			cameraPCTransform.localRotation = cameraPaths[count1].rotation;
-			cameraRigTransform.localPosition = cameraPaths[count1].position;
-			cameraVRTransform.localRotation = cameraPaths[count1].rotation;
-			
-			for (int count2 = 0; count2 < textMeshProUGUIs.Length; count2++)
+			for (int count = 0; count < countDownPathTransform.childCount; count++)
 			{
-				textMeshProUGUIs[count2].text = string.Format("{0}", 3 - count1);
+				cameraPaths[count] = countDownPathTransform.GetChild(count);
 			}
-			
+
+			lockVRCamera.Lock();
+
+			for (int count = 0; count < anotherUI.Length; count++)
+			{
+				anotherUI[count].SetActive(false);
+			}
+
+			cameraPCTransform.localPosition = cameraPaths[0].position;
+			cameraPCTransform.localRotation = cameraPaths[0].rotation;
+			cameraRigTransform.localPosition = cameraPaths[0].position;
+			cameraVRTransform.localRotation = cameraPaths[0].rotation;
+
 			lockVRCamera.SetRotation(cameraVRTransform.eulerAngles);
-			yield return new WaitForSeconds(1.5f);
-		}
 
-		cameraRigTransform.localPosition = cameraRigPath;
+			yield return new WaitForSeconds(1);
 
-		audioSource.pitch = 2;
-		audioSource.Play();
+			for (int count = 0; count < textMeshProUGUIs.Length; count++)
+			{
+				textMeshProUGUIs[count].gameObject.SetActive(true);
+			}
 
-		for (int count = 0; count < textMeshProUGUIs.Length; count++)
-		{
-			textMeshProUGUIs[count].text = "Go!";
+			for (int count1 = 0; count1 < 3; count1++)
+			{
+				audioSource.Play();
+
+				cameraPCTransform.localPosition = cameraPaths[count1].position;
+				cameraPCTransform.localRotation = cameraPaths[count1].rotation;
+				cameraRigTransform.localPosition = cameraPaths[count1].position;
+				cameraVRTransform.localRotation = cameraPaths[count1].rotation;
+
+				for (int count2 = 0; count2 < textMeshProUGUIs.Length; count2++)
+				{
+					textMeshProUGUIs[count2].text = string.Format("{0}", 3 - count1);
+				}
+
+				lockVRCamera.SetRotation(cameraVRTransform.eulerAngles);
+				yield return new WaitForSeconds(1.5f);
+			}
+
+			cameraRigTransform.localPosition = cameraRigPath;
+
+			audioSource.pitch = 2;
+			audioSource.Play();
+
+			for (int count = 0; count < textMeshProUGUIs.Length; count++)
+			{
+				textMeshProUGUIs[count].text = "Go!";
+			}
+
+
+			lockVRCamera.UnLock();
+
+			cameraVRTransform.localEulerAngles = cameraPaths[2].localEulerAngles;
+
+			for (int count = 0; count < anotherUI.Length; count++)
+			{
+				anotherUI[count].SetActive(true);
+			}
+
 		}
 
 		countDownEnd = true;
-
-		lockVRCamera.UnLock();
-
-		cameraVRTransform.localEulerAngles = cameraPaths[2].localEulerAngles;
-
-		for (int count = 0; count < anotherUI.Length; count++)
-		{
-			anotherUI[count].SetActive(true);
-		}
 
 		yield return new WaitForSeconds(1.2f);
 

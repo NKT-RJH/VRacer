@@ -28,7 +28,12 @@ public class ClearCheck : MonoBehaviour
 
 	private void Awake()
 	{
-		audioSource = GetComponent<AudioSource>();
+		GameObject audioObject = new GameObject();
+		Instantiate(audioObject,transform);
+		audioObject.AddComponent<AudioSource>();
+		audioSource = audioObject.GetComponent<AudioSource>();
+
+		audioSource.clip = clearSound;
 	}
 
 	private void Start()
@@ -80,7 +85,7 @@ public class ClearCheck : MonoBehaviour
 
 		if (counter == clears.Length)
 		{
-			audioSource.PlayOneShot(clearSound);
+			audioSource.Play();
 
 			for (int count = 0; count < clears.Length; count++)
 			{
@@ -115,8 +120,6 @@ public class ClearCheck : MonoBehaviour
 		}
 
 		audioSource.pitch = 2;
-		audioSource.clip = clearSound;
-
 		audioSource.Play();
 
 		yield return new WaitForSeconds(5);

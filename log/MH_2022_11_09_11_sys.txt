@@ -1,0 +1,37 @@
+2022.11.09 11:35:29, 
+2022.11.09 11:35:29, MHSDKManager::GetInstance() g_MHSDKInitCount:1.
+2022.11.09 11:35:29, MotionHouseSDK version :2022101701
+2022.11.09 11:35:29, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\DGSW\Desktop\UnityProjects\RacingVR
+2022.11.09 11:35:29, BeltChecker don't be used.
+2022.11.09 11:35:29, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.09 11:35:29, Device Connected 0
+2022.11.09 11:35:29, DeviceManager initialization process fail, any device is not found
+2022.11.09 11:35:29, called SetCenterPosition()
+2022.11.09 11:36:30, called SetBottomPosition()
+2022.11.09 11:39:10, 
+2022.11.09 11:39:10, MHSDKManager::GetInstance() g_MHSDKInitCount:2.
+2022.11.09 11:39:10, MotionHouseSDK version :2022101701
+2022.11.09 11:39:10, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\DGSW\Desktop\UnityProjects\RacingVR
+2022.11.09 11:39:10, BeltChecker don't be used.
+2022.11.09 11:39:10, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.09 11:39:10, Device Connected 0
+2022.11.09 11:39:10, DeviceManager initialization process fail, any device is not found
+2022.11.09 11:39:10, called SetCenterPosition()
+2022.11.09 11:39:18, called SetBottomPosition()
+2022.11.09 11:45:47, 
+2022.11.09 11:45:47, MHSDKManager::GetInstance() g_MHSDKInitCount:3.
+2022.11.09 11:45:47, MotionHouseSDK version :2022101701
+2022.11.09 11:45:47, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\DGSW\Desktop\UnityProjects\RacingVR
+2022.11.09 11:45:47, BeltChecker don't be used.
+2022.11.09 11:45:47, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.09 11:45:47, Device Connected 0
+2022.11.09 11:45:47, DeviceManager initialization process fail, any device is not found
+2022.11.09 11:45:47, called SetCenterPosition()
+2022.11.09 11:46:00, MotionHouseSDK version :2022101701
+2022.11.09 11:46:00, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\DGSW\Desktop\UnityProjects\RacingVR
+2022.11.09 11:46:00, BeltChecker don't be used.
+2022.11.09 11:46:00, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2022.11.09 11:46:00, Device Connected 0
+2022.11.09 11:46:00, DeviceManager initialization process fail, any device is not found
+2022.11.09 11:46:00, called SetCenterPosition()
+2022.11.09 11:46:01, called SetBottomPosition()

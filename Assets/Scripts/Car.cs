@@ -233,22 +233,22 @@ public class Car : MonoBehaviour
 				break;
 			case 3:
 				kphLimit = 100;
-				boostPower = Mathf.Clamp(kph / kphLimit / 1.2f, 0.5f, 1.2f);
+				boostPower = Mathf.Clamp(kph / kphLimit / 1.2f, 0.7f, 1.2f);
 				power = 6500 * boostPower;
 				break;
 			case 4:
 				kphLimit = 140;
-				boostPower = Mathf.Clamp(kph / kphLimit / 1.4f, 0.45f, 1.1f);
+				boostPower = Mathf.Clamp(kph / kphLimit / 1.4f, 0.65f, 1.1f);
 				power = 9000 * boostPower;
 				break;
 			case 5:
 				kphLimit = 175;
-				boostPower = Mathf.Clamp(kph / kphLimit / 1.6f, 0.4f, 1.05f);
+				boostPower = Mathf.Clamp(kph / kphLimit / 1.6f, 0.6f, 1.05f);
 				power = 11500 * boostPower;
 				break;
 			case 6:
 				kphLimit = 200;
-				boostPower = Mathf.Clamp(kph / kphLimit / 1.8f, 0.35f, 1f);
+				boostPower = Mathf.Clamp(kph / kphLimit / 1.8f, 0.5f, 1f);
 				power = 12500 * boostPower;
 				break;
 			case 7:
