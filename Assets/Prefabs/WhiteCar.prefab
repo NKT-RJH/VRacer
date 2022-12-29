@@ -1406,6 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1754200655362572691}
   countDown: {fileID: 1754200655946189556}
+  clearCheck: {fileID: 2609745512463457490}
 --- !u!1 &1754200655383274020
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,6 +4150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1754200656585916166}
   countDown: {fileID: 1754200655946189556}
+  clearCheck: {fileID: 2609745512463457490}
 --- !u!1 &1754200656678056629
 GameObject:
   m_ObjectHideFlags: 0

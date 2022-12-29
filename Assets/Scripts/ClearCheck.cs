@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -29,7 +27,7 @@ public class ClearCheck : MonoBehaviour
 	private void Awake()
 	{
 		GameObject audioObject = new GameObject();
-		Instantiate(audioObject,transform);
+		Instantiate(audioObject, transform);
 		audioObject.AddComponent<AudioSource>();
 		audioSource = audioObject.GetComponent<AudioSource>();
 
@@ -53,7 +51,7 @@ public class ClearCheck : MonoBehaviour
 		}
 
 		clears = new bool[checkPointLength + 1];
-    }
+	}
 
 	private void Update()
 	{
@@ -95,15 +93,16 @@ public class ClearCheck : MonoBehaviour
 			clearCount++;
 		}
 
-		if (clearCount == maxClear)
+		if (clearCount == 2)
 		{
-			isClear = true;
 			StartCoroutine(Clear());
 		}
 	}
 
 	private IEnumerator Clear()
 	{
+		isClear = true;
+
 		LockVRCamera lockVRCamera = FindObjectOfType<LockVRCamera>();
 
 		GetComponentInChildren<RotateByMouse>().enabled = false;

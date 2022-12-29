@@ -28,7 +28,7 @@ public class InputManager : DontDestroyOnLoad<InputManager>
 
 	private void Update()
 	{
-		gas = Input.GetAxis("Vertical");
+		gas = Input.GetAxis("Vertical") > 0 ? Input.GetAxis("Vertical") : -1;
 		horizontal = Input.GetAxis("Horizontal");
 		brake = Input.GetKey(KeyCode.S) ? 1 : -1;
 		clutch = Input.GetKey(KeyCode.F) ? 1 : -1;

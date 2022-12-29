@@ -8,6 +8,8 @@ TagManager:
   - FxTemporaire
   - CheckPoint
   - ClearCount
+  - Ground
+  - End
   layers:
   - Default
   - TransparentFX

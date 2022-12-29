@@ -9,6 +9,7 @@ public class CarSound : MonoBehaviour
 	private Car carMove;
 	private InputManager inputManager;
 	private CountDown countDown;
+	private ClearCheck clearCheck;
 	private AudioSource audioSource;
 
 	private float brakeTime;
@@ -16,6 +17,7 @@ public class CarSound : MonoBehaviour
 
 	private void Awake()
 	{
+		clearCheck = GetComponent<ClearCheck>();
 		carMove = GetComponent<Car>();
 		inputManager = FindObjectOfType<InputManager>();
 		countDown = FindObjectOfType<CountDown>();
@@ -29,6 +31,11 @@ public class CarSound : MonoBehaviour
 
 	private void Update()
 	{
+		if (clearCheck.IsClear)
+		{
+			StopAudioClip();
+			return;
+		}
 		if (!countDown.CountDownEnd) return;
 
 		brakeTime -= Time.deltaTime;
@@ -61,7 +68,7 @@ public class CarSound : MonoBehaviour
 
 		if (brakeTime > 0) return;
 
-		if (carMove.KPH <= 6)
+		if (carMove.RPM <= 500)
 		{
 			PlayAudioClip(sounds.normal);
 			AudioSetting(true, 1);
@@ -74,7 +81,7 @@ public class CarSound : MonoBehaviour
 		if (carMove.KPH > 6)
 		{
 			PlayAudioClip(sounds.idle);
-			AudioSetting(true, carMove.KPH / 150);
+			AudioSetting(true, carMove.RPM / 5000);
 		}
 	}
 
@@ -101,7 +108,13 @@ public class CarSound : MonoBehaviour
 
 		audioSource.loop = isLoop;
 
-		audioSource.pitch = Mathf.Clamp(sound, 0.3f, 1.5f);
+		audioSource.pitch = Mathf.Clamp(sound, 0.3f, 1.75f);
+	}
+
+	private void StopAudioClip()
+	{
+		audioSource.Stop();
+		audioSource.clip = null;
 	}
 
 	private void StopAudioClip(AudioClip audioClip)

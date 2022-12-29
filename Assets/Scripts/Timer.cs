@@ -5,10 +5,12 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private CountDown countDown;
-    private float time;
+	[SerializeField] private ClearCheck clearCheck;
+	private float time;
 
-    private void Update()
+	private void Update()
     {
+		if (clearCheck.IsClear) return;
         if (!countDown.CountDownEnd) return;
 
         time += Time.deltaTime;

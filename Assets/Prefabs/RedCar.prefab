@@ -241,7 +241,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3651087265821495260}
-  - component: {fileID: 4240378812752468248}
   m_Layer: 0
   m_Name: RMCarDemoWheelRearRight
   m_TagString: Untagged
@@ -265,37 +264,6 @@ Transform:
   m_Father: {fileID: 3985085066821756022}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!205 &4240378812752468248
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355816663560027599}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.0021472946, y: -0.000068724155, z: -0.000016123056}
-  m_Size: 0.7325431
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 2689523541290129449}
-  - screenRelativeHeight: 0.08845288
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.040288758
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!1 &359338862286890379
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 4809877319905108157}
   countDown: {fileID: 5200626679030056425}
+  clearCheck: {fileID: 5704915772265041275}
 --- !u!1 &700718620099023274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,8 +1149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e958e99448bd344af669be37501781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 40
-  speedY: 20
+  speedX: 10
+  speedY: 5
 --- !u!1 &773865768706510128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,7 +1353,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4441008729901185603}
-  - component: {fileID: 3878232045459156103}
   m_Layer: 0
   m_Name: RMCarDemoWheelRearLeft
   m_TagString: Untagged
@@ -1408,37 +1376,6 @@ Transform:
   m_Father: {fileID: 6412020971525090705}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &3878232045459156103
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863275171719268432}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.0021472946, y: -0.000068724155, z: -0.000016123056}
-  m_Size: 0.7325431
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 3051749524523658678}
-  - screenRelativeHeight: 0.08845288
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.040288758
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!1 &884571534071223773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,7 +3092,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2245031879693805518}
-  - component: {fileID: 1681085177844576522}
   m_Layer: 0
   m_Name: RMCarDemoWheelFrontLeft
   m_TagString: Untagged
@@ -3179,37 +3115,6 @@ Transform:
   m_Father: {fileID: 8711327747197444299}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &1681085177844576522
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2989454749449147869}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.0021472946, y: -0.000068724155, z: -0.000016123056}
-  m_Size: 0.7325431
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 639418197753966651}
-  - screenRelativeHeight: 0.08845288
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.040288758
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!1 &3153417082721504890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3744,7 +3649,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 201664016451220387}
-  - component: {fileID: 774595825719813479}
   m_Layer: 0
   m_Name: RMCarDemoWheelFrontRight
   m_TagString: Untagged
@@ -3768,37 +3672,6 @@ Transform:
   m_Father: {fileID: 6882824975710212867}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!205 &774595825719813479
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3789547648614875568}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.0021472946, y: -0.000068724155, z: -0.000016123056}
-  m_Size: 0.7325431
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1527894233700475990}
-  - screenRelativeHeight: 0.08845288
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.040288758
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!1 &3838529795137188935
 GameObject:
   m_ObjectHideFlags: 0
@@ -4108,6 +3981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 8196106190921270272}
   countDown: {fileID: 5200626679030056425}
+  clearCheck: {fileID: 5704915772265041275}
 --- !u!1 &4127236944354134207
 GameObject:
   m_ObjectHideFlags: 0
