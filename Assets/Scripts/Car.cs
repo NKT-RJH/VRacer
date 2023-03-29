@@ -214,23 +214,31 @@ public class Car : MonoBehaviour
 	{
 		if (inputManager.Clutch > 0) return;
 
-		int startSet = 0;
-		int endSet = 0;
+		int motorStartSet = 0;
+		int motorEndSet = 0;
+		int brakeStartSet = 0;
+		int brakeEndSet = 0;
 
 		switch (driveType)
 		{
 			case DriveType.AllWheelDrive:
-				startSet = 4;
-				endSet = 4;
+				motorStartSet = 4;
+				motorEndSet = 4;
+				brakeStartSet = 4;
+				brakeEndSet = 4;
 				break;
 			case DriveType.RearWheelDrive:
-				startSet = 2;
-				endSet = 1;
-				break;
+				motorStartSet = 2;
+				motorEndSet = 1;
+                brakeStartSet = 2;
+                brakeEndSet = 2;
+                break;
 			case DriveType.FrontWheelDrive:
-				startSet = 1;
-				endSet = 2;
-				break;
+				motorStartSet = 1;
+				motorEndSet = 2;
+                brakeStartSet = 2;
+                brakeEndSet = 2;
+                break;
 		}
 
 		if (inputManager.Gas > 0)
@@ -305,11 +313,25 @@ public class Car : MonoBehaviour
 				power = rpm / gearRatio[6] * 2;
 				break;
 		}
-		wheels.frontLeft.motorTorque = inputManager.Gas * (motorTorque / startSet);
-		wheels.frontRight.motorTorque = inputManager.Gas * (motorTorque / startSet);
-		wheels.backLeft.motorTorque = inputManager.Gas * (motorTorque / endSet);
-		wheels.backRight.motorTorque = inputManager.Gas * (motorTorque / endSet);
+		wheels.frontLeft.motorTorque = inputManager.Gas * (motorTorque / motorStartSet);
+		wheels.frontRight.motorTorque = inputManager.Gas * (motorTorque / motorStartSet);
+		wheels.backLeft.motorTorque = inputManager.Gas * (motorTorque / motorEndSet);
+		wheels.backRight.motorTorque = inputManager.Gas * (motorTorque / motorEndSet);
 
+		if (inputManager.Gas == 0)
+		{
+            wheels.frontLeft.brakeTorque = inputManager.Gas * (motorTorque / motorStartSet);
+            wheels.frontRight.brakeTorque = inputManager.Gas * (motorTorque / motorStartSet);
+            wheels.backLeft.brakeTorque = inputManager.Gas * (motorTorque / motorEndSet); // power·Î º¯°æ
+            wheels.backRight.brakeTorque = inputManager.Gas * (motorTorque / motorEndSet);
+        }
+		else
+		{
+            wheels.frontLeft.brakeTorque = 0;
+            wheels.frontRight.brakeTorque = 0;
+            wheels.backLeft.brakeTorque = 0;
+            wheels.backRight.brakeTorque = 0;
+        }
 
 		if (inputManager.Gas > 0 && inputManager.Gear > 0 && inputManager.Gear < 7 && inputManager.Brake < 0 && kph < kphLimit)
 		{
