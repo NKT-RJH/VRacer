@@ -1,12 +1,12 @@
-using UnityEngine.SceneManagement;
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
-	[SerializeField] private Image[] progressBars;
-	
+	[SerializeField] private Image progressBar;
+
 	private static string nextScene;
 
 	private void Start()
@@ -26,33 +26,27 @@ public class LoadScene : MonoBehaviour
 	private IEnumerator Loading()
 	{
 		yield return null;
-		AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
-		op.allowSceneActivation = false;
-		float timer = 0.0f;
-		while (!op.isDone)
+		AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextScene);
+		asyncOperation.allowSceneActivation = false;
+		float timer = 0;
+		while (!asyncOperation.isDone)
 		{
 			yield return null;
 			timer += Time.deltaTime;
-			if (op.progress < 0.9f)
+			if (asyncOperation.progress < 0.9f)
 			{
-				for (int count = 0; count < progressBars.Length; count++)
-				{
-					progressBars[0].fillAmount = Mathf.Lerp(progressBars[0].fillAmount, op.progress, timer);
-				}
-				if (progressBars[0].fillAmount >= op.progress)
+				progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, asyncOperation.progress, timer);
+				if (progressBar.fillAmount >= asyncOperation.progress)
 				{
 					timer = 0f;
 				}
 			}
 			else
 			{
-				for (int count = 0; count < progressBars.Length; count++)
+				progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
+				if (progressBar.fillAmount == 1f)
 				{
-					progressBars[0].fillAmount = Mathf.Lerp(progressBars[0].fillAmount, 1f, timer);
-				}
-				if (progressBars[0].fillAmount == 1f)
-				{
-					op.allowSceneActivation = true;
+					asyncOperation.allowSceneActivation = true;
 					yield break;
 				}
 			}

@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -2852,7 +2852,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!114 &391799743
 MonoBehaviour:
@@ -3496,9 +3496,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 391799744}
     m_Modifications:
+    - target: {fileID: 7067111793001882977, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7067111793001882979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
       propertyPath: m_Name
       value: palm1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067111793001882979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067111793001882983, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7067111793002182979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
       propertyPath: m_RootOrder
@@ -3724,7 +3736,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 60
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -4237,6 +4249,7 @@ MonoBehaviour:
   m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -4250,6 +4263,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &561300798
 GameObject:
   m_ObjectHideFlags: 0
@@ -6182,9 +6196,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 391799744}
     m_Modifications:
+    - target: {fileID: 7067111793001882977, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7067111793001882979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
       propertyPath: m_Name
       value: palm1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067111793001882979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067111793001882983, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7067111793002182979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
       propertyPath: m_RootOrder
@@ -11842,9 +11868,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 391799744}
     m_Modifications:
+    - target: {fileID: 7067111793001882977, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7067111793001882979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
       propertyPath: m_Name
       value: palm1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067111793001882979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067111793001882983, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7067111793002182979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
       propertyPath: m_RootOrder
@@ -13113,9 +13151,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 391799744}
     m_Modifications:
+    - target: {fileID: 7067111793001882977, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7067111793001882979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
       propertyPath: m_Name
       value: palm1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067111793001882979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067111793001882983, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7067111793002182979, guid: 392e758841337e441bb7d4a4d400c140, type: 3}
       propertyPath: m_RootOrder
@@ -18759,7 +18809,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1358509098801070
 GameObject:
@@ -18777,7 +18827,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1383226312120350
 GameObject:
@@ -18813,7 +18863,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1519007265446486
 GameObject:
@@ -19081,7 +19131,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1956169854781454
 GameObject:
@@ -19657,7 +19707,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 60
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -21586,6 +21636,10 @@ PrefabInstance:
     - target: {fileID: 9078511723846831756, guid: f374b35168ad66c4ea634f7c80b65625, type: 3}
       propertyPath: m_Name
       value: road
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078511723846831756, guid: f374b35168ad66c4ea634f7c80b65625, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f374b35168ad66c4ea634f7c80b65625, type: 3}

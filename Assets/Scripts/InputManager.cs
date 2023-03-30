@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InputManager : DontDestroyOnLoad<InputManager>
+public class InputManager : Singleton<InputManager>
 {
 	private float gas;
 	private float clutch;

@@ -13,7 +13,7 @@ public class CarSound : MonoBehaviour
 	private AudioSource audioSource;
 
 	private float brakeTime;
-	private float driftTime;
+	//private float driftTime;
 
 	private void Awake()
 	{
@@ -40,19 +40,19 @@ public class CarSound : MonoBehaviour
 
 		brakeTime -= Time.deltaTime;
 
-		if (inputManager.Drift && driftTime <= 0)
-		{
-			PlayAudioClip(sounds.drift);
-			AudioSetting(false, 1);
-			driftTime = sounds.drift.length;
-		}
-		else if (!inputManager.Drift && driftTime > 0)
-		{
-			StopAudioClip(sounds.drift);
-			driftTime = 0;
-		}
+		//if (inputManager.Drift && driftTime <= 0)
+		//{
+		//	PlayAudioClip(sounds.drift);
+		//	AudioSetting(false, 1);
+		//	driftTime = sounds.drift.length;
+		//}
+		//else if (!inputManager.Drift && driftTime > 0)
+		//{
+		//	StopAudioClip(sounds.drift);
+		//	driftTime = 0;
+		//}
 
-		if (driftTime > 0) return;
+		//if (driftTime > 0) return;
 
 		if (inputManager.Brake > 0 && brakeTime <= 0)
 		{

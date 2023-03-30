@@ -1,7 +1,7 @@
 using MotionHouse;
 using UnityEngine;
 
-public class MotionGear : DontDestroyOnLoad<MotionGear>
+public class MotionGear : Singleton<MotionGear>
 {
 	private float roll;
 	private float pitch;

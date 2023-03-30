@@ -2299,7 +2299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1a86cc1861f224ea6d785d57f00ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gearUI:
+  gearCircles:
   - {fileID: 2862742104304435682}
   - {fileID: 1886189425906586591}
   - {fileID: 5070631734411511383}
@@ -2435,7 +2435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1a86cc1861f224ea6d785d57f00ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gearUI:
+  gearCircles:
   - {fileID: 8506748112285607595}
   - {fileID: 2260365423267048855}
   - {fileID: 838905155201340772}

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SoundSetting : DontDestroyOnLoad<SoundSetting>
+public class SoundSetting : Singleton<SoundSetting>
 {
     private List<AudioSource> audioSources;
 

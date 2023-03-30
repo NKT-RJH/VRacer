@@ -2,7 +2,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.SceneManagement;
 
-public class GraphicSetting : DontDestroyOnLoad<GraphicSetting>
+public class GraphicSetting : Singleton<GraphicSetting>
 {
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{

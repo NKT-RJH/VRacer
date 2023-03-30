@@ -3857,7 +3857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1a86cc1861f224ea6d785d57f00ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gearUI:
+  gearCircles:
   - {fileID: 1754200655278665375}
   - {fileID: 1754200655128625940}
   - {fileID: 1754200655572544589}
@@ -4247,7 +4247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1a86cc1861f224ea6d785d57f00ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gearUI:
+  gearCircles:
   - {fileID: 1754200655181563126}
   - {fileID: 1754200656066889693}
   - {fileID: 1754200655219703981}
