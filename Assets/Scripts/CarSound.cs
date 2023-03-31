@@ -68,7 +68,7 @@ public class CarSound : MonoBehaviour
 
 		if (brakeTime > 0) return;
 
-		if (carMove.Speed <= 5)
+		if (carMove.RPM <= 500)
 		{
 			PlayAudioClip(sounds.normal);
 			AudioSetting(true, 1);
@@ -77,7 +77,7 @@ public class CarSound : MonoBehaviour
 		{
 			StopAudioClip(sounds.normal);
 			PlayAudioClip(sounds.idle);
-			AudioSetting(true, carMove.Speed / 60);
+			AudioSetting(true, carMove.RPM / 5000);
 		}
 
 		//if (carMove.Speed > 6)

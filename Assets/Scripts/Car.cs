@@ -21,13 +21,13 @@ public class Car : MonoBehaviour
 	//private int motorMax;
 	//private int motorMin;
 	//private int motorTorque = 100;
-	//private int beforeGear = 0;
+	private int beforeGear = 0;
 
 	//private bool isCrash;
 	//private bool downRPM;
 
 	private float rpm;
-	//private float rpmLimit = 11000;
+	private float rpmLimit = 11000;
 	private float kph;
 	//private float kphLimit;
 	//private float beforekph;
@@ -36,10 +36,13 @@ public class Car : MonoBehaviour
 
 	//public float Speed { get { return speed; } }
 
+	private float rpmChangeSpeed;
+
 	private const float mphToMps = 0.44704f;
 	private const float downForceValue = 50;
 
-	//public float KPH { get { return kph; } }
+	public float RPM { get { return rpm; } }
+	public float KPH { get { return kph; } }
 	//public float KPHLimit { get { return kphLimit; } }
 
 	public Vector3 BodyTlit { get { return transform.localEulerAngles; } }
@@ -141,8 +144,10 @@ public class Car : MonoBehaviour
 	private void SetTorque(float rpm)
 	{
 		//torque = 200f / gearRatio[inputManager.Gear] / differentialRatio * speed / inputManager ;
-		print(torque);
+		//print(torque);
 		//print("Torque : " + torque);
+		
+		//토크 그래프 기어에 따라 분류하고 기어별 속도 제한 (1단 0~30, 2단 30~ 60)
 		torque = Mathf.Clamp((-1 / 10300 * Mathf.Pow(rpm - 7072.984f, 2) + 4857)/2, 0, float.MaxValue);
 	}
 
@@ -269,23 +274,23 @@ public class Car : MonoBehaviour
 				break;
 		}
 
-		//if (inputManager.Gas > 0)
-		//{
-		//	float value = 1;
-		//	if (inputManager.Gear > 0 && inputManager.Gear < 7)
-		//	{
-		//		value = (7 - inputManager.Gear) * 100;
-		//	}
-		//	rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * value, 0, rpmLimit);
-		//}
-		//else if (inputManager.Gear <= 0 && inputManager.Gear >= 7)
-		//{
-		//	rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * 300, 0, rpmLimit);
-		//}
-		//else
-		//{
-		//	rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * 1000, 0, rpmLimit);
-		//}
+		if (inputManager.Gas > 0)
+		{
+			float value = 1;
+			if (inputManager.Gear > 0 && inputManager.Gear < 7)
+			{
+				value = (7 - inputManager.Gear) * 100;
+			}
+			rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * value, 0, rpmLimit);
+		}
+		else if (inputManager.Gear <= 0 && inputManager.Gear >= 7)
+		{
+			rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * 300, 0, rpmLimit);
+		}
+		else
+		{
+			rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * 1000, 0, rpmLimit);
+		}
 
 		//if ((int)beforekph != (int)kph && (int)kph == 0)
 		//{
@@ -313,31 +318,34 @@ public class Car : MonoBehaviour
 		//	beforeGear = inputManager.Gear;
 		//}
 
+		//rpmChangeSpeed = gearRatio[inputManager.Gear] * differentialRatio * 60;
+
 		//switch (inputManager.Gear)
 		//{
 		//	case 0:
-		//		power = 0;
+		//		rpm = 
+		//		//power = 0;
 		//		break;
 		//	case 1:
-		//		power = rpm / (gearRatio[0]) * (kphLimit / 4 + 1 - Mathf.Clamp(kph, kph, kphLimit / 4));
+		//		//power = rpm / (gearRatio[0]) * (kphLimit / 4 + 1 - Mathf.Clamp(kph, kph, kphLimit / 4));
 		//		break;
 		//	case 2:
-		//		power = rpm / (gearRatio[1]) * (kphLimit / 7 + 1 - Mathf.Clamp(kph, kph, kphLimit / 7));
+		//		//power = rpm / (gearRatio[1]) * (kphLimit / 7 + 1 - Mathf.Clamp(kph, kph, kphLimit / 7));
 		//		break;
 		//	case 3:
-		//		power = rpm / (gearRatio[2]) * (kphLimit / 13 + 1 - Mathf.Clamp(kph, kph, kphLimit / 13));
+		//		//power = rpm / (gearRatio[2]) * (kphLimit / 13 + 1 - Mathf.Clamp(kph, kph, kphLimit / 13));
 		//		break;
 		//	case 4:
-		//		power = rpm / (gearRatio[3]) * (kphLimit / 19 + 1 - Mathf.Clamp(kph, kph, kphLimit / 19));
+		//		//power = rpm / (gearRatio[3]) * (kphLimit / 19 + 1 - Mathf.Clamp(kph, kph, kphLimit / 19));
 		//		break;
 		//	case 5:
-		//		power = rpm / (gearRatio[4]) * (kphLimit / 25 + 1 - Mathf.Clamp(kph, kph, kphLimit / 25));
+		//		//power = rpm / (gearRatio[4]) * (kphLimit / 25 + 1 - Mathf.Clamp(kph, kph, kphLimit / 25));
 		//		break;
 		//	case 6:
-		//		power = rpm / (gearRatio[5]);
+		//		//power = rpm / (gearRatio[5]);
 		//		break;
 		//	case 7:
-		//		power = rpm / gearRatio[6] * 2;
+		//		//power = rpm / gearRatio[6] * 2;
 		//		break;
 		//}
 
@@ -379,7 +387,7 @@ public class Car : MonoBehaviour
 		//	wheels.backLeft.brakeTorque = 0;
 		//	wheels.backRight.brakeTorque = 0;
 		//}
-		speed = wheels.frontLeft.radius * 2 * Mathf.PI * rpm * gearRatio[inputManager.Gear] * differentialRatio / 60f * mphToMps;
+		//speed = wheels.frontLeft.radius * 2 * Mathf.PI * rpm * gearRatio[inputManager.Gear] * differentialRatio / 60f * mphToMps;
 		kph = rigidBody.velocity.magnitude * 3.6f;
 
 		//rigidBody.AddRelativeForce(Vector3.forward * Time.deltaTime * speed);

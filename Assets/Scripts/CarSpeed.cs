@@ -14,6 +14,6 @@ public class CarSpeed : MonoBehaviour
 
 	private void Update()
 	{
-		textMeshProUGUI.text = string.Format("{0} KM/H", car.Speed / 60f); // 나머지자릿수 버림
+		textMeshProUGUI.text = string.Format("{0} KM/H", Mathf.RoundToInt(car.KPH)); // 나머지자릿수 버림
 	}
 }
