@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class Title : MonoBehaviour
@@ -118,12 +117,12 @@ public class Title : MonoBehaviour
 			{
 				SetEquipment(0);
 				GameModePlay();
-            }
+			}
 			else if (inputManager.Circle)
 			{
 				SetEquipment(1);
-                GameModePlay();
-            }
+				GameModePlay();
+			}
 
 			StartCoroutine(Delay());
 
@@ -133,29 +132,29 @@ public class Title : MonoBehaviour
 		if (!isCarScreen)
 		{
 			// 모드 선택
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                ExitGameModePlay();
-            }
-            if (inputManager.Cross)
-            {
-                ExitGameModePlay();
-            }
-            if (inputManager.Triangle)
-            {
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				ExitGameModePlay();
+			}
+			if (inputManager.Cross)
+			{
+				ExitGameModePlay();
+			}
+			if (inputManager.Triangle)
+			{
 				SetMode(0);
 				GameCarPlay();
-            }
-            else if (inputManager.Circle)
-            {
-                SetMode(1);
-                GameCarPlay();
-            }
-            else if (inputManager.Square)
-            {
-                SetMode(-1);
+			}
+			else if (inputManager.Circle)
+			{
+				SetMode(1);
+				GameCarPlay();
+			}
+			else if (inputManager.Square)
+			{
+				SetMode(-1);
 				MoveScene();
-            }
+			}
 			StartCoroutine(Delay());
 
 			return;
@@ -167,7 +166,7 @@ public class Title : MonoBehaviour
 			{
 				ExitGameCarPlay();
 			}
-			
+
 			if (inputManager.Cross)
 			{
 				ExitGameCarPlay();
@@ -206,7 +205,7 @@ public class Title : MonoBehaviour
 				MoveScene();
 			}
 			StartCoroutine(Delay());
-        }
+		}
 	}
 
 	public void Exit()
@@ -315,28 +314,28 @@ public class Title : MonoBehaviour
 
 	public void GameModePlay()
 	{
-        audioSource.PlayOneShot(click);
-        for (int count = 0; count < titleUI.Length; count++)
-        {
-            titleUI[count].equipmentScreen.SetActive(false);
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
+		{
+			titleUI[count].equipmentScreen.SetActive(false);
 			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 200 / 255f);
 			titleUI[count].modeScreen.SetActive(true);
-        }
-        isModeScreen = true;
-    }
+		}
+		isModeScreen = true;
+	}
 
 	public void ExitGameModePlay()
 	{
-        audioSource.PlayOneShot(click);
-        for (int count = 0; count < titleUI.Length; count++)
-        {
-            titleUI[count].modeScreen.SetActive(false);
-            titleUI[count].fadeIn.gameObject.SetActive(false);
-            titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
-        }
+		audioSource.PlayOneShot(click);
+		for (int count = 0; count < titleUI.Length; count++)
+		{
+			titleUI[count].modeScreen.SetActive(false);
+			titleUI[count].fadeIn.gameObject.SetActive(false);
+			titleUI[count].fadeIn.color = new Color(titleUI[count].fadeIn.color.r, titleUI[count].fadeIn.color.g, titleUI[count].fadeIn.color.b, 1);
+		}
 		isEquipmentScreen = false;
 		isModeScreen = false;
-    }
+	}
 
 	public void MoveScene()
 	{

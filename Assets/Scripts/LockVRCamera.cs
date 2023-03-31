@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using Valve.VR;
 using UnityEngine.SpatialTracking;
 
 public class LockVRCamera : MonoBehaviour
@@ -28,7 +26,7 @@ public class LockVRCamera : MonoBehaviour
 	{
 		if (cameraLock)
 		{
-			if(GetComponent<TrackedPoseDriver>())
+			if (GetComponent<TrackedPoseDriver>())
 			{
 				GetComponent<TrackedPoseDriver>().enabled = false;
 			}
@@ -38,11 +36,11 @@ public class LockVRCamera : MonoBehaviour
 		}
 		else
 		{
-            if (GetComponent<TrackedPoseDriver>())
-            {
-                GetComponent<TrackedPoseDriver>().enabled = true;
-            }
-        }
+			if (GetComponent<TrackedPoseDriver>())
+			{
+				GetComponent<TrackedPoseDriver>().enabled = true;
+			}
+		}
 	}
 
 	public void Lock()

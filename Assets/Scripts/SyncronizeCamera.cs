@@ -5,7 +5,7 @@ public class SyncronizeCamera : MonoBehaviour
 	[Header("Cashing")]
 	[SerializeField] private Transform cameraPC;
 	[SerializeField] private Transform cameraVR;
-	
+
 	private LockVRCamera lockVRCamera;
 
 	private void Awake()

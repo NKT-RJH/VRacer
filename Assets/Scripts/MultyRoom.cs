@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +7,7 @@ public class MultyRoom : MonoBehaviour
 {
 	[SerializeField] private Image[] errorBoxs;
 	[SerializeField] private TextMeshProUGUI[] errorTexts;
-	
+
 	private void Start()
 	{
 		LockVRCamera lockVRCamera = FindObjectOfType<LockVRCamera>();

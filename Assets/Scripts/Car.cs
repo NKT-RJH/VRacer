@@ -21,35 +21,33 @@ public class Car : MonoBehaviour
 	//private int motorMax;
 	//private int motorMin;
 	//private int motorTorque = 100;
-	private int beforeGear = 0;
+	//private int beforeGear = 0;
 
-	private bool isCrash;
-	private bool downRPM;
+	//private bool isCrash;
+	//private bool downRPM;
 
 	private float rpm;
-	private float rpmLimit = 11000;
-	//private float kph;
+	//private float rpmLimit = 11000;
+	private float kph;
 	//private float kphLimit;
-	private float beforekph;
+	//private float beforekph;
 	private float torque = 900; //Nm
-	private float power; //newton
-	private const float radius = 6;
+	//private float speed; //newton
+
+	//public float Speed { get { return speed; } }
+
+	private const float mphToMps = 0.44704f;
 	private const float downForceValue = 50;
-
-	public float RPM { get { return rpm; } }
-
-	public bool IsCrash { get { return isCrash; } }
 
 	//public float KPH { get { return kph; } }
 	//public float KPHLimit { get { return kphLimit; } }
 
-	private Vector3 bodyTlit;
+	public Vector3 BodyTlit { get { return transform.localEulerAngles; } }
 
-	public Vector3 BodyTlit { get { return bodyTlit; } }
+	private const float differentialRatio = 4.41f;
+	private float wheelRadius;
 
-	private const float finalReductionGear = 2.77f;
-
-	private float[] gearRatio = { 3.5f, 2.5f, 1.8f, 1.4f, 1.1f, 0.8f, 3.6f };
+	private float[] gearRatio = { 3.5f, 2.5f, 1.8f, 1.4f, 1.1f, 0.8f, -3.6f };
 
 	private ClearCheck clearCheck;
 	private Transform checkPoint;
@@ -69,7 +67,9 @@ public class Car : MonoBehaviour
 	{
 		//kphLimit = 275;
 
-		rpmLimit = 9000;
+		wheelRadius = wheels.frontRight.radius;
+
+		//rpmLimit = 9000;
 
 		rigidBody.centerOfMass = transform.Find("Mass").localPosition;
 
@@ -82,13 +82,15 @@ public class Car : MonoBehaviour
 		if (!countDown.CountDownEnd) return;
 		if (clearCheck.IsClear) return;
 
+		SetRPM();
+
 		SetTorque(rpm);
 
 		LogitechWheelForce();
 
-		SetIsCrash();
+		//SetIsCrash();
 
-		SetBodyTilt();
+		//SetBodyTilt();
 	}
 
 	private void FixedUpdate()
@@ -109,7 +111,6 @@ public class Car : MonoBehaviour
 
 		//Drift();
 
-		Brake();
 
 		AddDownForce();
 
@@ -121,12 +122,28 @@ public class Car : MonoBehaviour
 
 		SteerVehicle();
 
-		LimitMoveSpeed();
+		Brake();
+		//LimitMoveSpeed();
 	}
-	
+
+	private void SetRPM()
+	{
+		//print("RPM : " + wheels.frontLeft.rpm + " and " + wheels.frontRight.rpm + " and " + wheels.backLeft.rpm + " and " + wheels.backRight.rpm);
+		if (inputManager.Gas == 0)
+		{
+			rpm = 0; // rpm 시스템만 예전으로 되돋리기!!
+			return;
+		}
+
+		rpm = Mathf.Clamp((wheels.frontLeft.rpm + wheels.frontRight.rpm + wheels.backLeft.rpm + wheels.backRight.rpm) / 4f, 0, 11000);
+	}
+
 	private void SetTorque(float rpm)
 	{
-		torque = -1 / 10300 * Mathf.Pow(rpm - 7072.984f, 2) + 4857;
+		//torque = 200f / gearRatio[inputManager.Gear] / differentialRatio * speed / inputManager ;
+		print(torque);
+		//print("Torque : " + torque);
+		torque = Mathf.Clamp((-1 / 10300 * Mathf.Pow(rpm - 7072.984f, 2) + 4857)/2, 0, float.MaxValue);
 	}
 
 	private void Stop()
@@ -134,15 +151,15 @@ public class Car : MonoBehaviour
 		rigidBody.velocity = Vector3.zero;
 	}
 
-	private void SetIsCrash()
-	{
-		//if 
-	}
+	//private void SetIsCrash()
+	//{
+	//	//if 
+	//}
 
-	private void SetBodyTilt()
-	{
-		bodyTlit = transform.localEulerAngles;
-	}
+	//private void SetBodyTilt()
+	//{
+	//	bodyTlit = transform.localEulerAngles;
+	//}
 
 	private void LogitechWheelForce()
 	{
@@ -170,13 +187,17 @@ public class Car : MonoBehaviour
 		//powerPath = dot > 0 ? Vector3.back : Vector3.forward;
 
 		//rigidBody.AddRelativeForce(40000 * powerPath);
-		wheels.backLeft.brakeTorque = 20000;
-		wheels.backRight.brakeTorque = 20000;
-
+		if (inputManager.Brake > 0)
+		{
+			wheels.frontLeft.brakeTorque = 20000;
+			wheels.frontRight.brakeTorque = 20000;
+			wheels.backLeft.brakeTorque = 20000;
+			wheels.backRight.brakeTorque = 20000;
+		}
 		//if (!downRPM)
 		//{
 		//	downRPM = true;
-			rpm -= 2000 * Time.deltaTime;
+		//rpm -= 2000 * Time.deltaTime;
 		//}
 	}
 
@@ -237,34 +258,34 @@ public class Car : MonoBehaviour
 			case DriveType.RearWheelDrive:
 				motorFrontSet = 2;
 				motorBackSet = 1;
-                brakeFrontSet = 2;
-                brakeBackSet = 2;
-                break;
+				brakeFrontSet = 2;
+				brakeBackSet = 2;
+				break;
 			case DriveType.FrontWheelDrive:
 				motorFrontSet = 1;
 				motorBackSet = 2;
-                brakeFrontSet = 2;
-                brakeBackSet = 2;
-                break;
+				brakeFrontSet = 2;
+				brakeBackSet = 2;
+				break;
 		}
 
-		if (inputManager.Gas > 0)
-		{
-			float value = 1;
-			if (inputManager.Gear > 0 && inputManager.Gear < 7)
-			{
-				value = (7 - inputManager.Gear) * 100;
-			}
-			rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * value, 0, rpmLimit);
-		}
-		else if (inputManager.Gear <= 0 && inputManager.Gear >= 7)
-		{
-			rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * 300, 0, rpmLimit);
-		}
-		else
-		{
-			rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * 1000, 0, rpmLimit);
-		}
+		//if (inputManager.Gas > 0)
+		//{
+		//	float value = 1;
+		//	if (inputManager.Gear > 0 && inputManager.Gear < 7)
+		//	{
+		//		value = (7 - inputManager.Gear) * 100;
+		//	}
+		//	rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * value, 0, rpmLimit);
+		//}
+		//else if (inputManager.Gear <= 0 && inputManager.Gear >= 7)
+		//{
+		//	rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * 300, 0, rpmLimit);
+		//}
+		//else
+		//{
+		//	rpm = Mathf.Clamp(rpm + Time.deltaTime * inputManager.Gas * 1000, 0, rpmLimit);
+		//}
 
 		//if ((int)beforekph != (int)kph && (int)kph == 0)
 		//{
@@ -275,70 +296,70 @@ public class Car : MonoBehaviour
 
 		//float[] toque = { 1, 3f, 7f, 13f, 19f, 25f };
 
-		if (beforeGear < inputManager.Gear)
-		{
-			if (beforeGear != 0)
-			{
-				rpm = Mathf.Clamp(rpm - 2000, 0, rpmLimit);
-			}
-			beforeGear = inputManager.Gear;
-		}
-		else if (beforeGear > inputManager.Gear)
-		{
-			if (beforeGear != 0)
-			{
-				rpm = Mathf.Clamp(rpm + 2000, 0, rpmLimit);
-			}
-			beforeGear = inputManager.Gear;
-		}
+		//if (beforeGear < inputManager.Gear)
+		//{
+		//	if (beforeGear != 0)
+		//	{
+		//		rpm = Mathf.Clamp(rpm - 2000, 0, rpmLimit);
+		//	}
+		//	beforeGear = inputManager.Gear;
+		//}
+		//else if (beforeGear > inputManager.Gear)
+		//{
+		//	if (beforeGear != 0)
+		//	{
+		//		rpm = Mathf.Clamp(rpm + 2000, 0, rpmLimit);
+		//	}
+		//	beforeGear = inputManager.Gear;
+		//}
 
-		switch (inputManager.Gear)
-		{
-			case 0:
-				power = 0;
-				break;
-			case 1:
-				power = rpm / (gearRatio[0]) * (kphLimit / 4 + 1 - Mathf.Clamp(kph, kph, kphLimit / 4));
-				break;
-			case 2:
-				power = rpm / (gearRatio[1]) * (kphLimit / 7 + 1 - Mathf.Clamp(kph, kph, kphLimit / 7));
-				break;
-			case 3:
-				power = rpm / (gearRatio[2]) * (kphLimit / 13 + 1 - Mathf.Clamp(kph, kph, kphLimit / 13));
-				break;
-			case 4:
-				power = rpm / (gearRatio[3]) * (kphLimit / 19 + 1 - Mathf.Clamp(kph, kph, kphLimit / 19));
-				break;
-			case 5:
-				power = rpm / (gearRatio[4]) * (kphLimit / 25 + 1 - Mathf.Clamp(kph, kph, kphLimit / 25));
-				break;
-			case 6:
-				power = rpm / (gearRatio[5]);
-				break;
-			case 7:
-				power = rpm / gearRatio[6] * 2;
-				break;
-		}
+		//switch (inputManager.Gear)
+		//{
+		//	case 0:
+		//		power = 0;
+		//		break;
+		//	case 1:
+		//		power = rpm / (gearRatio[0]) * (kphLimit / 4 + 1 - Mathf.Clamp(kph, kph, kphLimit / 4));
+		//		break;
+		//	case 2:
+		//		power = rpm / (gearRatio[1]) * (kphLimit / 7 + 1 - Mathf.Clamp(kph, kph, kphLimit / 7));
+		//		break;
+		//	case 3:
+		//		power = rpm / (gearRatio[2]) * (kphLimit / 13 + 1 - Mathf.Clamp(kph, kph, kphLimit / 13));
+		//		break;
+		//	case 4:
+		//		power = rpm / (gearRatio[3]) * (kphLimit / 19 + 1 - Mathf.Clamp(kph, kph, kphLimit / 19));
+		//		break;
+		//	case 5:
+		//		power = rpm / (gearRatio[4]) * (kphLimit / 25 + 1 - Mathf.Clamp(kph, kph, kphLimit / 25));
+		//		break;
+		//	case 6:
+		//		power = rpm / (gearRatio[5]);
+		//		break;
+		//	case 7:
+		//		power = rpm / gearRatio[6] * 2;
+		//		break;
+		//}
 
 		wheels.frontLeft.motorTorque = inputManager.Gas * (torque / motorFrontSet);
 		wheels.frontRight.motorTorque = inputManager.Gas * (torque / motorFrontSet);
 		wheels.backLeft.motorTorque = inputManager.Gas * (torque / motorBackSet);
 		wheels.backRight.motorTorque = inputManager.Gas * (torque / motorBackSet);
-
+		//print("MotorTorque : " + wheels.frontLeft.motorTorque);
 		if (inputManager.Gas == 0)
 		{
-            wheels.frontLeft.brakeTorque = inputManager.Gas * (torque / motorFrontSet);
-            wheels.frontRight.brakeTorque = inputManager.Gas * (torque / motorFrontSet);
-            wheels.backLeft.brakeTorque = inputManager.Gas * (torque / motorBackSet); // power로 변경
-            wheels.backRight.brakeTorque = inputManager.Gas * (torque / motorBackSet);
-        }
+			wheels.frontLeft.brakeTorque = inputManager.Gas * (torque / brakeFrontSet);
+			wheels.frontRight.brakeTorque = inputManager.Gas * (torque / brakeFrontSet);
+			wheels.backLeft.brakeTorque = inputManager.Gas * (torque / brakeBackSet);
+			wheels.backRight.brakeTorque = inputManager.Gas * (torque / brakeBackSet);
+		}
 		else
 		{
-            wheels.frontLeft.brakeTorque = 0;
-            wheels.frontRight.brakeTorque = 0;
-            wheels.backLeft.brakeTorque = 0;
-            wheels.backRight.brakeTorque = 0;
-        }
+			wheels.frontLeft.brakeTorque = 0;
+			wheels.frontRight.brakeTorque = 0;
+			wheels.backLeft.brakeTorque = 0;
+			wheels.backRight.brakeTorque = 0;
+		}
 
 		//if (inputManager.Gas > 0 && inputManager.Gear > 0 && inputManager.Gear < 7 && inputManager.Brake < 0 && kph < kphLimit)
 		//{
@@ -358,8 +379,10 @@ public class Car : MonoBehaviour
 		//	wheels.backLeft.brakeTorque = 0;
 		//	wheels.backRight.brakeTorque = 0;
 		//}
-
+		speed = wheels.frontLeft.radius * 2 * Mathf.PI * rpm * gearRatio[inputManager.Gear] * differentialRatio / 60f * mphToMps;
 		kph = rigidBody.velocity.magnitude * 3.6f;
+
+		//rigidBody.AddRelativeForce(Vector3.forward * Time.deltaTime * speed);
 	}
 
 	private void SteerVehicle()
@@ -368,8 +391,8 @@ public class Car : MonoBehaviour
 		{
 			int symbol = inputManager.Horizontal > 0 ? 1 : -1;
 
-			wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2) * symbol)) * inputManager.Horizontal;
-			wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius - (1.5f / 2) * symbol)) * inputManager.Horizontal;
+			wheels.frontLeft.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (wheelRadius + (1.5f / 2) * symbol)) * inputManager.Horizontal;
+			wheels.frontRight.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (wheelRadius - (1.5f / 2) * symbol)) * inputManager.Horizontal;
 		}
 		else
 		{
@@ -409,29 +432,31 @@ public class Car : MonoBehaviour
 
 	private void AddDownForce()
 	{
+		if (!rigidBody.useGravity) return;
+
 		rigidBody.AddForce(downForceValue * rigidBody.velocity.magnitude * -transform.up);
 	}
 
-	private void LimitMoveSpeed()
-	{
-		if (rigidBody.velocity.x > kphLimit)
-		{
-			rigidBody.velocity = new Vector3(kphLimit, rigidBody.velocity.y, rigidBody.velocity.z);
-		}
-		if (rigidBody.velocity.x < (kphLimit * -1))
-		{
-			rigidBody.velocity = new Vector3((kphLimit * -1), rigidBody.velocity.y, rigidBody.velocity.z);
-		}
+	//private void LimitMoveSpeed()
+	//{
+	//	if (rigidBody.velocity.x > kphLimit)
+	//	{
+	//		rigidBody.velocity = new Vector3(kphLimit, rigidBody.velocity.y, rigidBody.velocity.z);
+	//	}
+	//	if (rigidBody.velocity.x < (kphLimit * -1))
+	//	{
+	//		rigidBody.velocity = new Vector3((kphLimit * -1), rigidBody.velocity.y, rigidBody.velocity.z);
+	//	}
 
-		if (rigidBody.velocity.z > kphLimit)
-		{
-			rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, kphLimit);
-		}
-		if (rigidBody.velocity.z < (kphLimit * -1))
-		{
-			rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, (kphLimit * -1));
-		}
-	}
+	//	if (rigidBody.velocity.z > kphLimit)
+	//	{
+	//		rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, kphLimit);
+	//	}
+	//	if (rigidBody.velocity.z < (kphLimit * -1))
+	//	{
+	//		rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, (kphLimit * -1));
+	//	}
+	//}
 
 	public void CheckPointTeleport()
 	{
@@ -453,11 +478,11 @@ public class Car : MonoBehaviour
 	private IEnumerator WatingTime()
 	{
 		rigidBody.useGravity = false;
-		GetComponentInChildren<MeshCollider>().enabled = false;
+		//GetComponentInChildren<MeshCollider>().enabled = false;
 
 		yield return new WaitForSeconds(1.5f);
 
-		GetComponentInChildren<MeshCollider>().enabled = true;
+		//GetComponentInChildren<MeshCollider>().enabled = true;
 		rigidBody.useGravity = true;
 	}
 

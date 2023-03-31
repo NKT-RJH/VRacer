@@ -28,7 +28,7 @@ public class InputManager : Singleton<InputManager>
 
 	private void Update()
 	{
-		gas = Input.GetAxis("Vertical") > 0 ? Input.GetAxis("Vertical") : -1;
+		gas = Mathf.Clamp(Input.GetAxis("Vertical"), 0, float.MaxValue);
 		horizontal = Input.GetAxis("Horizontal");
 		brake = Input.GetKey(KeyCode.S) ? 1 : -1;
 		clutch = Input.GetKey(KeyCode.F) ? 1 : -1;
@@ -54,7 +54,7 @@ public class InputManager : Singleton<InputManager>
 		if (!(LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected((int)LogitechKeyCode.FirstIndex))) return;
 
 		horizontal = LogitechInput.GetAxis("Steering Horizontal");
-		gas = LogitechInput.GetAxis("Gas Vertical");
+		gas = Mathf.Clamp(LogitechInput.GetAxis("Gas Vertical"), 0, float.MaxValue);
 		brake = LogitechInput.GetAxis("Brake Vertical");
 		clutch = LogitechInput.GetAxis("Clutch Vertical");
 

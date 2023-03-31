@@ -5,7 +5,7 @@ public class CarSound : MonoBehaviour
 {
 	[Header("Cashing")]
 	[SerializeField] private Sounds sounds;
-	
+
 	private Car carMove;
 	private InputManager inputManager;
 	private CountDown countDown;
@@ -68,7 +68,7 @@ public class CarSound : MonoBehaviour
 
 		if (brakeTime > 0) return;
 
-		if (carMove.RPM <= 500)
+		if (carMove.Speed <= 5)
 		{
 			PlayAudioClip(sounds.normal);
 			AudioSetting(true, 1);
@@ -76,13 +76,15 @@ public class CarSound : MonoBehaviour
 		else
 		{
 			StopAudioClip(sounds.normal);
+			PlayAudioClip(sounds.idle);
+			AudioSetting(true, carMove.Speed / 60);
 		}
 
-		if (carMove.KPH > 6)
-		{
-			PlayAudioClip(sounds.idle);
-			AudioSetting(true, carMove.RPM / 5000);
-		}
+		//if (carMove.Speed > 6)
+		//{
+		//	PlayAudioClip(sounds.idle);
+		//	AudioSetting(true, carMove.Speed);
+		//}
 	}
 
 	private void PlayAudioClip(AudioClip audioClip)

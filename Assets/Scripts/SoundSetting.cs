@@ -4,16 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class SoundSetting : Singleton<SoundSetting>
 {
-    private List<AudioSource> audioSources;
+	private List<AudioSource> audioSources;
 
-    protected override void Awake()
-    {
-        base.Awake();
+	protected override void Awake()
+	{
+		base.Awake();
 
 		SettingList();
 
-        SetVolume();
-    }
+		SetVolume();
+	}
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
@@ -35,10 +35,10 @@ public class SoundSetting : Singleton<SoundSetting>
 	}
 
 	public void SetVolume()
-    {
-        for (int count = 0; count < audioSources.Count; count++)
-        {
-            audioSources[count].volume = OptionData.volume / 100f;
-        }
-    }
+	{
+		for (int count = 0; count < audioSources.Count; count++)
+		{
+			audioSources[count].volume = OptionData.volume / 100f;
+		}
+	}
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
   SkipPromptForVersion: 
   StereoRenderingMode: 1
   InitializationType: 1
-  EditorAppKey: application.generated.unity.steamvrracing.exe
+  EditorAppKey: application.generated.unity.vracer.exe
   ActionManifestFileRelativeFilePath: StreamingAssets\SteamVR\actions.json
   MirrorView: 0
   HasCopiedDefaults: 0

@@ -30,7 +30,7 @@ public class ButtonEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	private void Start()
 	{
 		GetComponent<Button>().onClick.AddListener(delegate { PlayClickSound(); });
-		
+
 		maxFontSize = textMeshProUGUI.fontSize + addButtonFontSize;
 	}
 

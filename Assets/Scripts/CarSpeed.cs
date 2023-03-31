@@ -5,8 +5,6 @@ public class CarSpeed : MonoBehaviour
 {
 	[SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
-	private int speed;
-
 	private Car car;
 
 	private void Awake()
@@ -16,11 +14,6 @@ public class CarSpeed : MonoBehaviour
 
 	private void Update()
 	{
-		if (Mathf.Abs(car.KPH - speed) >= 1)
-		{
-			speed = (int)car.KPH;
-		}
-
-		textMeshProUGUI.text = string.Format("{0} KM/H", speed);
+		textMeshProUGUI.text = string.Format("{0} KM/H", car.Speed / 60f); // 나머지자릿수 버림
 	}
 }
