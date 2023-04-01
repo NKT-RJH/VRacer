@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
-// 지금은 on off 각각 클릭해야되지만 나중에는 한개로 퉁쳐서 토글식으로 그리고 볼륨 수치는 키보드로 입력할 수 있게
+
 public class OptionManager : MonoBehaviour
 {
 	[Header("Cashing")]
@@ -32,7 +32,6 @@ public class OptionManager : MonoBehaviour
 			string optionAntiAliasing = nameof(OptionData.antiAliasing).ToLower();
 			string optionMotionBlur = nameof(OptionData.motionBlur).ToLower();
 			string optionBloom = nameof(OptionData.bloom).ToLower();
-			//이제 돌고 끝나는거, 멀티, 진동, 핸들만남음
 
 			if (optionName.Equals(optionFog))
 			{

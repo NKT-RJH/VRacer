@@ -73,7 +73,7 @@ public class Title : MonoBehaviour
 
 		if (isOptionScreen)
 		{
-			if (inputManager.Cross)
+			if (inputManager.crossButton)
 			{
 				ExitOptions();
 				StartCoroutine(Delay());
@@ -84,15 +84,15 @@ public class Title : MonoBehaviour
 
 		if (!isEquipmentScreen)
 		{
-			if (inputManager.Circle)
+			if (inputManager.circleButton)
 			{
 				GameEquipmentPlay();
 			}
-			else if (inputManager.Triangle)
+			else if (inputManager.triangleButton)
 			{
 				Options();
 			}
-			else if (inputManager.Cross)
+			else if (inputManager.crossButton)
 			{
 				Exit();
 			}
@@ -109,16 +109,16 @@ public class Title : MonoBehaviour
 				ExitEquipmentPlay();
 			}
 
-			if (inputManager.Cross)
+			if (inputManager.crossButton)
 			{
 				ExitEquipmentPlay();
 			}
-			else if (inputManager.Triangle)
+			else if (inputManager.triangleButton)
 			{
 				SetEquipment(0);
 				GameModePlay();
 			}
-			else if (inputManager.Circle)
+			else if (inputManager.circleButton)
 			{
 				SetEquipment(1);
 				GameModePlay();
@@ -136,21 +136,21 @@ public class Title : MonoBehaviour
 			{
 				ExitGameModePlay();
 			}
-			if (inputManager.Cross)
+			if (inputManager.crossButton)
 			{
 				ExitGameModePlay();
 			}
-			if (inputManager.Triangle)
+			if (inputManager.triangleButton)
 			{
 				SetMode(0);
 				GameCarPlay();
 			}
-			else if (inputManager.Circle)
+			else if (inputManager.circleButton)
 			{
 				SetMode(1);
 				GameCarPlay();
 			}
-			else if (inputManager.Square)
+			else if (inputManager.squareButton)
 			{
 				SetMode(-1);
 				MoveScene();
@@ -167,16 +167,16 @@ public class Title : MonoBehaviour
 				ExitGameCarPlay();
 			}
 
-			if (inputManager.Cross)
+			if (inputManager.crossButton)
 			{
 				ExitGameCarPlay();
 			}
-			else if (inputManager.Triangle)
+			else if (inputManager.triangleButton)
 			{
 				SetCar(0);
 				GameMap();
 			}
-			else if (inputManager.Circle)
+			else if (inputManager.circleButton)
 			{
 				SetCar(1);
 				GameMap();
@@ -190,16 +190,16 @@ public class Title : MonoBehaviour
 				ExitGameMap();
 			}
 
-			if (inputManager.Cross)
+			if (inputManager.crossButton)
 			{
 				ExitGameMap();
 			}
-			else if (inputManager.Triangle)
+			else if (inputManager.triangleButton)
 			{
 				SetMap(0);
 				MoveScene();
 			}
-			else if (inputManager.Circle)
+			else if (inputManager.circleButton)
 			{
 				SetMap(1);
 				MoveScene();

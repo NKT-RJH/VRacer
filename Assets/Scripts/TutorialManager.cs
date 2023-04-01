@@ -13,11 +13,10 @@ public class TutorialManager : MonoBehaviour
 	public GameObject UIMask;
 	public RectTransform mask;
 	private InputManager inputManager;
-	private int tutorial = 0;
 	private List<string> tutorialsText = new List<string>();
 	private List<string> goodText = new List<string>();
 	private List<Vector3> maskPos = new List<Vector3>();
-
+	
 	private void Start()
 	{
 		TextSetting();
@@ -27,6 +26,8 @@ public class TutorialManager : MonoBehaviour
 
 	private void TextSetting()
 	{
+		inputManager = FindObjectOfType<InputManager>();
+
 		tutorialsText.Add("튜토리얼에 오신것을 환영합니다");
 		tutorialsText.Add("당신은 튜토리얼에서 UI 설명과 게임 조작 방법을 배우실 겁니다");
 		tutorialsText.Add("자 먼저 UI에 대해 설명해 드리도록 하겠습니다");
@@ -36,11 +37,11 @@ public class TutorialManager : MonoBehaviour
 		tutorialsText.Add("왼쪽 하단을 보시면 미니맵을 통해 당신의 위치를 확인하실 수 있습니다");
 		tutorialsText.Add("오른쪽 하단을 보시면 당신의 기어 상태를 확인하실 수 있습니다");
 		tutorialsText.Add("다음은 게임 조작법에 대해 설명해 드리도록 하겠습니다");
-		tutorialsText.Add("E 혹은 기어 기기를 조작하여 기어를 변경하실 수 있습니다");
+		tutorialsText.Add("E와 Q 혹은 기어 기기를 조작하여 기어를 변경하실 수 있습니다");
 		tutorialsText.Add("W 혹은 엑셀을 눌러 앞으로 전진하실 수 있습니다");
+		tutorialsText.Add("S 혹은 브레이크를 눌러 정지하실 수 있습니다");
 		tutorialsText.Add("A 혹은 핸들을 왼쪽으로 돌려 좌회전하실 수 있습니다");
 		tutorialsText.Add("D 혹은 핸들을 오른쪽으로 돌려 우회전하실 수 있습니다");
-		tutorialsText.Add("Shift 혹은 동그라미 키를 눌러서 드리프트를 하실 수 있습니다");
 		tutorialsText.Add("마지막으로 Space 혹은 세모 키를 눌러서 스폰 포인트로 이동하실 수 있습니다");
 		tutorialsText.Add("당신은 게임의 조작방법을 전부 배우셨습니다");
 		tutorialsText.Add("즐거운 시간 되시길 바랍니다");
@@ -53,10 +54,10 @@ public class TutorialManager : MonoBehaviour
 	private void MaskPosSetting()
 	{
 		maskPos.Add(new Vector3(0, 450, 0));
-		maskPos.Add(new Vector3(-850, 470, 0));
 		maskPos.Add(new Vector3(850, 470, 0));
-		maskPos.Add(new Vector3(-810, -400, 0));
+		maskPos.Add(new Vector3(-850, 470, 0));
 		maskPos.Add(new Vector3(810, -400, 0));
+		maskPos.Add(new Vector3(-810, -400, 0));
 	}
 
 	private IEnumerator Tutorials()
@@ -82,90 +83,84 @@ public class TutorialManager : MonoBehaviour
 		next++;
 		isStart = true;
 
-		int gear = inputManager.Gear;
+		int gear = inputManager.gear;
 
 		tutorialText.text = tutorialsText[next];
 		while (true)
 		{
-			if (inputManager.Gear != gear)
+			if (inputManager.gear != gear)
 			{
 				next++;
 				tutorialText.text = goodText[Random.Range(0, goodText.Count)];
 				yield return new WaitForSeconds(2);
-				tutorial++;
 				break;
 			}
-			yield return new WaitForEndOfFrameUnit();
+			yield return null;
 		}
 
 		tutorialText.text = tutorialsText[next];
 		while (true)
 		{
-			if (inputManager.Gas > 0)
+			if (inputManager.gas > 0)
 			{
 				next++;
 				tutorialText.text = goodText[Random.Range(0, goodText.Count)];
 				yield return new WaitForSeconds(2);
-				tutorial++;
 				break;
 			}
-			yield return new WaitForEndOfFrameUnit();
+			yield return null;
 		}
 
 		tutorialText.text = tutorialsText[next];
 		while (true)
 		{
-			if (inputManager.Horizontal < -10)
+			if (inputManager.brake > 0)
 			{
 				next++;
 				tutorialText.text = goodText[Random.Range(0, goodText.Count)];
 				yield return new WaitForSeconds(2);
-				tutorial++;
 				break;
 			}
-			yield return new WaitForEndOfFrameUnit();
+			yield return null;
 		}
 
 		tutorialText.text = tutorialsText[next];
 		while (true)
 		{
-			if (inputManager.Horizontal > 10)
+			if (inputManager.horizontal < 0)
 			{
 				next++;
 				tutorialText.text = goodText[Random.Range(0, goodText.Count)];
 				yield return new WaitForSeconds(2);
-				tutorial++;
 				break;
 			}
-			yield return new WaitForEndOfFrameUnit();
+			yield return null;
 		}
 
 		tutorialText.text = tutorialsText[next];
 		while (true)
 		{
-			if (inputManager.Drift)
+			if (inputManager.horizontal > 0)
 			{
 				next++;
 				tutorialText.text = goodText[Random.Range(0, goodText.Count)];
 				yield return new WaitForSeconds(2);
-				tutorial++;
 				break;
 			}
-			yield return new WaitForEndOfFrameUnit();
+			yield return null;
 		}
 
 		tutorialText.text = tutorialsText[next];
 		while (true)
 		{
-			if (inputManager.Respawn)
+			if (inputManager.respawn)
 			{
 				next++;
 				tutorialText.text = goodText[Random.Range(0, goodText.Count)];
 				yield return new WaitForSeconds(2);
-				tutorial++;
 				break;
 			}
-			yield return new WaitForEndOfFrameUnit();
+			yield return null;
 		}
 
 		for (int i = 0; i < 2; i++)

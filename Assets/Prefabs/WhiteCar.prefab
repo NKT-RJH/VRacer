@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58307c2ff4750fd4bad069c529e9067f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshProUGUI: {fileID: 1754200655084237021}
+  kmPerHourText: {fileID: 1754200655084237021}
 --- !u!1 &1754200655128625940
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,7 +3439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58307c2ff4750fd4bad069c529e9067f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshProUGUI: {fileID: 1754200656227005647}
+  kmPerHourText: {fileID: 1754200656227005647}
 --- !u!1 &1754200656294143659
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,6 +5160,8 @@ MonoBehaviour:
     frontRight: {fileID: 2605690049388486688}
     backLeft: {fileID: 2605647742728530750}
     backRight: {fileID: 2609446898838550112}
+  rpm: 0
+  kmPerHour: 0
 --- !u!82 &2609745512463457502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5323,6 +5325,7 @@ MonoBehaviour:
   - {fileID: 1754200655728878887}
   cameraPCTransform: {fileID: 1754200655506844016}
   cameraRigTransform: {fileID: 1754200655972135223}
+  isClear: 0
 --- !u!114 &4079997773580050853
 MonoBehaviour:
   m_ObjectHideFlags: 0

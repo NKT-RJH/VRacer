@@ -2,34 +2,40 @@ using UnityEngine;
 
 public class InputManager : Singleton<InputManager>
 {
-	private float gas;
-	private float clutch;
-	private float brake;
-	private float horizontal;
-	private int gear = 1;
-	private bool respawn;
-	private bool drift;
-	private bool cross;
-	private bool circle;
-	private bool square;
-	private bool triangle;
+	public bool logitechWheelIsConnected;
 
-	public float Gas { get { return gas; } }
-	public float Clutch { get { return clutch; } }
-	public float Brake { get { return brake; } }
-	public float Horizontal { get { return horizontal; } }
-	public int Gear { get { return gear; } }
-	public bool Respawn { get { return respawn; } }
-	public bool Drift { get { return drift; } }
-	public bool Cross { get { return cross; } }
-	public bool Circle { get { return circle; } }
-	public bool Square { get { return square; } }
-	public bool Triangle { get { return triangle; } }
+	public float gas;
+	public float clutch;
+	public float brake;
+	public float horizontal;
+	public int gear = 1;
+	public bool respawn;
+	public bool drift;
+	public bool crossButton;
+	public bool circleButton;
+	public bool squareButton;
+	public bool triangleButton;
 
 	private void Update()
 	{
 		gas = Mathf.Clamp(Input.GetAxis("Vertical"), 0, float.MaxValue);
-		horizontal = Input.GetAxis("Horizontal");
+		float getAxisHorizontal = Input.GetAxis("Horizontal");
+		if (getAxisHorizontal == 0)
+		{
+			if (horizontal < 0)
+			{
+				horizontal = Mathf.Clamp(horizontal + Time.deltaTime, -1, 0);
+			}
+			else
+			{
+				horizontal = Mathf.Clamp(horizontal - Time.deltaTime, 0, 1);
+			}
+		}
+		else
+		{
+			horizontal = Mathf.Clamp(horizontal + Time.deltaTime * getAxisHorizontal, -1, 1);
+		}
+		
 		brake = Input.GetKey(KeyCode.S) ? 1 : -1;
 		clutch = Input.GetKey(KeyCode.F) ? 1 : -1;
 		drift = Input.GetKey(KeyCode.LeftShift);
@@ -51,7 +57,9 @@ public class InputManager : Singleton<InputManager>
 			}
 		}
 
-		if (!(LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected((int)LogitechKeyCode.FirstIndex))) return;
+		logitechWheelIsConnected = LogitechGSDK.LogiUpdate() && LogitechGSDK.LogiIsConnected((int)LogitechKeyCode.FirstIndex);
+
+		if (!logitechWheelIsConnected) return;
 
 		horizontal = LogitechInput.GetAxis("Steering Horizontal");
 		gas = Mathf.Clamp(LogitechInput.GetAxis("Gas Vertical"), 0, float.MaxValue);
@@ -71,12 +79,12 @@ public class InputManager : Singleton<InputManager>
 
 		gear = isPressed ? gear : 0;
 
-		cross = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
+		crossButton = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
 		drift = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
-		circle = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
-		square = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
+		circleButton = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
+		squareButton = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
 		respawn = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
-		triangle = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
+		triangleButton = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
 	}
 
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1034484023}
-  m_IndirectSpecularColor: {r: 0.09666729, g: 0.18984652, b: 0.43714094, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1445,7 +1445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 28697895}
   m_Layer: 0
-  m_Name: StartPathSolo
+  m_Name: StartPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9008,10 +9008,7 @@ MonoBehaviour:
   cars:
   - {fileID: 1709828128293170383, guid: 58a7ddfb8c539ae4f9cdd97fc1f3f8aa, type: 3}
   - {fileID: 2611064938585839922, guid: 3621d0072554e1f40a4be397164a697c, type: 3}
-  startPathSolo: {fileID: 28697895}
-  startPathMulty:
-    value1: {fileID: 1514017223}
-    value2: {fileID: 1224393664}
+  startPath: {fileID: 28697895}
 --- !u!4 &309249681
 Transform:
   m_ObjectHideFlags: 0
@@ -37391,37 +37388,6 @@ Transform:
   m_Father: {fileID: 2011981892}
   m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 127.346596, z: 0}
---- !u!1 &1224393663
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1224393664}
-  m_Layer: 0
-  m_Name: StartPathMulty2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1224393664
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224393663}
-  m_LocalRotation: {x: 0.04500519, y: 0.6944332, z: 0.043733954, w: 0.71681553}
-  m_LocalPosition: {x: -17.540697, y: 20.37957, z: -275.204}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: -0.002, y: 88.212, z: 7.207}
 --- !u!1001 &1229608562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44807,37 +44773,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1514017222
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1514017223}
-  m_Layer: 0
-  m_Name: StartPathMulty1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1514017223
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514017222}
-  m_LocalRotation: {x: 0.04442995, y: 0.7057066, z: 0.04445297, w: 0.70571107}
-  m_LocalPosition: {x: -18.6, y: 19.818888, z: -270.7206}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 7.821}
 --- !u!1 &1514350145
 GameObject:
   m_ObjectHideFlags: 0

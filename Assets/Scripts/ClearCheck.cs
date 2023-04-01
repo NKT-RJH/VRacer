@@ -13,8 +13,8 @@ public class ClearCheck : MonoBehaviour
 	[SerializeField] private Transform cameraPCTransform;
 	[SerializeField] private Transform cameraRigTransform;
 
-	private bool isClear;
-	public bool IsClear { get { return isClear; } }
+	[Header("Value")]
+	public bool isClear;
 
 	private const int maxClear = 2;
 
@@ -123,6 +123,6 @@ public class ClearCheck : MonoBehaviour
 
 		yield return new WaitForSeconds(5);
 
-		FindObjectOfType<GameManager>().GoTitle();
+		FindObjectOfType<MoveToTItle>().GoTitle();
 	}
 }

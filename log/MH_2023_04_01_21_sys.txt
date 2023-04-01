@@ -1,0 +1,197 @@
+2023.04.01 21:01:34, 
+2023.04.01 21:01:34, MHSDKManager::GetInstance() g_MHSDKInitCount:16.
+2023.04.01 21:01:34, MotionHouseSDK version :2022101701
+2023.04.01 21:01:34, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:01:34, BeltChecker don't be used.
+2023.04.01 21:01:34, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:01:34, Device Connected 0
+2023.04.01 21:01:34, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:01:34, called SetCenterPosition()
+2023.04.01 21:01:51, called SetBottomPosition()
+2023.04.01 21:02:35, 
+2023.04.01 21:02:35, MHSDKManager::GetInstance() g_MHSDKInitCount:17.
+2023.04.01 21:02:35, MotionHouseSDK version :2022101701
+2023.04.01 21:02:35, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:02:35, BeltChecker don't be used.
+2023.04.01 21:02:35, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:02:35, Device Connected 0
+2023.04.01 21:02:35, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:02:35, called SetCenterPosition()
+2023.04.01 21:02:56, called SetBottomPosition()
+2023.04.01 21:03:26, 
+2023.04.01 21:03:26, MHSDKManager::GetInstance() g_MHSDKInitCount:18.
+2023.04.01 21:03:26, MotionHouseSDK version :2022101701
+2023.04.01 21:03:26, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:03:26, BeltChecker don't be used.
+2023.04.01 21:03:26, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:03:26, Device Connected 0
+2023.04.01 21:03:26, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:03:26, called SetCenterPosition()
+2023.04.01 21:03:34, called SetBottomPosition()
+2023.04.01 21:07:09, 
+2023.04.01 21:07:09, MHSDKManager::GetInstance() g_MHSDKInitCount:19.
+2023.04.01 21:07:09, MotionHouseSDK version :2022101701
+2023.04.01 21:07:09, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:07:09, BeltChecker don't be used.
+2023.04.01 21:07:09, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:07:09, Device Connected 0
+2023.04.01 21:07:09, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:07:09, called SetCenterPosition()
+2023.04.01 21:08:20, called SetBottomPosition()
+2023.04.01 21:09:33, 
+2023.04.01 21:09:33, MHSDKManager::GetInstance() g_MHSDKInitCount:20.
+2023.04.01 21:09:33, MotionHouseSDK version :2022101701
+2023.04.01 21:09:33, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:09:33, BeltChecker don't be used.
+2023.04.01 21:09:33, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:09:33, Device Connected 0
+2023.04.01 21:09:33, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:09:33, called SetCenterPosition()
+2023.04.01 21:09:52, called SetBottomPosition()
+2023.04.01 21:11:09, 
+2023.04.01 21:11:09, MHSDKManager::GetInstance() g_MHSDKInitCount:21.
+2023.04.01 21:11:09, MotionHouseSDK version :2022101701
+2023.04.01 21:11:09, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:11:09, BeltChecker don't be used.
+2023.04.01 21:11:09, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:11:09, Device Connected 0
+2023.04.01 21:11:09, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:11:09, called SetCenterPosition()
+2023.04.01 21:12:22, called SetBottomPosition()
+2023.04.01 21:14:11, 
+2023.04.01 21:14:11, MHSDKManager::GetInstance() g_MHSDKInitCount:22.
+2023.04.01 21:14:11, MotionHouseSDK version :2022101701
+2023.04.01 21:14:11, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:14:11, BeltChecker don't be used.
+2023.04.01 21:14:11, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:14:11, Device Connected 0
+2023.04.01 21:14:11, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:14:11, called SetCenterPosition()
+2023.04.01 21:14:45, called SetBottomPosition()
+2023.04.01 21:18:16, 
+2023.04.01 21:18:16, MHSDKManager::GetInstance() g_MHSDKInitCount:23.
+2023.04.01 21:18:16, MotionHouseSDK version :2022101701
+2023.04.01 21:18:16, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:18:16, BeltChecker don't be used.
+2023.04.01 21:18:16, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:18:16, Device Connected 0
+2023.04.01 21:18:16, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:18:16, called SetCenterPosition()
+2023.04.01 21:18:41, called SetBottomPosition()
+2023.04.01 21:20:31, 
+2023.04.01 21:20:31, MHSDKManager::GetInstance() g_MHSDKInitCount:24.
+2023.04.01 21:20:31, MotionHouseSDK version :2022101701
+2023.04.01 21:20:31, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:20:31, BeltChecker don't be used.
+2023.04.01 21:20:31, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:20:31, Device Connected 0
+2023.04.01 21:20:31, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:20:31, called SetCenterPosition()
+2023.04.01 21:23:42, called SetBottomPosition()
+2023.04.01 21:24:02, 
+2023.04.01 21:24:02, MHSDKManager::GetInstance() g_MHSDKInitCount:25.
+2023.04.01 21:24:02, MotionHouseSDK version :2022101701
+2023.04.01 21:24:02, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:24:02, BeltChecker don't be used.
+2023.04.01 21:24:02, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:24:02, Device Connected 0
+2023.04.01 21:24:02, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:24:02, called SetCenterPosition()
+2023.04.01 21:24:50, called SetBottomPosition()
+2023.04.01 21:25:36, 
+2023.04.01 21:25:36, MHSDKManager::GetInstance() g_MHSDKInitCount:26.
+2023.04.01 21:25:36, MotionHouseSDK version :2022101701
+2023.04.01 21:25:36, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:25:36, BeltChecker don't be used.
+2023.04.01 21:25:36, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:25:36, Device Connected 0
+2023.04.01 21:25:36, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:25:36, called SetCenterPosition()
+2023.04.01 21:25:37, called SetBottomPosition()
+2023.04.01 21:26:25, 
+2023.04.01 21:26:25, MHSDKManager::GetInstance() g_MHSDKInitCount:27.
+2023.04.01 21:26:25, MotionHouseSDK version :2022101701
+2023.04.01 21:26:25, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:26:25, BeltChecker don't be used.
+2023.04.01 21:26:25, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:26:25, Device Connected 0
+2023.04.01 21:26:25, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:26:25, called SetCenterPosition()
+2023.04.01 21:26:54, called SetBottomPosition()
+2023.04.01 21:28:20, 
+2023.04.01 21:28:20, MHSDKManager::GetInstance() g_MHSDKInitCount:28.
+2023.04.01 21:28:20, MotionHouseSDK version :2022101701
+2023.04.01 21:28:20, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:28:20, BeltChecker don't be used.
+2023.04.01 21:28:20, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:28:20, Device Connected 0
+2023.04.01 21:28:20, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:28:20, called SetCenterPosition()
+2023.04.01 21:29:05, called SetBottomPosition()
+2023.04.01 21:29:54, 
+2023.04.01 21:29:54, MHSDKManager::GetInstance() g_MHSDKInitCount:29.
+2023.04.01 21:29:54, MotionHouseSDK version :2022101701
+2023.04.01 21:29:54, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:29:54, BeltChecker don't be used.
+2023.04.01 21:29:54, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:29:54, Device Connected 0
+2023.04.01 21:29:54, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:29:54, called SetCenterPosition()
+2023.04.01 21:30:12, called SetBottomPosition()
+2023.04.01 21:32:32, 
+2023.04.01 21:32:32, MHSDKManager::GetInstance() g_MHSDKInitCount:30.
+2023.04.01 21:32:32, MotionHouseSDK version :2022101701
+2023.04.01 21:32:32, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:32:32, BeltChecker don't be used.
+2023.04.01 21:32:33, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:32:33, Device Connected 0
+2023.04.01 21:32:33, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:32:33, called SetCenterPosition()
+2023.04.01 21:33:24, called SetBottomPosition()
+2023.04.01 21:34:39, 
+2023.04.01 21:34:39, MHSDKManager::GetInstance() g_MHSDKInitCount:31.
+2023.04.01 21:34:39, MotionHouseSDK version :2022101701
+2023.04.01 21:34:39, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:34:39, BeltChecker don't be used.
+2023.04.01 21:34:39, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:34:39, Device Connected 0
+2023.04.01 21:34:39, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:34:39, called SetCenterPosition()
+2023.04.01 21:35:22, called SetBottomPosition()
+2023.04.01 21:38:24, 
+2023.04.01 21:38:24, MHSDKManager::GetInstance() g_MHSDKInitCount:32.
+2023.04.01 21:38:24, MotionHouseSDK version :2022101701
+2023.04.01 21:38:24, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:38:24, BeltChecker don't be used.
+2023.04.01 21:38:24, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:38:24, Device Connected 0
+2023.04.01 21:38:24, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:38:24, called SetCenterPosition()
+2023.04.01 21:38:45, called SetBottomPosition()
+2023.04.01 21:43:43, 
+2023.04.01 21:43:43, MHSDKManager::GetInstance() g_MHSDKInitCount:33.
+2023.04.01 21:43:43, MotionHouseSDK version :2022101701
+2023.04.01 21:43:43, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:43:43, BeltChecker don't be used.
+2023.04.01 21:43:43, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:43:43, Device Connected 0
+2023.04.01 21:43:43, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:43:43, called SetCenterPosition()
+2023.04.01 21:43:59, called SetBottomPosition()
+2023.04.01 21:47:24, 
+2023.04.01 21:47:24, MHSDKManager::GetInstance() g_MHSDKInitCount:34.
+2023.04.01 21:47:24, MotionHouseSDK version :2022101701
+2023.04.01 21:47:24, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:47:24, BeltChecker don't be used.
+2023.04.01 21:47:24, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:47:24, Device Connected 0
+2023.04.01 21:47:24, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:47:24, called SetCenterPosition()
+2023.04.01 21:51:25, MotionHouseSDK version :2022101701
+2023.04.01 21:51:25, MotionHouseSDK.ini load fail.. currentDirectory :C:\Users\RJH\Desktop\UnityProjects\RacingVR
+2023.04.01 21:51:25, BeltChecker don't be used.
+2023.04.01 21:51:25, topAddress SYSTEM\ControlSet001\Enum\FTDIBUS 0
+2023.04.01 21:51:26, Device Connected 0
+2023.04.01 21:51:26, DeviceManager initialization process fail, any device is not found
+2023.04.01 21:51:26, called SetCenterPosition()
+2023.04.01 21:51:28, called SetBottomPosition()

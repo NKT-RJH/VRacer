@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58307c2ff4750fd4bad069c529e9067f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshProUGUI: {fileID: 1756082316127908955}
+  kmPerHourText: {fileID: 1756082316127908955}
 --- !u!1 &355816663560027599
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +673,7 @@ WheelCollider:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
+    m_AsymptoteValue: 0.75
     m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
@@ -735,7 +735,7 @@ WheelCollider:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
+    m_AsymptoteValue: 0.75
     m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
@@ -832,7 +832,7 @@ WheelCollider:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
+    m_AsymptoteValue: 0.75
     m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
@@ -894,7 +894,7 @@ WheelCollider:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
+    m_AsymptoteValue: 0.75
     m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
@@ -2077,6 +2077,7 @@ MonoBehaviour:
   - {fileID: 1031257092838311476}
   cameraPCTransform: {fileID: 769764661026374559}
   cameraRigTransform: {fileID: 7567377178661357947}
+  isClear: 0
 --- !u!114 &461073481517661276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2101,6 +2102,8 @@ MonoBehaviour:
     frontRight: {fileID: 6882824975710212867}
     backLeft: {fileID: 6412020971525090705}
     backRight: {fileID: 3985085066821756022}
+  rpm: 0
+  kmPerHour: 0
 --- !u!114 &606580675890004427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6253,7 +6256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58307c2ff4750fd4bad069c529e9067f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshProUGUI: {fileID: 7174837236569417190}
+  kmPerHourText: {fileID: 7174837236569417190}
 --- !u!1 &6744362867190581205
 GameObject:
   m_ObjectHideFlags: 0

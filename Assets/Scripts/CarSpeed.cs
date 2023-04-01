@@ -1,19 +1,29 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class CarSpeed : MonoBehaviour
 {
-	[SerializeField] private TextMeshProUGUI textMeshProUGUI;
+	[SerializeField] private TextMeshProUGUI kmPerHourText;
 
 	private Car car;
 
 	private void Awake()
 	{
-		car = FindObjectOfType<Car>();
+		try
+		{
+			car = FindObjectOfType<Car>();
+		}
+		catch (NullReferenceException)
+		{
+			car = null;
+		}
 	}
 
 	private void Update()
 	{
-		textMeshProUGUI.text = string.Format("{0} KM/H", Mathf.RoundToInt(car.KPH)); // 나머지자릿수 버림
+		if (car == null) return;
+
+		kmPerHourText.text = string.Format("{0} KM/H", Mathf.RoundToInt(car.kmPerHour));
 	}
 }

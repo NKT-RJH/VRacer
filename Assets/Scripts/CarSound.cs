@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -6,21 +7,22 @@ public class CarSound : MonoBehaviour
 	[Header("Cashing")]
 	[SerializeField] private Sounds sounds;
 
-	private Car carMove;
+	private Car car;
 	private InputManager inputManager;
 	private CountDown countDown;
 	private ClearCheck clearCheck;
 	private AudioSource audioSource;
 
 	private float brakeTime;
-	//private float driftTime;
 
 	private void Awake()
 	{
-		clearCheck = GetComponent<ClearCheck>();
-		carMove = GetComponent<Car>();
+		try { clearCheck = GetComponent<ClearCheck>(); }
+		catch (NullReferenceException) { clearCheck= null; }
+		car = GetComponent<Car>();
 		inputManager = FindObjectOfType<InputManager>();
-		countDown = FindObjectOfType<CountDown>();
+		try { countDown = FindObjectOfType<CountDown>(); }
+		catch (NullReferenceException) { countDown = null; }
 		audioSource = GetComponent<AudioSource>();
 	}
 
@@ -31,36 +33,28 @@ public class CarSound : MonoBehaviour
 
 	private void Update()
 	{
-		if (clearCheck.IsClear)
+		if (clearCheck != null)
 		{
-			StopAudioClip();
-			return;
+			if (clearCheck.isClear)
+			{
+				StopAudioClip();
+				return;
+			}
 		}
-		if (!countDown.CountDownEnd) return;
+		if (countDown != null)
+		{
+			if (!countDown.CountDownEnd) return;
+		}
 
 		brakeTime -= Time.deltaTime;
 
-		//if (inputManager.Drift && driftTime <= 0)
-		//{
-		//	PlayAudioClip(sounds.drift);
-		//	AudioSetting(false, 1);
-		//	driftTime = sounds.drift.length;
-		//}
-		//else if (!inputManager.Drift && driftTime > 0)
-		//{
-		//	StopAudioClip(sounds.drift);
-		//	driftTime = 0;
-		//}
-
-		//if (driftTime > 0) return;
-
-		if (inputManager.Brake > 0 && brakeTime <= 0)
+		if (inputManager.brake > 0 && brakeTime <= 0)
 		{
 			PlayAudioClip(sounds.brake);
 			AudioSetting(false, 1);
 			brakeTime = sounds.brake.length;
 		}
-		else if (inputManager.Brake <= 0 && brakeTime > 0)
+		else if (inputManager.brake <= 0 && brakeTime > 0)
 		{
 			StopAudioClip(sounds.brake);
 			brakeTime = 0;
@@ -68,7 +62,7 @@ public class CarSound : MonoBehaviour
 
 		if (brakeTime > 0) return;
 
-		if (carMove.RPM <= 500)
+		if (car.rpm <= 500)
 		{
 			PlayAudioClip(sounds.normal);
 			AudioSetting(true, 1);
@@ -77,14 +71,8 @@ public class CarSound : MonoBehaviour
 		{
 			StopAudioClip(sounds.normal);
 			PlayAudioClip(sounds.idle);
-			AudioSetting(true, carMove.RPM / 5000);
+			AudioSetting(true, car.rpm / 8000);
 		}
-
-		//if (carMove.Speed > 6)
-		//{
-		//	PlayAudioClip(sounds.idle);
-		//	AudioSetting(true, carMove.Speed);
-		//}
 	}
 
 	private void PlayAudioClip(AudioClip audioClip)
@@ -110,7 +98,7 @@ public class CarSound : MonoBehaviour
 
 		audioSource.loop = isLoop;
 
-		audioSource.pitch = Mathf.Clamp(sound, 0.3f, 1.75f);
+		audioSource.pitch = Mathf.Clamp(sound, 0.3f, 1.3f);
 	}
 
 	private void StopAudioClip()

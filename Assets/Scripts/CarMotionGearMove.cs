@@ -23,11 +23,11 @@ public class CarMotionGearMove : MonoBehaviour
 
 		float brakeValue = 0;
 
-		motionGear.Vibration(Mathf.Clamp(car.RPM / 50, 0.5f, car.RPM / 50));
+		motionGear.Vibration(Mathf.Clamp(car.rpm / 50, 0.5f, car.rpm / 50));
 
-		if (inputManager.Brake > 0 && car.RPM > 300)
+		if (inputManager.brake > 0 && car.rpm > 300)
 		{
-			brakeValue = -6 * inputManager.Brake + bodyTlitPitch;
+			brakeValue = -6 * inputManager.brake + bodyTlitPitch;
 		}
 		else
 		{
@@ -36,13 +36,13 @@ public class CarMotionGearMove : MonoBehaviour
 
 		float driftValue = 0;
 
-		if (inputManager.Drift && car.RPM > 500)
+		if (inputManager.drift && car.rpm > 500)
 		{
-			int leftRight = inputManager.Horizontal > 0 ? -1 : 1;
+			int leftRight = inputManager.horizontal > 0 ? -1 : 1;
 			driftValue = 5 * leftRight;
 		}
 
-		vibrationRollValue = (vibrationRollValue > 0 ? -1 : 1) * (Random.Range(0.05f, 0.2f) + car.RPM / 3500);
+		vibrationRollValue = (vibrationRollValue > 0 ? -1 : 1) * (Random.Range(0.05f, 0.2f) + car.rpm / 3500);
 
 		motionGear.LeanMotionGear(bodyTlitPitch + brakeValue, driftValue + vibrationRollValue + bodyTlitRoll);
 	}

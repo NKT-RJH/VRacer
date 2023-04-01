@@ -18,8 +18,8 @@ public class UIGear : MonoBehaviour
 			gearCircles[count].SetActive(false);
 		}
 
-		if (inputManager.Gear <= 0) return;
+		if (inputManager.gear <= 0) return;
 
-		gearCircles[inputManager.Gear - 1].SetActive(true);
+		gearCircles[inputManager.gear - 1].SetActive(true);
 	}
 }

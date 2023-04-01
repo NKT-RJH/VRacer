@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
 
 	private void Update()
 	{
-		if (clearCheck.IsClear) return;
+		if (clearCheck.isClear) return;
 		if (!countDown.CountDownEnd) return;
 
 		time += Time.deltaTime;

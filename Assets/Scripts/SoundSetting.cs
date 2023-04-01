@@ -15,12 +15,12 @@ public class SoundSetting : Singleton<SoundSetting>
 		SetVolume();
 	}
 
-	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
-		SettingList();
+	//private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	//{
+	//	SettingList();
 
-		SetVolume();
-	}
+	//	SetVolume();
+	//}
 
 	private void SettingList()
 	{
