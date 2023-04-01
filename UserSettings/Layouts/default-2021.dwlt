@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 15
+  controlID: 105
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 16
+  controlID: 21
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -366,7 +366,7 @@ MonoBehaviour:
       width: 2332.6968
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.38796297
+  m_defaultScale: 0.4074074
   m_LastWindowPixelSize: {x: 905, y: 440}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.43679523, y: 0.17833689, z: -0.0882054, w: -0.87738854}
     speed: 2
-    m_Value: {x: -0.43675488, y: 0.17832041, z: -0.088197246, w: -0.8773075}
+    m_Value: {x: -0.4367952, y: 0.17833687, z: -0.0882054, w: -0.8773885}
   m_Size:
     m_Target: 12.124355
     speed: 2
@@ -824,23 +824,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 16600100
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ca65faff1c6ffaff406ffaff426ffaff727dfaff8c89faff8ab5faffc6bcfaffacc1faffe6cffaff24d0faffb6d4faffc2dbfafffce3faffacebfaff9401fbff3c06fbff4a0bfbff1810fbffce3afbffda3afbffe03afbff783bfbff9c3bfbff9e3bfbff4643fbffc053fbffa05efbffd266fbff0e7ffbffc081fbff7496fbff8096fbff8696fbff1e97fbff4297fbff4497fbff6cadfbff9aaffbffa6affbffacaffbff44b0fbff68b0fbff6ab0fbff82e7fbffc64efcffc468ffff726cfffff4ffffffaa8b030066a50300bca5030024a8030000c8030020c8030024c80300b6c80300d6c80300dac803000ce1030068e1030074f7030024ba040054ba0400
+      m_ExpandedIDs: 22fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: '[CameraRig]'
-        m_OriginalName: '[CameraRig]'
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -364924
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
       m_SearchString: 
@@ -892,36 +892,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Materials
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Materials/HDRP_Pine_Tree
   m_LastFoldersGridSize: 64
   m_LastProjectPath: C:\Users\RJH\Desktop\UnityProjects\RacingVR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 26}
-    m_SelectedIDs: f25f0100
-    m_LastClickedID: 90098
-    m_ExpandedIDs: 00000000e05f0100e85f0100ea5f0100ee5f0100f25f0100246001000e900300ae9b0300ba9b0300c69b030000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 4e840000
+    m_LastClickedID: 33870
+    m_ExpandedIDs: 000000004c84000056840000588400005a8400005c8400005e840000fe84000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Title
-      m_OriginalName: Title
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 90132
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -935,7 +935,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000004c8400004e84000050840000528400005484000056840000588400005a8400005c8400005e840000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -966,18 +966,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 96df0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Title
-      m_OriginalName: Title
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 90134
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
