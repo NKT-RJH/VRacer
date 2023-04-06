@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoveToTItle : MonoBehaviour
+public class MoveToTitle : MonoBehaviour
 {
 	public bool isClear;
 

@@ -8,6 +8,7 @@ public class Title : MonoBehaviour
 	public AudioClip carStart;
 	public AudioClip click;
 
+	[SerializeField] private Transform[] wheels = new Transform[4];
 	[SerializeField] private UITitle[] titleUI = new UITitle[2];
 
 	private AudioSource audioSource;
@@ -69,6 +70,12 @@ public class Title : MonoBehaviour
 
 	private void Update()
 	{
+		foreach (Transform wheel in wheels)
+		{
+			wheel.Find("rim").Rotate(Vector3.right * Time.deltaTime * 1000);
+			wheel.Find("tire1").Rotate(Vector3.right * Time.deltaTime * 1000);
+		}
+
 		if (!isInput) return;
 
 		if (isOptionScreen)

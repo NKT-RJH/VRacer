@@ -123,6 +123,6 @@ public class ClearCheck : MonoBehaviour
 
 		yield return new WaitForSeconds(5);
 
-		FindObjectOfType<MoveToTItle>().GoTitle();
+		FindObjectOfType<MoveToTitle>().GoTitle();
 	}
 }
