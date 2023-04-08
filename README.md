@@ -36,6 +36,8 @@
   <br>
 </details>
 
+<img width="380" alt="image" src="https://user-images.githubusercontent.com/80941288/230706345-be430afc-eede-4a3e-89e6-978c97f3518f.png"><img width="500" alt="image" src="https://user-images.githubusercontent.com/80941288/230706701-d20c93b6-2893-4599-8b4d-d378113a74c3.png">
+
 <hr class='hr-solid'/>
 
 <h4>코드 구조</h4>
