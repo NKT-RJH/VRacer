@@ -124,6 +124,4 @@ public class Sounds
 	public AudioClip normal;
 	public AudioClip idle;
 	public AudioClip brake;
-	public AudioClip drift;
-	public AudioClip boom;
 }

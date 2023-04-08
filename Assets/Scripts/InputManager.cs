@@ -10,7 +10,6 @@ public class InputManager : Singleton<InputManager>
 	public float horizontal;
 	public int gear = 1;
 	public bool respawn;
-	public bool drift;
 	public bool crossButton;
 	public bool circleButton;
 	public bool squareButton;
@@ -38,7 +37,6 @@ public class InputManager : Singleton<InputManager>
 		
 		brake = Input.GetKey(KeyCode.S) ? 1 : -1;
 		clutch = Input.GetKey(KeyCode.F) ? 1 : -1;
-		drift = Input.GetKey(KeyCode.LeftShift);
 		respawn = Input.GetKeyDown(KeyCode.Space);
 		if (Input.GetKeyDown(KeyCode.E))
 		{
@@ -80,7 +78,6 @@ public class InputManager : Singleton<InputManager>
 		gear = isPressed ? gear : 0;
 
 		crossButton = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Cross);
-		drift = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
 		circleButton = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Circle);
 		squareButton = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Square);
 		respawn = LogitechInput.GetKeyPresssed(LogitechKeyCode.FirstIndex, LogitechKeyCode.Triangle);
