@@ -23,6 +23,10 @@
 <br>
  - 타이틀<br>
   <img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230429856-b15159f7-1159-4335-9263-c53544391f06.png"><br>
+  <img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230729470-6c663521-b417-43b6-8258-0b73f9a43567.png"><br>
+  <img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230729507-45643499-dd69-427f-8e42-94bd80c126d2.png"><br>
+  <img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230729533-ba151e3a-f15d-4bdd-bd15-e608fa64073a.png"><br>
+  <img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230729575-fa266bbd-a9b7-4bfd-aae2-188df986d02b.png"><br>
   <br>
  - 설정<br>
   <img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230704946-42d8ad15-3b5d-44ab-9917-3793fe37806d.png"><br>
