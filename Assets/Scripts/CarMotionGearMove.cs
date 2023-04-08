@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CarMotionGearMove : MonoBehaviour
 {
+	/// <summary>
+	/// 자동차가 좌우로 떨리는 것을 표현하는 변수
+	/// </summary>
 	private float vibrationRollValue;
 
 	private InputManager inputManager;
@@ -10,23 +13,27 @@ public class CarMotionGearMove : MonoBehaviour
 
 	private void Awake()
 	{
+		// 외부 컴포넌트 전역변수에 할당
+
 		inputManager = FindObjectOfType<InputManager>();
 		motionGear = FindObjectOfType<MotionGear>();
 		car = GetComponent<Car>();
 	}
 
 	private void Update()
-	{// 진동값 높이기, 자동차 각도에 따라 회전하기, 부딪히면 소리 및 덜컹거리기
-	 // 더 줄이기
+	{
+		// 각도에 따른 Roll, Pitch 값 계산
 		float bodyTlitPitch = (car.BodyTlit.x <= 180 ? -car.BodyTlit.x : 360 - car.BodyTlit.x) * 0.8f;
 		float bodyTlitRoll = car.BodyTlit.z <= 180 ? car.BodyTlit.z : car.BodyTlit.z - 360;
-
-		float brakeValue = 0;
-
+		
+		// RPM에 따른 진동
 		motionGear.Vibration(Mathf.Clamp(car.rpm / 50, 0.5f, car.rpm / 50));
 
+		// 브레이크 시, 모션기어의 각도가 앞으로 쏠림
+		float brakeValue;
 		if (inputManager.brake > 0 && car.rpm > 300)
 		{
+			// 음수 값을 할당 시, 앞으로 각도가 바뀜
 			brakeValue = -6 * inputManager.brake + bodyTlitPitch;
 		}
 		else
@@ -34,16 +41,10 @@ public class CarMotionGearMove : MonoBehaviour
 			brakeValue = 0;
 		}
 
-		float driftValue = 0;
-
-		if (inputManager.drift && car.rpm > 500)
-		{
-			int leftRight = inputManager.horizontal > 0 ? -1 : 1;
-			driftValue = 5 * leftRight;
-		}
-
+		// RPM에 기반하여 좌, 우로 떨리는 것을 표현
+		// vibrationRollValue = (방향값) * (진동 세기)
 		vibrationRollValue = (vibrationRollValue > 0 ? -1 : 1) * (Random.Range(0.05f, 0.2f) + car.rpm / 3500);
 
-		motionGear.LeanMotionGear(bodyTlitPitch + brakeValue, driftValue + vibrationRollValue + bodyTlitRoll);
+		motionGear.LeanMotionGear(bodyTlitPitch + brakeValue, vibrationRollValue + bodyTlitRoll);
 	}
 }
