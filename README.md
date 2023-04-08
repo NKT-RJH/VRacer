@@ -43,7 +43,7 @@
 
 <h3>주요 코드</h3>
 <b>Car</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;● 자동차를 움직이고 체크포인트로 이동하는 레이싱 게임의 메인코드입니다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;● 자동차를 움직이고 체크포인트로 이동하는 레이싱 게임의 메인클래스입니다.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;● 실제와 비슷한 작동을 위해서 RPM의 따른 토크 값을 기어별로 2차방정식을 통해 계산했습니다.<br>
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230710776-f164bf76-d634-4624-9a74-3ae619b18d05.png">
 <details>
@@ -474,13 +474,13 @@ public class Car : MonoBehaviour
 </details><br>
 
 <b>MotionGear</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;● 모션하우스 모션기어의 유니티 에셋을 저희 게임이 최적화 시킨 코드입니다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;● 모션하우스 모션기어의 유니티 에셋을 본 게임에 최적화 시킨 클래스입니다.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;● 모션기어를 움직입니다.
 <details>
     <summary><i>자세한 코드</i></summary>
     
   ```C#
-  using MotionHouse;
+using MotionHouse;
 using UnityEngine;
 
 // 유니티의 모든 씬에서 사용할 수 있게 제가 만든 싱글톤 클래스를 상속했습니다.
@@ -577,6 +577,183 @@ public class MotionGear : Singleton<MotionGear>
     <summary><i>자세한 코드</i></summary>
     
   ```C#
-  
+using UnityEngine;
+
+public class CarMotionGearMove : MonoBehaviour
+{
+	// 자동차가 좌우로 떨리는 것을 표현하는 변수
+	private float vibrationRollValue;
+
+	private InputManager inputManager;
+	private MotionGear motionGear;
+	private Car car;
+
+	private void Awake()
+	{
+		// 외부 컴포넌트 전역변수에 할당
+
+		inputManager = FindObjectOfType<InputManager>();
+		motionGear = FindObjectOfType<MotionGear>();
+		car = GetComponent<Car>();
+	}
+
+	private void Update()
+	{
+		// 각도에 따른 Roll, Pitch 값 계산
+		float bodyTlitPitch = (car.BodyTlit.x <= 180 ? -car.BodyTlit.x : 360 - car.BodyTlit.x) * 0.8f;
+		float bodyTlitRoll = car.BodyTlit.z <= 180 ? car.BodyTlit.z : car.BodyTlit.z - 360;
+		
+		// RPM에 따른 진동
+		motionGear.Vibration(Mathf.Clamp(car.rpm / 50, 0.5f, car.rpm / 50));
+
+		// 브레이크 시, 모션기어의 각도가 앞으로 쏠림
+		float brakeValue;
+		if (inputManager.brake > 0 && car.rpm > 300)
+		{
+			// 음수 값을 할당 시, 앞으로 각도가 바뀜
+			brakeValue = -6 * inputManager.brake + bodyTlitPitch;
+		}
+		else
+		{
+			brakeValue = 0;
+		}
+
+		// RPM에 기반하여 좌, 우로 떨리는 것을 표현
+		// vibrationRollValue = (방향값) * (진동 세기)
+		vibrationRollValue = (vibrationRollValue > 0 ? -1 : 1) * (Random.Range(0.05f, 0.2f) + car.rpm / 3500);
+
+		motionGear.LeanMotionGear(bodyTlitPitch + brakeValue, vibrationRollValue + bodyTlitRoll);
+	}
+}
   ```
 </details><br>
+
+<b>LogitechInput</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;● Logitech 기기의 입력을 인식하는 클래스입니다.<br>
+<details>
+    <summary><i>자세한 코드</i></summary>
+    
+  ```C#
+public class LogitechInput
+{
+	// Logitech 기기 입력 값
+	static LogitechGSDK.DIJOYSTATE2ENGINES rec;
+
+	// Steering = Steering Horizontal, GasInput / Accelerator = Gas Vertical, CluthInput = Clutch Vertical and BrakeInput = Brake Vertical
+
+	// Axis의 이름에 따른 로지텍 기기 입력 값 반환 (Steering Horizontal, Gas Vertical, Clutch Vertical, Brake Vertical)
+	public static float GetAxis(string axisName)
+	{
+		// rec에 현재 로지텍 기기 값 할당
+		rec = LogitechGSDK.LogiGetStateUnity(0);
+
+		// Axis 이름 확인 및 값 조정 후 반환
+		switch (axisName)
+		{
+			case "Steering Horizontal":
+				return rec.lX / 32760f;
+			case "Gas Vertical":
+				return rec.lY / -32760f;
+			case "Clutch Vertical":
+				return rec.rglSlider[0] / -32760f;
+			case "Brake Vertical":
+				return rec.lRz / -32760f;
+			default:
+				return 0f;
+		}
+	}
+
+	// 로지텍 기기의 해당 버튼을 누르고 있는 상태인지 Bool 값으로 반환
+	public static bool GetKeyTriggered(LogitechKeyCode gameController, LogitechKeyCode keyCode)
+	{
+		return LogitechGSDK.LogiButtonTriggered((int)gameController, (int)keyCode);
+	}
+
+	// 로지텍 기기의 해당 버튼을 눌렀는지 Bool 값으로 반환
+	public static bool GetKeyPresssed(LogitechKeyCode gameController, LogitechKeyCode keyCode)
+	{
+		return LogitechGSDK.LogiButtonIsPressed((int)gameController, (int)keyCode);
+	}
+
+	// 로지텍 기기의 해당 버튼을 떼었는지 Bool 값으로 반환
+	public static bool GetKeyReleased(LogitechKeyCode gameController, LogitechKeyCode keyCode)
+	{
+		return LogitechGSDK.LogiButtonReleased((int)gameController, (int)keyCode);
+	}
+}
+  ```
+</details><br>
+
+<b>GraphicSetting</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;● 플레이어가 저장한 그래픽 설정을 세이브파일에서 가져와 씬에 적용하는 클래스입니다.<br>
+<details>
+    <summary><i>자세한 코드</i></summary>
+    
+  ```C#
+  using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.SceneManagement;
+
+// 유니티의 모든 씬에서 활용할 수 있도록 싱글톤 클래스를 상속했습니다.
+public class GraphicSetting : Singleton<GraphicSetting>
+{
+	// 씬이 로딩되자마자 실행
+	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		// HDRP 그래픽 설정을 담당하는 Volume과 Camera 정보 지역변수에 할당
+		Volume volume = FindObjectOfType<Volume>();
+		HDAdditionalCameraData[] hdAdditionalCameraDatas = FindObjectsOfType<HDAdditionalCameraData>();
+		
+		// 안개(Fog) 설정
+		// VolumeProfile에서 Fog 클래스 가져오기
+		if (volume.profile.TryGet(out Fog fog))
+		{
+			// 설정 덮어쓰기 활성화
+			fog.enabled.overrideState = true;
+			// 세이브파일에서 Bool 형태로 불러온 안개 활성 여부 입력
+			fog.enabled.value = OptionData.fog;
+		}
+
+		// 모션 블러(Motion Blur) 설정
+		// VolumeProfile에서 MotionBlur 클래스 가져오기
+		if (volume.profile.TryGet(out MotionBlur motionBlur))
+		{
+			motionBlur.intensity.overrideState = true;
+			// 세이브파일 Bool 값에 따라 모션 블러 수치 조정
+			if (OptionData.motionBlur)
+			{
+				motionBlur.intensity.value = 1.5f;
+			}
+			else
+			{
+				motionBlur.intensity.value = 0;
+			}
+		}
+
+		// 블룸(Bloom) 설정
+		// VolumeProfile에서 Bloom 클래스 가져오기
+		if (volume.profile.TryGet(out Bloom bloom))
+		{
+			bloom.intensity.overrideState = true;
+			// 세이브파일 Bool 값에 따라 블룸 수치 조정
+			if (OptionData.bloom)
+			{
+				bloom.intensity.value = 0.3f;
+			}
+			else
+			{
+				bloom.intensity.value = 0;
+			}
+		}
+
+		// 안티앨리어싱 설정
+		for (int count = 0; count < hdAdditionalCameraDatas.Length; count++)
+		{
+			// 씬 내 모든 카메라에 세이브파일 Bool 값에 따라 활성화 여부 입력
+			HDAdditionalCameraData.AntialiasingMode antialiasingMode = OptionData.antiAliasing ? HDAdditionalCameraData.AntialiasingMode.SubpixelMorphologicalAntiAliasing : HDAdditionalCameraData.AntialiasingMode.None;
+			hdAdditionalCameraDatas[count].antialiasing = antialiasingMode;
+		}
+	}
+}
+  ```
+</details>
