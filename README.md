@@ -48,8 +48,9 @@
 <h3>주요 코드</h3>
 <b>Car</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;● 자동차를 움직이고 체크포인트로 이동하는 레이싱 게임의 메인클래스입니다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;● 구동방식 설정, RPM과 토크 및 시속 계산, 자동차 이동, 체크포인트 이동 등의 기능이 있습니다.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;● 실제와 비슷한 작동을 위해서 RPM의 따른 토크 값을 기어별로 2차방정식을 통해 계산했습니다.<br>
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230710776-f164bf76-d634-4624-9a74-3ae619b18d05.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/80941288/230776738-fa57d055-7f83-45d6-a612-651505d24a81.png">
 <details>
     <summary><i>자세한 코드</i></summary>
     
@@ -479,7 +480,7 @@ public class Car : MonoBehaviour
 
 <b>MotionGear</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;● 모션하우스 모션기어의 유니티 에셋을 본 게임에 최적화 시킨 클래스입니다.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;● 모션기어를 움직입니다.
+&nbsp;&nbsp;&nbsp;&nbsp;● 모션기어의 높낮이 및 각도를 조절하는 기능이 있습니다.
 <details>
     <summary><i>자세한 코드</i></summary>
     
@@ -576,7 +577,8 @@ public class MotionGear : Singleton<MotionGear>
 </details><br>
 
 <b>CarMotionGearMove</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;● 인 게임 내의 값을 MotionGear 클래스에게 전달하는 클래스입니다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;● 인 게임 내의 값을 MotionGear 클래스를 이용하여 표현하는 클래스입니다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;● 인 게임 각도 값을 모션기어에 맞게 조절, MotionGear 클래스의 함수를 실행하는 기능이 있습니다.
 <details>
     <summary><i>자세한 코드</i></summary>
     
@@ -634,6 +636,7 @@ public class CarMotionGearMove : MonoBehaviour
 
 <b>LogitechInput</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;● Logitech 기기의 입력을 인식하는 클래스입니다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;● Logitech 기기 중에서 핸들, 엑셀, 클러치, 브레이크, 핸들의 버튼 값을 가져오는 기능이 있습니다.
 <details>
     <summary><i>자세한 코드</i></summary>
     
@@ -690,6 +693,7 @@ public class LogitechInput
 
 <b>GraphicSetting</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;● 플레이어가 저장한 그래픽 설정을 세이브파일에서 가져와 씬에 적용하는 클래스입니다.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;● 씬 내 그래픽 정보가 담겨있는 Volume의 데이터를 가져와 안개, 블룸, 모션블러, 안티앨리어싱 등을 설정합니다.
 <details>
     <summary><i>자세한 코드</i></summary>
     
