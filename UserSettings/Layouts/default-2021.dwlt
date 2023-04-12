@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 23
+  controlID: 97
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 24
+  controlID: 127
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.43679523, y: 0.17833689, z: -0.0882054, w: -0.87738854}
     speed: 2
-    m_Value: {x: -0.43675488, y: 0.17832041, z: -0.088197246, w: -0.8773075}
+    m_Value: {x: -0.4367952, y: 0.17833687, z: -0.0882054, w: -0.8773885}
   m_Size:
     m_Target: 12.124355
     speed: 2
@@ -824,9 +824,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 547f0000
-      m_LastClickedID: 32596
-      m_ExpandedIDs: a0f9ffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: d056ffff7c58ffff2e5effff345efffffe61ffff2465ffffec65ffffd66affff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -892,22 +892,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets
   m_LastFoldersGridSize: 64
-  m_LastProjectPath: C:\Users\RJH\Desktop\UnityProjects\RacingVR
+  m_LastProjectPath: C:\Users\RJH\Desktop\UnityProjects\VRacer
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f2870000
-    m_LastClickedID: 34802
-    m_ExpandedIDs: 0000000096870000988700009a8700009c8700009e870000a0870000a287000000ca9a3b
+    m_SelectedIDs: 7a610100
+    m_LastClickedID: 90490
+    m_ExpandedIDs: 000000007a61010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -935,7 +935,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000096870000988700009a8700009c8700009e870000a0870000a2870000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -962,7 +962,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 96df0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
